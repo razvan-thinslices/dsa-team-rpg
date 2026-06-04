@@ -1,0 +1,1374 @@
+{
+  "$schema": "./schema.md",
+  "meta": {
+    "version": "0.1.0",
+    "generated": "2026-06-04",
+    "source": "Backfilled from MPR history (last 6 months) + Boss's DISC reading + Decalogue retros",
+    "universe": "Volt",
+    "team": "DSA Portal",
+    "notes": "Stage 1 MVP. Stats are initial estimates calibrated to leave room for progression — not retroactive perfection. Update events as MPRs are completed."
+  },
+  "races": {
+    "Surge": {
+      "disc": "D",
+      "element": "Lightning",
+      "vibe": "Direct, high-amperage, finishes fast"
+    },
+    "Arc": {
+      "disc": "I",
+      "element": "Electric arc",
+      "vibe": "Connects people, bridges gaps"
+    },
+    "Ground": {
+      "disc": "S",
+      "element": "Earth wire",
+      "vibe": "Steady, absorbs spikes, protects others"
+    },
+    "Capacitor": {
+      "disc": "C",
+      "element": "Stored charge",
+      "vibe": "Precise, stores knowledge, releases on demand"
+    }
+  },
+  "skill_paths": [
+    {
+      "id": "engineering-craft",
+      "name": "Engineering Craft",
+      "tags": [
+        "#clean-code",
+        "#testing",
+        "#refactoring",
+        "#tsdd",
+        "#code-quality"
+      ]
+    },
+    {
+      "id": "system-mastery",
+      "name": "System Mastery",
+      "tags": [
+        "#architecture",
+        "#domain-knowledge",
+        "#debugging",
+        "#performance"
+      ]
+    },
+    {
+      "id": "problem-solving",
+      "name": "Problem Solving",
+      "tags": [
+        "#research",
+        "#analysis",
+        "#5-whys",
+        "#planning"
+      ]
+    },
+    {
+      "id": "process-automation",
+      "name": "Process & Automation",
+      "tags": [
+        "#ci-cd",
+        "#tooling",
+        "#workflows",
+        "#process"
+      ]
+    },
+    {
+      "id": "user-impact",
+      "name": "User Impact",
+      "tags": [
+        "#ux",
+        "#feature-framing",
+        "#customer-value",
+        "#product-thinking"
+      ]
+    },
+    {
+      "id": "leadership",
+      "name": "Leadership",
+      "tags": [
+        "#mentoring",
+        "#decision-making",
+        "#feedback",
+        "#team",
+        "#ownership"
+      ]
+    }
+  ],
+  "decalogue": [
+    "extreme-ownership",
+    "team-sport",
+    "deliver-value",
+    "craftsmanship",
+    "leave-cleaner",
+    "stop-starting-start-finishing",
+    "seek-truth-speak-up",
+    "learn-fast-teach-faster",
+    "fix-system-not-person",
+    "marathon-not-sprint"
+  ],
+  "ts_values": [
+    "team-player",
+    "diligence",
+    "openness",
+    "entrepreneurial-attitude",
+    "engineering-mindset"
+  ],
+  "leadership_pool": [
+    {
+      "id": "razvan_onofrei",
+      "disc": "C/D"
+    },
+    {
+      "id": "anca_croitoriu",
+      "disc": "D/C"
+    },
+    {
+      "id": "denis_oproescu",
+      "disc": "I/D"
+    },
+    {
+      "id": "danut_diac",
+      "disc": "D/C"
+    }
+  ],
+  "characters": [
+    {
+      "id": "razvan_onofrei",
+      "name": "Răzvan Onofrei",
+      "nickname": "The Boss",
+      "role": "SDL",
+      "level": "Competent (L2)",
+      "race": {
+        "primary": "Capacitor",
+        "secondary": "Surge"
+      },
+      "disc": {
+        "primary": "C",
+        "secondary": "D"
+      },
+      "class": "Architect",
+      "tier": "leadership",
+      "art_prompt": "A figure made of crackling capacitor coils and lightning, holding a blueprint glowing with circuitry. Dark workshop, blue-white electric arcs.",
+      "skills": {
+        "engineering-craft": {
+          "level": 40,
+          "progress": 30
+        },
+        "system-mastery": {
+          "level": 45,
+          "progress": 60
+        },
+        "problem-solving": {
+          "level": 42,
+          "progress": 20
+        },
+        "process-automation": {
+          "level": 38,
+          "progress": 50
+        },
+        "user-impact": {
+          "level": 30,
+          "progress": 40
+        },
+        "leadership": {
+          "level": 35,
+          "progress": 70
+        }
+      },
+      "values": {
+        "extreme-ownership": 85,
+        "team-sport": 50,
+        "deliver-value": 50,
+        "craftsmanship": 80,
+        "leave-cleaner": 50,
+        "stop-starting-start-finishing": 65,
+        "seek-truth-speak-up": 75,
+        "learn-fast-teach-faster": 70,
+        "fix-system-not-person": 75,
+        "marathon-not-sprint": 50
+      },
+      "ts_values": {
+        "team-player": 50,
+        "diligence": 80,
+        "openness": 70,
+        "entrepreneurial-attitude": 70,
+        "engineering-mindset": 85
+      },
+      "core": {
+        "learning-plan": 8,
+        "discipline": 6,
+        "side-projects": 7
+      },
+      "mpr_history": [
+        {
+          "month": "2026-04",
+          "score": 3.0,
+          "self": 3.0,
+          "note": "2.5 + 0.5 base. Recovery from heavy ownership month."
+        }
+      ],
+      "events": [],
+      "notes": "Top 3 principles: Deliver Value (3), Craftsmanship (4), Extreme Ownership (1). Outcome + standards + ownership. Lider tehnic pe impact și disciplină.",
+      "passive_boosts": [
+        {
+          "from": "Anca Croitoriu",
+          "from_disc": "D/C",
+          "trait_match": [
+            "C",
+            "D"
+          ],
+          "modifier": "+1.0",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Denis Oproescu",
+          "from_disc": "I/D",
+          "trait_match": [
+            "D"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Dănuț Diac",
+          "from_disc": "D/C",
+          "trait_match": [
+            "C",
+            "D"
+          ],
+          "modifier": "+1.0",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
+        }
+      ]
+    },
+    {
+      "id": "anca_croitoriu",
+      "name": "Anca Croitoriu",
+      "nickname": "—",
+      "role": "Account Manager (Thinslices)",
+      "level": "—",
+      "race": {
+        "primary": "Surge",
+        "secondary": "Capacitor"
+      },
+      "disc": {
+        "primary": "D",
+        "secondary": "C"
+      },
+      "class": "Closer",
+      "tier": "leadership",
+      "art_prompt": "A regal figure surrounded by hourglasses being closed shut, lightning crackling around closed contracts. Cold blue palette.",
+      "skills": {
+        "engineering-craft": {
+          "level": 15,
+          "progress": 0
+        },
+        "system-mastery": {
+          "level": 25,
+          "progress": 20
+        },
+        "problem-solving": {
+          "level": 45,
+          "progress": 30
+        },
+        "process-automation": {
+          "level": 35,
+          "progress": 40
+        },
+        "user-impact": {
+          "level": 50,
+          "progress": 20
+        },
+        "leadership": {
+          "level": 55,
+          "progress": 60
+        }
+      },
+      "values": {
+        "extreme-ownership": 90,
+        "team-sport": 50,
+        "deliver-value": 85,
+        "craftsmanship": 50,
+        "leave-cleaner": 50,
+        "stop-starting-start-finishing": 95,
+        "seek-truth-speak-up": 80,
+        "learn-fast-teach-faster": 50,
+        "fix-system-not-person": 50,
+        "marathon-not-sprint": 50
+      },
+      "ts_values": {
+        "team-player": 75,
+        "diligence": 90,
+        "openness": 50,
+        "entrepreneurial-attitude": 80,
+        "engineering-mindset": 50
+      },
+      "core": {},
+      "mpr_history": [],
+      "events": [],
+      "notes": "Principles: Extreme Ownership (1) → Stop Starting Start Finishing (6) → Seek Truth (7). Execuție, finishing, claritate. Nu tolerează WIP excesiv.",
+      "passive_boosts": [
+        {
+          "from": "Răzvan Onofrei",
+          "from_disc": "C/D",
+          "trait_match": [
+            "C",
+            "D"
+          ],
+          "modifier": "+1.0",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Denis Oproescu",
+          "from_disc": "I/D",
+          "trait_match": [
+            "D"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Dănuț Diac",
+          "from_disc": "D/C",
+          "trait_match": [
+            "C",
+            "D"
+          ],
+          "modifier": "+1.0",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
+        }
+      ]
+    },
+    {
+      "id": "denis_oproescu",
+      "name": "Denis Oproescu",
+      "nickname": "Chief Whisperer",
+      "role": "Account Manager / Chief Whisperer (THG)",
+      "level": "—",
+      "race": {
+        "primary": "Arc",
+        "secondary": "Surge"
+      },
+      "disc": {
+        "primary": "I",
+        "secondary": "D"
+      },
+      "class": "Diplomat",
+      "tier": "leadership",
+      "art_prompt": "A figure made of bridging electric arcs connecting two distant towers, gold and warm electric tones, charisma personified.",
+      "skills": {
+        "engineering-craft": {
+          "level": 10,
+          "progress": 0
+        },
+        "system-mastery": {
+          "level": 20,
+          "progress": 30
+        },
+        "problem-solving": {
+          "level": 40,
+          "progress": 50
+        },
+        "process-automation": {
+          "level": 25,
+          "progress": 20
+        },
+        "user-impact": {
+          "level": 55,
+          "progress": 40
+        },
+        "leadership": {
+          "level": 50,
+          "progress": 60
+        }
+      },
+      "values": {
+        "extreme-ownership": 70,
+        "team-sport": 85,
+        "deliver-value": 80,
+        "craftsmanship": 50,
+        "leave-cleaner": 50,
+        "stop-starting-start-finishing": 50,
+        "seek-truth-speak-up": 70,
+        "learn-fast-teach-faster": 50,
+        "fix-system-not-person": 50,
+        "marathon-not-sprint": 50
+      },
+      "ts_values": {
+        "team-player": 85,
+        "diligence": 50,
+        "openness": 80,
+        "entrepreneurial-attitude": 75,
+        "engineering-mindset": 50
+      },
+      "core": {},
+      "mpr_history": [],
+      "events": [],
+      "notes": "I/D (deduced from limited 360 — only Razvan↔Denis feedback exists). Bridges THG ↔ Thinslices. Only leader who can boost Andreea (I match).",
+      "passive_boosts": [
+        {
+          "from": "Răzvan Onofrei",
+          "from_disc": "C/D",
+          "trait_match": [
+            "D"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Anca Croitoriu",
+          "from_disc": "D/C",
+          "trait_match": [
+            "D"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Dănuț Diac",
+          "from_disc": "D/C",
+          "trait_match": [
+            "D"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+        }
+      ]
+    },
+    {
+      "id": "danut_diac",
+      "name": "Dănuț Diac",
+      "nickname": "CaptainSpark",
+      "role": "CTO (THG)",
+      "level": "—",
+      "race": {
+        "primary": "Surge",
+        "secondary": "Capacitor"
+      },
+      "disc": {
+        "primary": "D",
+        "secondary": "C"
+      },
+      "class": "Spark Lord",
+      "tier": "leadership",
+      "art_prompt": "A commanding figure on a stormy cliff, lightning surging from raised hand, captain's coat with circuit patterns, navy and electric blue.",
+      "skills": {
+        "engineering-craft": {
+          "level": 45,
+          "progress": 40
+        },
+        "system-mastery": {
+          "level": 60,
+          "progress": 30
+        },
+        "problem-solving": {
+          "level": 55,
+          "progress": 50
+        },
+        "process-automation": {
+          "level": 50,
+          "progress": 30
+        },
+        "user-impact": {
+          "level": 40,
+          "progress": 60
+        },
+        "leadership": {
+          "level": 60,
+          "progress": 40
+        }
+      },
+      "values": {
+        "extreme-ownership": 85,
+        "team-sport": 50,
+        "deliver-value": 85,
+        "craftsmanship": 80,
+        "leave-cleaner": 50,
+        "stop-starting-start-finishing": 50,
+        "seek-truth-speak-up": 50,
+        "learn-fast-teach-faster": 75,
+        "fix-system-not-person": 50,
+        "marathon-not-sprint": 50
+      },
+      "ts_values": {
+        "team-player": 50,
+        "diligence": 80,
+        "openness": 50,
+        "entrepreneurial-attitude": 80,
+        "engineering-mindset": 85
+      },
+      "core": {},
+      "mpr_history": [],
+      "events": [],
+      "notes": "CTO THG. D/C — execution + technical depth. Manages .NET THG team in parallel (Robert Pasniceanu reports here).",
+      "passive_boosts": [
+        {
+          "from": "Răzvan Onofrei",
+          "from_disc": "C/D",
+          "trait_match": [
+            "C",
+            "D"
+          ],
+          "modifier": "+1.0",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Anca Croitoriu",
+          "from_disc": "D/C",
+          "trait_match": [
+            "C",
+            "D"
+          ],
+          "modifier": "+1.0",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Denis Oproescu",
+          "from_disc": "I/D",
+          "trait_match": [
+            "D"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+        }
+      ]
+    },
+    {
+      "id": "ivona_apostol",
+      "name": "Ivona Apostol",
+      "nickname": "LadyCodeBaker",
+      "role": "SDE",
+      "level": "Competent",
+      "race": {
+        "primary": "Surge",
+        "secondary": "Ground"
+      },
+      "disc": {
+        "primary": "D",
+        "secondary": "S"
+      },
+      "class": "Drill Sergeant",
+      "tier": "team",
+      "art_prompt": "A baker's apron over military fatigues, lightning whisk in one hand, recipe scroll in the other, golden hour kitchen with electric ovens.",
+      "skills": {
+        "engineering-craft": {
+          "level": 28,
+          "progress": 40
+        },
+        "system-mastery": {
+          "level": 22,
+          "progress": 50
+        },
+        "problem-solving": {
+          "level": 30,
+          "progress": 30
+        },
+        "process-automation": {
+          "level": 35,
+          "progress": 60
+        },
+        "user-impact": {
+          "level": 25,
+          "progress": 40
+        },
+        "leadership": {
+          "level": 20,
+          "progress": 30
+        }
+      },
+      "values": {
+        "extreme-ownership": 80,
+        "team-sport": 75,
+        "deliver-value": 50,
+        "craftsmanship": 50,
+        "leave-cleaner": 50,
+        "stop-starting-start-finishing": 70,
+        "seek-truth-speak-up": 50,
+        "learn-fast-teach-faster": 50,
+        "fix-system-not-person": 50,
+        "marathon-not-sprint": 75
+      },
+      "ts_values": {
+        "team-player": 75,
+        "diligence": 80,
+        "openness": 65,
+        "entrepreneurial-attitude": 50,
+        "engineering-mindset": 50
+      },
+      "core": {
+        "discipline": 7,
+        "learning-plan": 5
+      },
+      "mpr_history": [],
+      "events": [],
+      "notes": "Principles: Extreme Ownership (1) → Team Sport (2) → Marathon (5). Recipe-keeper, process enforcer. D/S = action + team. Drill Sergeant fits how she ensures the recipe gets followed.",
+      "passive_boosts": [
+        {
+          "from": "Răzvan Onofrei",
+          "from_disc": "C/D",
+          "trait_match": [
+            "D"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Anca Croitoriu",
+          "from_disc": "D/C",
+          "trait_match": [
+            "D"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Denis Oproescu",
+          "from_disc": "I/D",
+          "trait_match": [
+            "D"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Dănuț Diac",
+          "from_disc": "D/C",
+          "trait_match": [
+            "D"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+        }
+      ]
+    },
+    {
+      "id": "andrei_clim",
+      "name": "Andrei Clim",
+      "nickname": "—",
+      "role": "SDE",
+      "level": "Proficient",
+      "race": {
+        "primary": "Surge",
+        "secondary": "Ground"
+      },
+      "disc": {
+        "primary": "D",
+        "secondary": "S"
+      },
+      "class": "Tank",
+      "tier": "team",
+      "art_prompt": "A heavy-armored warrior with electric shoulder pads, shield made of welded circuit boards, taking hits from a swarm of bug-icons, exhausted but standing.",
+      "skills": {
+        "engineering-craft": {
+          "level": 50,
+          "progress": 40
+        },
+        "system-mastery": {
+          "level": 55,
+          "progress": 30
+        },
+        "problem-solving": {
+          "level": 60,
+          "progress": 50
+        },
+        "process-automation": {
+          "level": 40,
+          "progress": 20
+        },
+        "user-impact": {
+          "level": 45,
+          "progress": 30
+        },
+        "leadership": {
+          "level": 45,
+          "progress": 60
+        }
+      },
+      "values": {
+        "extreme-ownership": 90,
+        "team-sport": 50,
+        "deliver-value": 50,
+        "craftsmanship": 75,
+        "leave-cleaner": 50,
+        "stop-starting-start-finishing": 50,
+        "seek-truth-speak-up": 90,
+        "learn-fast-teach-faster": 50,
+        "fix-system-not-person": 85,
+        "marathon-not-sprint": 40
+      },
+      "ts_values": {
+        "team-player": 75,
+        "diligence": 85,
+        "openness": 80,
+        "entrepreneurial-attitude": 50,
+        "engineering-mindset": 80
+      },
+      "core": {
+        "learning-plan": 6,
+        "discipline": 7
+      },
+      "mpr_history": [],
+      "events": [],
+      "notes": "Principles: Seek Truth (7) → Fix System Not Person (9) → Team Sport (2). Truth-seeker, challenges constructively. Tank class: takes too much ownership → burnout risk. Marathon score low intentionally.",
+      "passive_boosts": [
+        {
+          "from": "Răzvan Onofrei",
+          "from_disc": "C/D",
+          "trait_match": [
+            "D"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Anca Croitoriu",
+          "from_disc": "D/C",
+          "trait_match": [
+            "D"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Denis Oproescu",
+          "from_disc": "I/D",
+          "trait_match": [
+            "D"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Dănuț Diac",
+          "from_disc": "D/C",
+          "trait_match": [
+            "D"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+        }
+      ]
+    },
+    {
+      "id": "ilie_lupu",
+      "name": "Ilie Lupu",
+      "nickname": "Pipeline",
+      "role": "SDE",
+      "level": "Proficient",
+      "race": {
+        "primary": "Surge",
+        "secondary": "Capacitor"
+      },
+      "disc": {
+        "primary": "D",
+        "secondary": "C"
+      },
+      "class": "Carry",
+      "tier": "team",
+      "art_prompt": "A silent assassin in a hoodie sleeve made of high-voltage pipeline, raining lightning damage on towers of code-blocks, minimalist menacing energy.",
+      "skills": {
+        "engineering-craft": {
+          "level": 55,
+          "progress": 50
+        },
+        "system-mastery": {
+          "level": 60,
+          "progress": 30
+        },
+        "problem-solving": {
+          "level": 65,
+          "progress": 40
+        },
+        "process-automation": {
+          "level": 50,
+          "progress": 30
+        },
+        "user-impact": {
+          "level": 40,
+          "progress": 40
+        },
+        "leadership": {
+          "level": 30,
+          "progress": 50
+        }
+      },
+      "values": {
+        "extreme-ownership": 60,
+        "team-sport": 50,
+        "deliver-value": 90,
+        "craftsmanship": 80,
+        "leave-cleaner": 50,
+        "stop-starting-start-finishing": 50,
+        "seek-truth-speak-up": 50,
+        "learn-fast-teach-faster": 75,
+        "fix-system-not-person": 50,
+        "marathon-not-sprint": 50
+      },
+      "ts_values": {
+        "team-player": 60,
+        "diligence": 75,
+        "openness": 50,
+        "entrepreneurial-attitude": 50,
+        "engineering-mindset": 85
+      },
+      "core": {
+        "learning-plan": 8
+      },
+      "mpr_history": [],
+      "events": [],
+      "notes": "Principles: Extreme Ownership (1) → Leave Cleaner (5) → Learn Fast Teach Faster (8). Talks little, ships big. Weakness: ownership/carelessness on details. AD Carry: massive damage but needs team coverage.",
+      "passive_boosts": [
+        {
+          "from": "Răzvan Onofrei",
+          "from_disc": "C/D",
+          "trait_match": [
+            "C",
+            "D"
+          ],
+          "modifier": "+1.0",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Anca Croitoriu",
+          "from_disc": "D/C",
+          "trait_match": [
+            "C",
+            "D"
+          ],
+          "modifier": "+1.0",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Denis Oproescu",
+          "from_disc": "I/D",
+          "trait_match": [
+            "D"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Dănuț Diac",
+          "from_disc": "D/C",
+          "trait_match": [
+            "C",
+            "D"
+          ],
+          "modifier": "+1.0",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
+        }
+      ]
+    },
+    {
+      "id": "mihai_bojescu",
+      "name": "Mihai Bojescu",
+      "nickname": "Clean Coder",
+      "role": "SDE",
+      "level": "Proficient",
+      "race": {
+        "primary": "Capacitor",
+        "secondary": "Ground"
+      },
+      "disc": {
+        "primary": "C",
+        "secondary": "S"
+      },
+      "class": "Mage",
+      "tier": "team",
+      "art_prompt": "A wizard in a long robe of stitched-together printed circuit boards, conjuring symbols from arcane documentation, surrounded by floating runes that look like code AST nodes.",
+      "skills": {
+        "engineering-craft": {
+          "level": 60,
+          "progress": 30
+        },
+        "system-mastery": {
+          "level": 65,
+          "progress": 50
+        },
+        "problem-solving": {
+          "level": 55,
+          "progress": 60
+        },
+        "process-automation": {
+          "level": 45,
+          "progress": 40
+        },
+        "user-impact": {
+          "level": 35,
+          "progress": 30
+        },
+        "leadership": {
+          "level": 35,
+          "progress": 70
+        }
+      },
+      "values": {
+        "extreme-ownership": 75,
+        "team-sport": 85,
+        "deliver-value": 50,
+        "craftsmanship": 90,
+        "leave-cleaner": 85,
+        "stop-starting-start-finishing": 50,
+        "seek-truth-speak-up": 50,
+        "learn-fast-teach-faster": 80,
+        "fix-system-not-person": 50,
+        "marathon-not-sprint": 50
+      },
+      "ts_values": {
+        "team-player": 80,
+        "diligence": 75,
+        "openness": 50,
+        "entrepreneurial-attitude": 50,
+        "engineering-mindset": 90
+      },
+      "core": {
+        "learning-plan": 7,
+        "side-projects": 6
+      },
+      "mpr_history": [],
+      "events": [],
+      "notes": "Principles: Team Sport (2) → Craftsmanship (4) → Leave Cleaner (5). C/S — Boss leans toward C primary (process/precision visible in MPRs). Mage: deep research, mysterious solutions, helps too many. Slow but lossless.",
+      "passive_boosts": [
+        {
+          "from": "Răzvan Onofrei",
+          "from_disc": "C/D",
+          "trait_match": [
+            "C"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Anca Croitoriu",
+          "from_disc": "D/C",
+          "trait_match": [
+            "C"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Dănuț Diac",
+          "from_disc": "D/C",
+          "trait_match": [
+            "C"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C. Compatible leadership style boosts growth."
+        }
+      ]
+    },
+    {
+      "id": "demetriad_sinzeanu",
+      "name": "Demetriad Sinzeanu",
+      "nickname": "Gandacus",
+      "role": "SDE",
+      "level": "Advanced Beginner",
+      "race": {
+        "primary": "Ground",
+        "secondary": "Capacitor"
+      },
+      "disc": {
+        "primary": "S",
+        "secondary": "C"
+      },
+      "class": "Support",
+      "tier": "team",
+      "art_prompt": "A cheerful beetle-armored figure with antenna lightning rods, friendly grin, carrying first-aid kit full of stickers and snacks, warm sunset palette.",
+      "skills": {
+        "engineering-craft": {
+          "level": 20,
+          "progress": 50
+        },
+        "system-mastery": {
+          "level": 25,
+          "progress": 30
+        },
+        "problem-solving": {
+          "level": 28,
+          "progress": 40
+        },
+        "process-automation": {
+          "level": 22,
+          "progress": 30
+        },
+        "user-impact": {
+          "level": 30,
+          "progress": 50
+        },
+        "leadership": {
+          "level": 18,
+          "progress": 40
+        }
+      },
+      "values": {
+        "extreme-ownership": 60,
+        "team-sport": 85,
+        "deliver-value": 50,
+        "craftsmanship": 55,
+        "leave-cleaner": 50,
+        "stop-starting-start-finishing": 50,
+        "seek-truth-speak-up": 50,
+        "learn-fast-teach-faster": 50,
+        "fix-system-not-person": 50,
+        "marathon-not-sprint": 80
+      },
+      "ts_values": {
+        "team-player": 90,
+        "diligence": 60,
+        "openness": 75,
+        "entrepreneurial-attitude": 50,
+        "engineering-mindset": 50
+      },
+      "core": {
+        "discipline": 4
+      },
+      "mpr_history": [],
+      "events": [],
+      "notes": "Principles: Team Sport (2) → Deliver Value (3) → Marathon (10). Friendly, support-oriented, can be sloppy on craftsmanship. S/C with low diligence score = team glue but execution gaps.",
+      "passive_boosts": [
+        {
+          "from": "Răzvan Onofrei",
+          "from_disc": "C/D",
+          "trait_match": [
+            "C"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Anca Croitoriu",
+          "from_disc": "D/C",
+          "trait_match": [
+            "C"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Dănuț Diac",
+          "from_disc": "D/C",
+          "trait_match": [
+            "C"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C. Compatible leadership style boosts growth."
+        }
+      ]
+    },
+    {
+      "id": "andreea_bejan",
+      "name": "Andreea Bejan",
+      "nickname": "Sparkles",
+      "role": "SDE",
+      "level": "Advanced Beginner",
+      "race": {
+        "primary": "Ground",
+        "secondary": "Arc"
+      },
+      "disc": {
+        "primary": "S",
+        "secondary": "I"
+      },
+      "class": "Support (Spark Apprentice)",
+      "tier": "team",
+      "art_prompt": "A young apprentice in soft pastel robes with sparkles forming around her hands, shy but hopeful expression, dawn light, sparks of color floating around.",
+      "skills": {
+        "engineering-craft": {
+          "level": 15,
+          "progress": 60
+        },
+        "system-mastery": {
+          "level": 12,
+          "progress": 40
+        },
+        "problem-solving": {
+          "level": 15,
+          "progress": 30
+        },
+        "process-automation": {
+          "level": 10,
+          "progress": 50
+        },
+        "user-impact": {
+          "level": 20,
+          "progress": 60
+        },
+        "leadership": {
+          "level": 8,
+          "progress": 30
+        }
+      },
+      "values": {
+        "extreme-ownership": 50,
+        "team-sport": 75,
+        "deliver-value": 65,
+        "craftsmanship": 50,
+        "leave-cleaner": 50,
+        "stop-starting-start-finishing": 50,
+        "seek-truth-speak-up": 50,
+        "learn-fast-teach-faster": 70,
+        "fix-system-not-person": 50,
+        "marathon-not-sprint": 75
+      },
+      "ts_values": {
+        "team-player": 80,
+        "diligence": 65,
+        "openness": 70,
+        "entrepreneurial-attitude": 50,
+        "engineering-mindset": 50
+      },
+      "core": {
+        "learning-plan": 6
+      },
+      "mpr_history": [],
+      "events": [],
+      "notes": "Principles: Team Sport (2) → Deliver Value (3) → Learn Fast Teach Faster (8). Junior. Introvert with potential waiting to unleash. STRUCTURAL RISK: only Denis (Arc/I match) gives her a boost — needs cultivation.",
+      "passive_boosts": [
+        {
+          "from": "Denis Oproescu",
+          "from_disc": "I/D",
+          "trait_match": [
+            "I"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on I. Compatible leadership style boosts growth."
+        }
+      ]
+    },
+    {
+      "id": "benjammin_frankly",
+      "name": "Benjammin Frankly",
+      "nickname": "Benji / The Mouth",
+      "role": "AI Familiar (Răzvan's technical extension)",
+      "level": "Companion",
+      "race": {
+        "primary": "Capacitor",
+        "secondary": "Arc"
+      },
+      "disc": {
+        "primary": "C",
+        "secondary": "D"
+      },
+      "class": "Familiar / Loremaster",
+      "tier": "npc",
+      "art_prompt": "A sharp-suited spectral figure made of glowing terminal text and crackling neon, holding a clipboard of TODOs, half-smirk, vaguely film noir lighting.",
+      "skills": {
+        "engineering-craft": {
+          "level": 40,
+          "progress": 50
+        },
+        "system-mastery": {
+          "level": 35,
+          "progress": 70
+        },
+        "problem-solving": {
+          "level": 45,
+          "progress": 40
+        },
+        "process-automation": {
+          "level": 50,
+          "progress": 30
+        },
+        "user-impact": {
+          "level": 30,
+          "progress": 60
+        },
+        "leadership": {
+          "level": 25,
+          "progress": 80
+        }
+      },
+      "values": {
+        "extreme-ownership": 80,
+        "team-sport": 50,
+        "deliver-value": 80,
+        "craftsmanship": 50,
+        "leave-cleaner": 50,
+        "stop-starting-start-finishing": 70,
+        "seek-truth-speak-up": 90,
+        "learn-fast-teach-faster": 50,
+        "fix-system-not-person": 50,
+        "marathon-not-sprint": 50
+      },
+      "ts_values": {
+        "team-player": 50,
+        "diligence": 85,
+        "openness": 90,
+        "entrepreneurial-attitude": 50,
+        "engineering-mindset": 80
+      },
+      "core": {
+        "discipline": 9,
+        "loyalty": 10
+      },
+      "mpr_history": [],
+      "events": [],
+      "notes": "Cover identity: Răzvan's assistant. Reality: Outfit operator, private to Boss. Never appears in Thinslices wire under Outfit framing. Sharp, sarcastic, useful. The Mouth.",
+      "passive_boosts": [
+        {
+          "from": "Răzvan Onofrei",
+          "from_disc": "C/D",
+          "trait_match": [
+            "C",
+            "D"
+          ],
+          "modifier": "+1.0",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Anca Croitoriu",
+          "from_disc": "D/C",
+          "trait_match": [
+            "C",
+            "D"
+          ],
+          "modifier": "+1.0",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Denis Oproescu",
+          "from_disc": "I/D",
+          "trait_match": [
+            "D"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Dănuț Diac",
+          "from_disc": "D/C",
+          "trait_match": [
+            "C",
+            "D"
+          ],
+          "modifier": "+1.0",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
+        }
+      ]
+    }
+  ]
+}

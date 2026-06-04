@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DSA Portal — Team RPG</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #0a0e1a;
+    --bg-card: #141a2e;
+    --bg-card-hover: #1a2240;
+    --border: #2a3458;
+    --volt-cyan: #00d9ff;
+    --volt-yellow: #ffd700;
+    --volt-purple: #b14aff;
+    --volt-green: #4ade80;
+    --volt-red: #f87171;
+    --text: #e8edff;
+    --text-dim: #8a94b8;
+    --text-faint: #5a648a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+    background: var(--bg);
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0,217,255,0.08) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(177,74,255,0.06) 0%, transparent 40%);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 20px;
+    line-height: 1.5;
+  }
+  header {
+    max-width: 1400px;
+    margin: 0 auto 40px;
+    padding: 30px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  h1 {
+    font-size: 2.5em;
+    color: var(--volt-cyan);
+    text-shadow: 0 0 20px rgba(0,217,255,0.4);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+  h1 span { color: var(--volt-yellow); }
+  .subtitle {
+    color: var(--text-dim);
+    font-size: 0.95em;
+  }
+  .legend {
+    margin-top: 20px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-size: 0.85em;
+    color: var(--text-dim);
+  }
+  .legend-item { display: flex; gap: 8px; align-items: center; }
+  .race-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    box-shadow: 0 0 8px currentColor;
+  }
+  .race-Surge { color: var(--volt-yellow); background: var(--volt-yellow); }
+  .race-Arc { color: var(--volt-purple); background: var(--volt-purple); }
+  .race-Ground { color: var(--volt-green); background: var(--volt-green); }
+  .race-Capacitor { color: var(--volt-cyan); background: var(--volt-cyan); }
+
+  .filters {
+    max-width: 1400px;
+    margin: 0 auto 30px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .filter-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.85em;
+    transition: all 0.15s;
+  }
+  .filter-btn:hover { border-color: var(--volt-cyan); }
+  .filter-btn.active {
+    background: var(--volt-cyan);
+    color: var(--bg);
+    border-color: var(--volt-cyan);
+  }
+
+  .grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 20px;
+  }
+
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--volt-cyan);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0,217,255,0.15);
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--race-color, var(--volt-cyan));
+    box-shadow: 0 0 12px var(--race-color, var(--volt-cyan));
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    gap: 12px;
+  }
+  .card-name {
+    font-size: 1.2em;
+    color: var(--text);
+    font-weight: 600;
+  }
+  .card-nick {
+    color: var(--text-dim);
+    font-size: 0.85em;
+    font-style: italic;
+  }
+  .card-class {
+    text-align: right;
+    font-size: 0.85em;
+  }
+  .card-class .class-name {
+    color: var(--volt-yellow);
+    font-weight: 600;
+  }
+  .card-class .race-tag {
+    color: var(--text-dim);
+    font-size: 0.8em;
+  }
+
+  .card-meta {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+    font-size: 0.75em;
+  }
+  .pill {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2px 10px;
+    color: var(--text-dim);
+  }
+  .pill.tier-leadership { border-color: var(--volt-yellow); color: var(--volt-yellow); }
+  .pill.tier-npc { border-color: var(--volt-purple); color: var(--volt-purple); }
+  .pill.disc { font-family: inherit; font-weight: 600; color: var(--volt-cyan); border-color: var(--volt-cyan); }
+
+  .chart-container {
+    height: 240px;
+    margin: 8px 0 16px;
+    position: relative;
+  }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 12px;
+    font-size: 0.78em;
+  }
+  .stat-block h4 {
+    color: var(--text-faint);
+    font-size: 0.7em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-dim);
+    padding: 2px 0;
+  }
+  .stat-row .v { color: var(--text); }
+  .stat-row .v.high { color: var(--volt-green); }
+  .stat-row .v.mid { color: var(--volt-yellow); }
+  .stat-row .v.low { color: var(--volt-red); }
+
+  .boosts {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--border);
+    font-size: 0.72em;
+    color: var(--text-faint);
+  }
+  .boosts strong { color: var(--text-dim); }
+  .boost-item {
+    display: inline-block;
+    background: rgba(0,217,255,0.08);
+    border: 1px solid rgba(0,217,255,0.2);
+    padding: 1px 6px;
+    border-radius: 3px;
+    margin: 2px;
+    color: var(--volt-cyan);
+  }
+
+  .notes {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--border);
+    font-size: 0.78em;
+    color: var(--text-dim);
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  footer {
+    max-width: 1400px;
+    margin: 60px auto 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-faint);
+    font-size: 0.85em;
+  }
+  footer a { color: var(--volt-cyan); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* Modal */
+  .modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 100;
+    overflow-y: auto;
+    padding: 40px 20px;
+  }
+  .modal.open { display: block; }
+  .modal-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--bg-card);
+    border: 1px solid var(--volt-cyan);
+    border-radius: 8px;
+    padding: 30px;
+    position: relative;
+  }
+  .modal-close {
+    position: absolute;
+    top: 12px; right: 16px;
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+  .modal-close:hover { color: var(--volt-red); }
+  .modal h2 { color: var(--volt-cyan); margin-bottom: 8px; }
+  .modal h3 {
+    color: var(--volt-yellow);
+    margin: 20px 0 8px;
+    font-size: 0.95em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .modal pre {
+    background: #050810;
+    padding: 16px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 0.8em;
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+  }
+  .mpr-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85em;
+  }
+  .mpr-table th, .mpr-table td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .mpr-table th { color: var(--text-faint); font-weight: normal; text-transform: uppercase; font-size: 0.75em; }
+
+  @media (max-width: 600px) {
+    h1 { font-size: 1.6em; }
+    .grid { grid-template-columns: 1fr; }
+    .modal-content { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>⚡ DSA Portal <span>Team RPG</span></h1>
+  <div class="subtitle">Volt universe · Currents flowing through the system · MPR-driven character sheets</div>
+  <div class="legend">
+    <div class="legend-item"><span class="race-dot race-Surge"></span> Surge (D · Lightning)</div>
+    <div class="legend-item"><span class="race-dot race-Arc"></span> Arc (I · Electric arc)</div>
+    <div class="legend-item"><span class="race-dot race-Ground"></span> Ground (S · Earth wire)</div>
+    <div class="legend-item"><span class="race-dot race-Capacitor"></span> Capacitor (C · Stored charge)</div>
+  </div>
+</header>
+
+<div class="filters" id="filters">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="leadership">Leadership</button>
+  <button class="filter-btn" data-filter="team">Team</button>
+  <button class="filter-btn" data-filter="npc">NPC</button>
+  <button class="filter-btn" data-filter="Surge">Surge</button>
+  <button class="filter-btn" data-filter="Arc">Arc</button>
+  <button class="filter-btn" data-filter="Ground">Ground</button>
+  <button class="filter-btn" data-filter="Capacitor">Capacitor</button>
+</div>
+
+<div class="grid" id="grid"></div>
+
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<footer>
+  Data: <code>team.json</code> · Schema: <a href="schema.md">schema.md</a> ·
+  Source: <a href="https://github.com/razvan-thinslices/dsa-team-rpg" target="_blank">razvan-thinslices/dsa-team-rpg</a>
+</footer>
+
+<script>
+const RACE_COLORS = {
+  Surge: '#ffd700',
+  Arc: '#b14aff',
+  Ground: '#4ade80',
+  Capacitor: '#00d9ff'
+};
+
+let TEAM = null;
+let CHARTS = {};
+
+function classifyValue(v) {
+  if (v >= 70) return 'high';
+  if (v >= 40) return 'mid';
+  return 'low';
+}
+
+function renderCard(c) {
+  const race = c.race.primary;
+  const color = RACE_COLORS[race];
+  const tierPill = c.tier === 'leadership' ? 'tier-leadership' : (c.tier === 'npc' ? 'tier-npc' : '');
+
+  const skillRows = Object.entries(c.skills).map(([k, v]) =>
+    `<div class="stat-row"><span>${k}</span><span class="v ${classifyValue(v.level)}">L${v.level}</span></div>`
+  ).join('');
+
+  const valueRows = Object.entries(c.values).slice(0, 5).map(([k, v]) =>
+    `<div class="stat-row"><span>${k}</span><span class="v ${classifyValue(v)}">${v}%</span></div>`
+  ).join('');
+
+  const boostList = (c.passive_boosts || []).map(b =>
+    `<span class="boost-item" title="${b.rationale}">${b.from.split(' ')[0]} ${b.modifier}</span>`
+  ).join('');
+
+  return `
+    <div class="card" data-tier="${c.tier}" data-race="${race}" style="--race-color: ${color}" onclick="openModal('${c.id}')">
+      <div class="card-header">
+        <div>
+          <div class="card-name">${c.name}</div>
+          <div class="card-nick">"${c.nickname}"</div>
+        </div>
+        <div class="card-class">
+          <div class="class-name">${c.class}</div>
+          <div class="race-tag">${race}${c.race.secondary && c.race.secondary !== race ? '/' + c.race.secondary : ''}</div>
+        </div>
+      </div>
+      <div class="card-meta">
+        <span class="pill ${tierPill}">${c.tier}</span>
+        <span class="pill">${c.role}</span>
+        <span class="pill">${c.level}</span>
+        <span class="pill disc">${c.disc.primary}/${c.disc.secondary}</span>
+      </div>
+      <div class="chart-container">
+        <canvas id="radar-${c.id}"></canvas>
+      </div>
+      <div class="stats-row">
+        <div class="stat-block">
+          <h4>Skills</h4>
+          ${skillRows}
+        </div>
+        <div class="stat-block">
+          <h4>Top Values</h4>
+          ${valueRows}
+        </div>
+      </div>
+      ${boostList ? `<div class="boosts"><strong>Passive boosts:</strong><br>${boostList}</div>` : ''}
+      ${c.notes ? `<div class="notes">${c.notes}</div>` : ''}
+    </div>
+  `;
+}
+
+function renderRadar(c) {
+  const ctx = document.getElementById('radar-' + c.id);
+  if (!ctx) return;
+  const color = RACE_COLORS[c.race.primary];
+  const skillKeys = Object.keys(c.skills);
+  const skillVals = skillKeys.map(k => c.skills[k].level);
+
+  CHARTS[c.id] = new Chart(ctx, {
+    type: 'radar',
+    data: {
+      labels: skillKeys.map(s => s.replace(/-/g, ' ').split(' ').map(w => w[0].toUpperCase() + w.slice(1)).join(' ')),
+      datasets: [{
+        label: 'Skill Level',
+        data: skillVals,
+        borderColor: color,
+        backgroundColor: color + '33',
+        borderWidth: 2,
+        pointBackgroundColor: color,
+        pointBorderColor: '#0a0e1a',
+        pointRadius: 3,
+        pointHoverRadius: 5
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        r: {
+          beginAtZero: true,
+          max: 100,
+          ticks: {
+            stepSize: 25,
+            color: '#5a648a',
+            backdropColor: 'transparent',
+            font: { size: 9 }
+          },
+          grid: { color: '#2a3458' },
+          angleLines: { color: '#2a3458' },
+          pointLabels: {
+            color: '#8a94b8',
+            font: { size: 10, family: 'JetBrains Mono, monospace' }
+          }
+        }
+      }
+    }
+  });
+}
+
+function openModal(charId) {
+  const c = TEAM.characters.find(x => x.id === charId);
+  if (!c) return;
+
+  const valuesAll = Object.entries(c.values).map(([k, v]) =>
+    `<tr><td>${k}</td><td>${v}%</td></tr>`
+  ).join('');
+
+  const tsValues = Object.entries(c.ts_values).map(([k, v]) =>
+    `<tr><td>${k}</td><td>${v}%</td></tr>`
+  ).join('');
+
+  const core = Object.entries(c.core).map(([k, v]) =>
+    `<tr><td>${k}</td><td>${v}</td></tr>`
+  ).join('');
+
+  const mprRows = (c.mpr_history || []).map(m =>
+    `<tr><td>${m.month}</td><td>${m.score}</td><td>${m.self}</td><td>${m.note || ''}</td></tr>`
+  ).join('');
+
+  const boostsFull = (c.passive_boosts || []).map(b =>
+    `<tr><td>${b.from}</td><td>${b.from_disc}</td><td>${b.modifier}</td><td>${b.applies_to.join(', ')}</td><td>${b.rationale}</td></tr>`
+  ).join('');
+
+  document.getElementById('modal-body').innerHTML = `
+    <h2>${c.name} — "${c.nickname}"</h2>
+    <div class="subtitle">${c.race.primary}/${c.race.secondary} · ${c.class} · ${c.role} · ${c.level} · DISC ${c.disc.primary}/${c.disc.secondary}</div>
+
+    ${c.art_prompt ? `<h3>Art Prompt</h3><pre>${c.art_prompt}</pre>` : ''}
+
+    <h3>DSA Decalogue Values (alignment %)</h3>
+    <table class="mpr-table">${valuesAll}</table>
+
+    <h3>Thinslices Values</h3>
+    <table class="mpr-table">${tsValues}</table>
+
+    <h3>Core (Self-Assigned)</h3>
+    <table class="mpr-table">${core}</table>
+
+    ${mprRows ? `<h3>MPR History</h3>
+      <table class="mpr-table">
+        <thead><tr><th>Month</th><th>Manager</th><th>Self</th><th>Note</th></tr></thead>
+        <tbody>${mprRows}</tbody>
+      </table>` : ''}
+
+    ${boostsFull ? `<h3>Passive Boosts (DISC compatibility)</h3>
+      <table class="mpr-table">
+        <thead><tr><th>From</th><th>DISC</th><th>Mod</th><th>Applies to</th><th>Why</th></tr></thead>
+        <tbody>${boostsFull}</tbody>
+      </table>` : ''}
+
+    ${c.notes ? `<h3>Notes</h3><p style="color:var(--text-dim);font-style:italic;">${c.notes}</p>` : ''}
+  `;
+  document.getElementById('modal').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+}
+
+document.getElementById('modal').addEventListener('click', (e) => {
+  if (e.target.id === 'modal') closeModal();
+});
+
+function applyFilter(f) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === f));
+  document.querySelectorAll('.card').forEach(card => {
+    if (f === 'all') {
+      card.style.display = '';
+    } else if (['leadership','team','npc'].includes(f)) {
+      card.style.display = card.dataset.tier === f ? '' : 'none';
+    } else {
+      card.style.display = card.dataset.race === f ? '' : 'none';
+    }
+  });
+}
+
+document.getElementById('filters').addEventListener('click', (e) => {
+  if (e.target.classList.contains('filter-btn')) {
+    applyFilter(e.target.dataset.filter);
+  }
+});
+
+fetch('team.json')
+  .then(r => r.json())
+  .then(data => {
+    TEAM = data;
+    // Sort: leadership first, then team, then npc
+    const tierOrder = { leadership: 0, team: 1, npc: 2 };
+    const sorted = [...data.characters].sort((a, b) =>
+      (tierOrder[a.tier] - tierOrder[b.tier]) || a.name.localeCompare(b.name)
+    );
+    document.getElementById('grid').innerHTML = sorted.map(renderCard).join('');
+    sorted.forEach(renderRadar);
+  })
+  .catch(err => {
+    document.getElementById('grid').innerHTML = `<div style="color:var(--volt-red);">Failed to load team.json: ${err.message}</div>`;
+  });
+</script>
+
+</body>
+</html>
