@@ -59,30 +59,130 @@ Leadership members give passive boosts to team members who share their DISC prim
 - Player-chosen growth tracks (e.g. `#learning-plan`, `#discipline`, `#side-projects`).
 - Open category — Boss/member can define new ones.
 
-## Event log (auditable history)
+## MPR Entity (source of truth for history)
 
-Every change goes through `events[]`:
+**Design principle**: MPRs are *rich entities*, not summary rows. Each MPR contains the parsed event stream from the Confluence markdown. Character-level `skills`, `values`, `ts_values`, `core` rollups are **derived** from the union of all `mpr_history[].events[]` (+ optional manual `events[]` for retros/GitHub/Jira).
+
+This means: every number on a character card traces back to a specific bullet in a specific MPR on a specific Confluence page. No floating points.
+
+### MPR object structure
+
 ```json
 {
-  "id": "evt_001",
-  "date": "2026-06-04",
-  "source": "mpr_2026_05" | "retro" | "manual" | "github" | "jira",
-  "type": "skill" | "value_alignment" | "ts_value_alignment" | "core" | "passive_added",
-  "target": "engineering-craft" | "extreme-ownership" | ...,
-  "delta": "+1" | "-0.5" | "+5%",
-  "note": "Refactored auth flow in DSA-1234, mentored Andreea through it",
-  "ticket_ref": "DSA-1234",
-  "instance_count": 1,
-  "team_improvement_added": false
+  "id": "mpr_andrei_clim_2026_04",
+  "month": "2026-04",
+  "page_id": "6039339009",
+  "page_title": "Andrei Clim - MPR April 2026",
+  "source_file": "team-mprs/andrei_clim/6039339009.md",
+  "project": "THG Energy - DSA Portal",
+  "sdl": "Razvan Onofrei",
+  "level_at_time": "Competent L1",
+
+  "score": {
+    "base": 2.5,
+    "bonuses": { "business": 0.0, "personal": 0.0, "team": 0.25 },
+    "final": 2.75,
+    "self_rating": 3.0
+  },
+
+  "events": [ /* see Event schema below */ ],
+  "uncategorized_events": [ /* parser couldn't tag — needs human triage */ ],
+
+  "summary": {
+    "ticket_count": 7,
+    "tickets_owned": ["DP-114", "DP-117"],
+    "tickets_contributed": ["DP-158", "DP-196", "DP-214", "DP-160"],
+    "themes": ["Ownership", "Stop Starting Start Finishing"]
+  }
 }
 ```
 
-## MPR Score (top-line)
+### Score breakdown (Thinslices additive form)
 
-- `score_base = 2.5`
-- `score_bonuses = business + personal + team` (per Boss's rubric)
-- `score_final = 1-5` (3 = meets expectations, calibrated to seniority level)
-- Tracked in `mpr_history[]` per month.
+- `base = 2.5` (always — meets-expectations anchor)
+- `bonuses.business` — `[Business] What did you solve?` section delta
+- `bonuses.personal` — `[Personal] What did you improve on your work?` section delta
+- `bonuses.team` — `[Team] What is your contribution to the team?` section delta
+- `final = base + sum(bonuses)` — must equal the `Final score:` line in the source MD
+- `self_rating` — member's own number (data, not authority)
+
+### Event schema (per MPR)
+
+```json
+{
+  "id": "evt_001",
+  "section": "business" | "personal" | "team" | "topics" | "summary",
+  "marker": "warning" | "growth" | "win" | "neutral",
+  "raw_text": "Closed DP-114 with an open subtask which turned a blocker for Gather Place rollout",
+  "ticket_refs": ["DP-114"],
+  "tags": [
+    {
+      "category": "value" | "ts_value" | "skill" | "core",
+      "name": "stop-starting-start-finishing",
+      "delta": -0.25,
+      "rationale": "open subtask on closed ticket → caused downstream blocker"
+    }
+  ],
+  "delta_total": -0.25
+}
+```
+
+**Marker semantics** (from emoji prefixes in the MD):
+| Emoji | Marker | Meaning |
+|---|---|---|
+| ⚠️ | `warning` | Negative event — blocker caused, deadline slipped, value violated |
+| 🌱 | `growth` | Missed opportunity / learning moment — "could've been more" |
+| 🌟 / 💪 / ✅ | `win` | Positive delivery / ownership moment |
+| (none) | `neutral` | Plain bullet — usually scope/contribution statement |
+
+**Section semantics** map to MPR template headers:
+- `business` — value delivered to client/product
+- `personal` — self-improvement, learning
+- `team` — contribution to teammates, mentorship, process
+- `topics` — "Topics to keep track of" (forward-looking watchlist)
+- `summary` — narrative paragraphs (not bulleted events)
+
+### Mandatory tagging rule
+
+Every event **MUST** have ≥1 tag from `{value, ts_value, skill, core}`. If the parser can't assign one with confidence, the event goes to `uncategorized_events[]` for human triage. **No silent untagged events** — that's how data rots.
+
+Tag namespaces (closed sets except `core`):
+
+| Category | Allowed names |
+|---|---|
+| `value` | The 10 Decalogue pillars (`extreme-ownership`, `team-sport`, `deliver-value`, `craftsmanship`, `leave-cleaner`, `stop-starting-start-finishing`, `seek-truth-speak-up`, `learn-fast-teach-faster`, `fix-system-not-person`, `marathon-not-sprint`) |
+| `ts_value` | The 5 Thinslices values (`team-player`, `diligence`, `openness`, `entrepreneurial-attitude`, `engineering-mindset`) |
+| `skill` | The 6 skill paths (`engineering-craft`, `system-mastery`, `problem-solving`, `process-automation`, `user-impact`, `leadership`) |
+| `core` | **Open** — player-defined (`learning-plan`, `discipline`, `side-projects`, …) |
+
+### Delta caps (enforced at aggregation, not source)
+
+Boss's rule: *"each section in the category is limited to +1 max."*
+At aggregation time (events → character skill paths):
+- **Per MPR, per skill path: cap at `+1`** (excess truncated, surfaced in `summary.capped[]`).
+- **Per MPR, per value alignment: cap at `+1`** (same).
+- **Per MPR, per ts_value: cap at `+1`** (same).
+- Negative deltas (`-X`) **not capped** — they accumulate.
+
+### Derivation flow
+
+```
+Confluence MD (source)
+    ↓ parser
+mpr_history[].events[] (rich event stream, tagged)
+    ↓ aggregator (with caps)
+character.skills / values / ts_values / core (rollups)
+```
+
+The aggregator is **pure** — re-running it on the same MPR set always produces the same rollup. Manual `events[]` (retro adjustments, GitHub-derived signals) are a separate input alongside MPRs.
+
+## Character-level events (non-MPR sources)
+
+Reserved `events[]` array on the character card for inputs that aren't tied to a monthly MPR:
+- `source: "retro" | "manual" | "github" | "jira"`
+- Same `tags[]` shape as MPR events.
+- Same mandatory-tag rule.
+- Aggregator unions these with MPR events when computing rollups.
 
 ## Character card structure
 
@@ -103,8 +203,29 @@ Every change goes through `events[]`:
   "values": { "extreme-ownership": 85, ... },
   "ts_values": { "diligence": 90, ... },
   "core": { "learning-plan": 5 },
-  "mpr_history": [{ "month": "2026-04", "score": 3.5, "self": 3.0 }],
-  "events": [...],
+  "mpr_history": [
+    {
+      "id": "mpr_andrei_clim_2026_04",
+      "month": "2026-04",
+      "page_id": "6039339009",
+      "score": { "base": 2.5, "bonuses": { "business": 0, "personal": 0, "team": 0.25 }, "final": 2.75, "self_rating": 3.0 },
+      "level_at_time": "Competent L1",
+      "events": [
+        {
+          "id": "evt_001",
+          "section": "business",
+          "marker": "warning",
+          "raw_text": "Closed DP-114 with an open subtask which turned a blocker...",
+          "ticket_refs": ["DP-114"],
+          "tags": [{ "category": "value", "name": "stop-starting-start-finishing", "delta": -0.25, "rationale": "open subtask caused downstream blocker" }],
+          "delta_total": -0.25
+        }
+      ],
+      "uncategorized_events": [],
+      "summary": { "tickets_owned": ["DP-114", "DP-117"], "tickets_contributed": ["DP-158", "DP-196"], "themes": ["Ownership"] }
+    }
+  ],
+  "events": [],
   "notes": "Truth-seeker. Takes too much ownership, risks burnout."
 }
 ```

@@ -1,0 +1,3267 @@
+{
+  "meta": {
+    "version": "0.1.0",
+    "generated": "2026-06-04T03:36:20Z",
+    "source": "Backfilled from MPR history (last 6 months) + Boss's DISC reading + Decalogue retros",
+    "universe": "Volt",
+    "team": "DSA Portal",
+    "notes": "Stage 1 MVP. Stats are initial estimates calibrated to leave room for progression — not retroactive perfection. Update events as MPRs are completed.",
+    "stage": "2 — merged with MPR history + parsed events",
+    "characters_count": 11,
+    "characters_with_mpr_data": 7,
+    "id_map": {
+      "andreea_bejan": "andreea_bejan",
+      "andrei_clim": "andrei_clim",
+      "demetriad": "demetriad_sinzeanu",
+      "ilie_lupu": "ilie_lupu",
+      "ivona": "ivona_apostol",
+      "mihai_bojescu": "mihai_bojescu",
+      "razvan": "razvan_onofrei"
+    }
+  },
+  "races": {
+    "Surge": {
+      "disc": "D",
+      "element": "Lightning",
+      "vibe": "Direct, high-amperage, finishes fast"
+    },
+    "Arc": {
+      "disc": "I",
+      "element": "Electric arc",
+      "vibe": "Connects people, bridges gaps"
+    },
+    "Ground": {
+      "disc": "S",
+      "element": "Earth wire",
+      "vibe": "Steady, absorbs spikes, protects others"
+    },
+    "Capacitor": {
+      "disc": "C",
+      "element": "Stored charge",
+      "vibe": "Precise, stores knowledge, releases on demand"
+    }
+  },
+  "skill_paths": [
+    {
+      "id": "engineering-craft",
+      "name": "Engineering Craft",
+      "tags": [
+        "#clean-code",
+        "#testing",
+        "#refactoring",
+        "#tsdd",
+        "#code-quality"
+      ]
+    },
+    {
+      "id": "system-mastery",
+      "name": "System Mastery",
+      "tags": [
+        "#architecture",
+        "#domain-knowledge",
+        "#debugging",
+        "#performance"
+      ]
+    },
+    {
+      "id": "problem-solving",
+      "name": "Problem Solving",
+      "tags": [
+        "#research",
+        "#analysis",
+        "#5-whys",
+        "#planning"
+      ]
+    },
+    {
+      "id": "process-automation",
+      "name": "Process & Automation",
+      "tags": [
+        "#ci-cd",
+        "#tooling",
+        "#workflows",
+        "#process"
+      ]
+    },
+    {
+      "id": "user-impact",
+      "name": "User Impact",
+      "tags": [
+        "#ux",
+        "#feature-framing",
+        "#customer-value",
+        "#product-thinking"
+      ]
+    },
+    {
+      "id": "leadership",
+      "name": "Leadership",
+      "tags": [
+        "#mentoring",
+        "#decision-making",
+        "#feedback",
+        "#team",
+        "#ownership"
+      ]
+    }
+  ],
+  "decalogue": [
+    "extreme-ownership",
+    "team-sport",
+    "deliver-value",
+    "craftsmanship",
+    "leave-cleaner",
+    "stop-starting-start-finishing",
+    "seek-truth-speak-up",
+    "learn-fast-teach-faster",
+    "fix-system-not-person",
+    "marathon-not-sprint"
+  ],
+  "ts_values": [
+    "team-player",
+    "diligence",
+    "openness",
+    "entrepreneurial-attitude",
+    "engineering-mindset"
+  ],
+  "leadership_pool": [
+    {
+      "id": "razvan_onofrei",
+      "disc": "C/D"
+    },
+    {
+      "id": "anca_croitoriu",
+      "disc": "D/C"
+    },
+    {
+      "id": "denis_oproescu",
+      "disc": "I/D"
+    },
+    {
+      "id": "danut_diac",
+      "disc": "D/C"
+    }
+  ],
+  "characters": [
+    {
+      "id": "razvan_onofrei",
+      "name": "Răzvan Onofrei",
+      "nickname": "Benjammin",
+      "role": "SDL",
+      "level": "Competent (L2)",
+      "race": {
+        "primary": "Capacitor",
+        "secondary": "Surge"
+      },
+      "disc": {
+        "primary": "C",
+        "secondary": "D"
+      },
+      "class": "Architect",
+      "tier": "leadership",
+      "art_prompt": "A figure made of crackling capacitor coils and lightning, holding a blueprint glowing with circuitry. Dark workshop, blue-white electric arcs.",
+      "skills": {
+        "engineering-craft": {
+          "level": 40,
+          "progress": 30
+        },
+        "system-mastery": {
+          "level": 45,
+          "progress": 60
+        },
+        "problem-solving": {
+          "level": 42,
+          "progress": 20
+        },
+        "process-automation": {
+          "level": 38,
+          "progress": 50
+        },
+        "user-impact": {
+          "level": 30,
+          "progress": 40
+        },
+        "leadership": {
+          "level": 35,
+          "progress": 70
+        }
+      },
+      "values": {
+        "extreme-ownership": 85,
+        "team-sport": 50,
+        "deliver-value": 50,
+        "craftsmanship": 80,
+        "leave-cleaner": 50,
+        "stop-starting-start-finishing": 65,
+        "seek-truth-speak-up": 75,
+        "learn-fast-teach-faster": 70,
+        "fix-system-not-person": 75,
+        "marathon-not-sprint": 50
+      },
+      "ts_values": {
+        "team-player": 50,
+        "diligence": 80,
+        "openness": 70,
+        "entrepreneurial-attitude": 70,
+        "engineering-mindset": 85
+      },
+      "core": {
+        "learning-plan": 8,
+        "discipline": 6,
+        "side-projects": 7
+      },
+      "mpr_history": [
+        {
+          "page_id": "6060933148",
+          "month": "2026-04",
+          "format": "A",
+          "score": 3.0,
+          "self_score": null,
+          "level_at_time": "SDL COMPETENT L2",
+          "event_count": 0,
+          "orphan_count": 0,
+          "title": "Razvan Onofrei - MPR April 2026"
+        },
+        {
+          "page_id": "5977899009",
+          "month": "2026-03",
+          "format": "A",
+          "score": 3.75,
+          "self_score": null,
+          "level_at_time": "SDL COMPETENT L2",
+          "event_count": 0,
+          "orphan_count": 0,
+          "title": "Razvan Onofrei - MPR March 2026"
+        },
+        {
+          "page_id": "5873696769",
+          "month": "2026-02",
+          "format": "A",
+          "score": 3.5,
+          "self_score": null,
+          "level_at_time": "SDL COMPETENT L2",
+          "event_count": 2,
+          "orphan_count": 0,
+          "title": "Razvan Onofrei - MPR February 2026"
+        },
+        {
+          "page_id": "5792661506",
+          "month": "2026-01",
+          "format": "A",
+          "score": 3.75,
+          "self_score": null,
+          "level_at_time": "SDL COMPETENT L2",
+          "event_count": 3,
+          "orphan_count": 0,
+          "title": "Razvan Onofrei - MPR January 2026"
+        },
+        {
+          "page_id": "5715263489",
+          "month": "2025-12",
+          "format": "A",
+          "score": 3.25,
+          "self_score": null,
+          "level_at_time": "SDL ADVANCED BEGINNER L3",
+          "event_count": 1,
+          "orphan_count": 0,
+          "title": "Razvan Onofrei - MPR December 2025"
+        },
+        {
+          "page_id": "5637931009",
+          "month": "2025-11",
+          "format": "A",
+          "score": 3.5,
+          "self_score": null,
+          "level_at_time": "SDL ADVANCED BEGINNER L3",
+          "event_count": 3,
+          "orphan_count": 0,
+          "title": "Razvan Onofrei - MPR November 2025"
+        },
+        {
+          "page_id": "5565677569",
+          "month": "2025-10",
+          "format": "A",
+          "score": 3.0,
+          "self_score": null,
+          "level_at_time": "SDL ADVANCED BEGINNER L3",
+          "event_count": 5,
+          "orphan_count": 0,
+          "title": "Razvan Onofrei - MPR October 2025"
+        },
+        {
+          "page_id": "5492342843",
+          "month": "2025-09",
+          "format": "A",
+          "score": 3.75,
+          "self_score": null,
+          "level_at_time": "SDL ADVANCED BEGINNER L3",
+          "event_count": 0,
+          "orphan_count": 0,
+          "title": "Razvan Onofrei - MPR September 2025"
+        },
+        {
+          "page_id": "5444468737",
+          "month": "2025-08",
+          "format": "unknown",
+          "score": null,
+          "self_score": null,
+          "level_at_time": "SDL ADVANCED BEGINNER L3",
+          "event_count": 0,
+          "orphan_count": 0,
+          "title": "Razvan Onofrei - MPR August 2025"
+        },
+        {
+          "page_id": "5406982145",
+          "month": "2025-07",
+          "format": "A",
+          "score": 3.25,
+          "self_score": null,
+          "level_at_time": "SDL ADVANCED BEGINNER L3",
+          "event_count": 4,
+          "orphan_count": 0,
+          "title": "Razvan Onofrei - MPR July 2025"
+        },
+        {
+          "page_id": "5369823233",
+          "month": "2025-06",
+          "format": "unknown",
+          "score": null,
+          "self_score": null,
+          "level_at_time": "SDL ADVANCED BEGINNER L3",
+          "event_count": 0,
+          "orphan_count": 0,
+          "title": "Razvan Onofrei - MPR June 2025"
+        },
+        {
+          "page_id": "5280071725",
+          "month": "2025-05",
+          "format": "unknown",
+          "score": null,
+          "self_score": null,
+          "level_at_time": null,
+          "event_count": 0,
+          "orphan_count": 0,
+          "title": "Razvan Onofrei - MPR May 2025"
+        }
+      ],
+      "events": [],
+      "notes": "Top 3 principles: Deliver Value (3), Craftsmanship (4), Extreme Ownership (1). Outcome + standards + ownership. Lider tehnic pe impact și disciplină.",
+      "passive_boosts": [
+        {
+          "from": "Anca Croitoriu",
+          "from_disc": "D/C",
+          "trait_match": [
+            "C",
+            "D"
+          ],
+          "modifier": "+1.0",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Denis Oproescu",
+          "from_disc": "I/D",
+          "trait_match": [
+            "D"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Dănuț Diac",
+          "from_disc": "D/C",
+          "trait_match": [
+            "C",
+            "D"
+          ],
+          "modifier": "+1.0",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
+        }
+      ],
+      "avatar": "assets/avatars/razvan_onofrei.png",
+      "mpr_stats": {
+        "total_mprs": 12,
+        "scored_mprs": 9,
+        "latest_score": 3.0,
+        "latest_score_month": "2026-04",
+        "avg_score": 3.42,
+        "first_month": "2025-05",
+        "last_month": "2026-04"
+      },
+      "events_aggregate": {
+        "event_count": 18,
+        "by_category": {
+          "skills": {
+            "domain-knowledge": 8
+          },
+          "values": {},
+          "ts-values": {
+            "team-player": 8
+          },
+          "core": {
+            "team-leadership": 1,
+            "discipline": 1
+          }
+        },
+        "by_section": {
+          "Team": 9,
+          "Business": 8,
+          "Personal": 1
+        },
+        "by_month": {
+          "2025-07": {
+            "count": 4,
+            "delta": 0.75,
+            "categories": {
+              "ts-values:team-player": 2,
+              "skills:domain-knowledge": 2
+            }
+          },
+          "2025-10": {
+            "count": 5,
+            "delta": 0.5,
+            "categories": {
+              "ts-values:team-player": 2,
+              "core:discipline": 1,
+              "skills:domain-knowledge": 2
+            }
+          },
+          "2025-11": {
+            "count": 3,
+            "delta": 0.75,
+            "categories": {
+              "ts-values:team-player": 2,
+              "core:team-leadership": 1
+            }
+          },
+          "2025-12": {
+            "count": 1,
+            "delta": 0.25,
+            "categories": {
+              "skills:domain-knowledge": 1
+            }
+          },
+          "2026-01": {
+            "count": 3,
+            "delta": 1.25,
+            "categories": {
+              "skills:domain-knowledge": 3
+            }
+          },
+          "2026-02": {
+            "count": 2,
+            "delta": 0.75,
+            "categories": {
+              "ts-values:team-player": 2
+            }
+          }
+        },
+        "by_categorization": {
+          "section_default:Team": 8,
+          "section_default:Business": 8,
+          "explicit_tag": 1,
+          "section_default:Personal": 1
+        },
+        "total_delta": 4.25,
+        "tickets_touched": [
+          "FER-2287",
+          "FER-920"
+        ]
+      }
+    },
+    {
+      "id": "anca_croitoriu",
+      "name": "Anca Croitoriu",
+      "nickname": "Lightning",
+      "role": "Project Manager (Thinslices)",
+      "level": "—",
+      "race": {
+        "primary": "Surge",
+        "secondary": "Capacitor"
+      },
+      "disc": {
+        "primary": "D",
+        "secondary": "C"
+      },
+      "class": "Closer",
+      "tier": "leadership",
+      "art_prompt": "A regal figure surrounded by hourglasses being closed shut, lightning crackling around closed contracts. Cold blue palette.",
+      "skills": {
+        "engineering-craft": {
+          "level": 15,
+          "progress": 0
+        },
+        "system-mastery": {
+          "level": 25,
+          "progress": 20
+        },
+        "problem-solving": {
+          "level": 45,
+          "progress": 30
+        },
+        "process-automation": {
+          "level": 35,
+          "progress": 40
+        },
+        "user-impact": {
+          "level": 50,
+          "progress": 20
+        },
+        "leadership": {
+          "level": 55,
+          "progress": 60
+        }
+      },
+      "values": {
+        "extreme-ownership": 90,
+        "team-sport": 50,
+        "deliver-value": 85,
+        "craftsmanship": 50,
+        "leave-cleaner": 50,
+        "stop-starting-start-finishing": 95,
+        "seek-truth-speak-up": 80,
+        "learn-fast-teach-faster": 50,
+        "fix-system-not-person": 50,
+        "marathon-not-sprint": 50
+      },
+      "ts_values": {
+        "team-player": 75,
+        "diligence": 90,
+        "openness": 50,
+        "entrepreneurial-attitude": 80,
+        "engineering-mindset": 50
+      },
+      "core": {},
+      "mpr_history": [],
+      "events": [],
+      "notes": "Principles: Extreme Ownership (1) → Stop Starting Start Finishing (6) → Seek Truth (7). Execuție, finishing, claritate. Nu tolerează WIP excesiv.",
+      "passive_boosts": [
+        {
+          "from": "Răzvan Onofrei",
+          "from_disc": "C/D",
+          "trait_match": [
+            "C",
+            "D"
+          ],
+          "modifier": "+1.0",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Denis Oproescu",
+          "from_disc": "I/D",
+          "trait_match": [
+            "D"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Dănuț Diac",
+          "from_disc": "D/C",
+          "trait_match": [
+            "C",
+            "D"
+          ],
+          "modifier": "+1.0",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
+        }
+      ],
+      "avatar": "assets/avatars/anca_croitoriu.jpg",
+      "mpr_stats": {
+        "total_mprs": 0,
+        "scored_mprs": 0,
+        "latest_score": null,
+        "latest_score_month": null,
+        "avg_score": null,
+        "first_month": null,
+        "last_month": null
+      },
+      "events_aggregate": {
+        "event_count": 0,
+        "by_category": {
+          "skills": {},
+          "values": {},
+          "ts-values": {},
+          "core": {}
+        },
+        "by_section": {},
+        "by_month": {},
+        "by_categorization": {},
+        "total_delta": 0.0,
+        "tickets_touched": []
+      }
+    },
+    {
+      "id": "denis_oproescu",
+      "name": "Denis Oproescu",
+      "nickname": "Chief Whisperer",
+      "role": "Account Manager / Chief Whisperer (THG)",
+      "level": "—",
+      "race": {
+        "primary": "Arc",
+        "secondary": "Surge"
+      },
+      "disc": {
+        "primary": "I",
+        "secondary": "D"
+      },
+      "class": "Diplomat",
+      "tier": "leadership",
+      "art_prompt": "A figure made of bridging electric arcs connecting two distant towers, gold and warm electric tones, charisma personified.",
+      "skills": {
+        "engineering-craft": {
+          "level": 10,
+          "progress": 0
+        },
+        "system-mastery": {
+          "level": 20,
+          "progress": 30
+        },
+        "problem-solving": {
+          "level": 40,
+          "progress": 50
+        },
+        "process-automation": {
+          "level": 25,
+          "progress": 20
+        },
+        "user-impact": {
+          "level": 55,
+          "progress": 40
+        },
+        "leadership": {
+          "level": 50,
+          "progress": 60
+        }
+      },
+      "values": {
+        "extreme-ownership": 70,
+        "team-sport": 85,
+        "deliver-value": 80,
+        "craftsmanship": 50,
+        "leave-cleaner": 50,
+        "stop-starting-start-finishing": 50,
+        "seek-truth-speak-up": 70,
+        "learn-fast-teach-faster": 50,
+        "fix-system-not-person": 50,
+        "marathon-not-sprint": 50
+      },
+      "ts_values": {
+        "team-player": 85,
+        "diligence": 50,
+        "openness": 80,
+        "entrepreneurial-attitude": 75,
+        "engineering-mindset": 50
+      },
+      "core": {},
+      "mpr_history": [],
+      "events": [],
+      "notes": "I/D (deduced from limited 360 — only Razvan↔Denis feedback exists). Bridges THG ↔ Thinslices. Only leader who can boost Andreea (I match).",
+      "passive_boosts": [
+        {
+          "from": "Răzvan Onofrei",
+          "from_disc": "C/D",
+          "trait_match": [
+            "D"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Anca Croitoriu",
+          "from_disc": "D/C",
+          "trait_match": [
+            "D"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Dănuț Diac",
+          "from_disc": "D/C",
+          "trait_match": [
+            "D"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+        }
+      ],
+      "avatar": "assets/avatars/denis_oproescu.png",
+      "mpr_stats": {
+        "total_mprs": 0,
+        "scored_mprs": 0,
+        "latest_score": null,
+        "latest_score_month": null,
+        "avg_score": null,
+        "first_month": null,
+        "last_month": null
+      },
+      "events_aggregate": {
+        "event_count": 0,
+        "by_category": {
+          "skills": {},
+          "values": {},
+          "ts-values": {},
+          "core": {}
+        },
+        "by_section": {},
+        "by_month": {},
+        "by_categorization": {},
+        "total_delta": 0.0,
+        "tickets_touched": []
+      }
+    },
+    {
+      "id": "danut_diac",
+      "name": "Dănuț Diac",
+      "nickname": "CaptainSpark",
+      "role": "CTO (THG)",
+      "level": "—",
+      "race": {
+        "primary": "Surge",
+        "secondary": "Capacitor"
+      },
+      "disc": {
+        "primary": "D",
+        "secondary": "C"
+      },
+      "class": "Spark Lord",
+      "tier": "leadership",
+      "art_prompt": "A commanding figure on a stormy cliff, lightning surging from raised hand, captain's coat with circuit patterns, navy and electric blue.",
+      "skills": {
+        "engineering-craft": {
+          "level": 45,
+          "progress": 40
+        },
+        "system-mastery": {
+          "level": 60,
+          "progress": 30
+        },
+        "problem-solving": {
+          "level": 55,
+          "progress": 50
+        },
+        "process-automation": {
+          "level": 50,
+          "progress": 30
+        },
+        "user-impact": {
+          "level": 40,
+          "progress": 60
+        },
+        "leadership": {
+          "level": 60,
+          "progress": 40
+        }
+      },
+      "values": {
+        "extreme-ownership": 85,
+        "team-sport": 50,
+        "deliver-value": 85,
+        "craftsmanship": 80,
+        "leave-cleaner": 50,
+        "stop-starting-start-finishing": 50,
+        "seek-truth-speak-up": 50,
+        "learn-fast-teach-faster": 75,
+        "fix-system-not-person": 50,
+        "marathon-not-sprint": 50
+      },
+      "ts_values": {
+        "team-player": 50,
+        "diligence": 80,
+        "openness": 50,
+        "entrepreneurial-attitude": 80,
+        "engineering-mindset": 85
+      },
+      "core": {},
+      "mpr_history": [],
+      "events": [],
+      "notes": "CTO THG. D/C — execution + technical depth. Manages .NET THG team in parallel (Robert Pasniceanu reports here).",
+      "passive_boosts": [
+        {
+          "from": "Răzvan Onofrei",
+          "from_disc": "C/D",
+          "trait_match": [
+            "C",
+            "D"
+          ],
+          "modifier": "+1.0",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Anca Croitoriu",
+          "from_disc": "D/C",
+          "trait_match": [
+            "C",
+            "D"
+          ],
+          "modifier": "+1.0",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Denis Oproescu",
+          "from_disc": "I/D",
+          "trait_match": [
+            "D"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+        }
+      ],
+      "avatar": "assets/avatars/danut_diac.png",
+      "mpr_stats": {
+        "total_mprs": 0,
+        "scored_mprs": 0,
+        "latest_score": null,
+        "latest_score_month": null,
+        "avg_score": null,
+        "first_month": null,
+        "last_month": null
+      },
+      "events_aggregate": {
+        "event_count": 0,
+        "by_category": {
+          "skills": {},
+          "values": {},
+          "ts-values": {},
+          "core": {}
+        },
+        "by_section": {},
+        "by_month": {},
+        "by_categorization": {},
+        "total_delta": 0.0,
+        "tickets_touched": []
+      }
+    },
+    {
+      "id": "ivona_apostol",
+      "name": "Ivona Apostol",
+      "nickname": "LadyCodeBaker",
+      "role": "SDE",
+      "level": "Competent (L3)",
+      "race": {
+        "primary": "Surge",
+        "secondary": "Ground"
+      },
+      "disc": {
+        "primary": "D",
+        "secondary": "S"
+      },
+      "class": "Drill Sergeant",
+      "tier": "team",
+      "art_prompt": "A baker's apron over military fatigues, lightning whisk in one hand, recipe scroll in the other, golden hour kitchen with electric ovens.",
+      "skills": {
+        "engineering-craft": {
+          "level": 28,
+          "progress": 40
+        },
+        "system-mastery": {
+          "level": 22,
+          "progress": 50
+        },
+        "problem-solving": {
+          "level": 30,
+          "progress": 30
+        },
+        "process-automation": {
+          "level": 35,
+          "progress": 60
+        },
+        "user-impact": {
+          "level": 25,
+          "progress": 40
+        },
+        "leadership": {
+          "level": 20,
+          "progress": 30
+        }
+      },
+      "values": {
+        "extreme-ownership": 80,
+        "team-sport": 75,
+        "deliver-value": 50,
+        "craftsmanship": 50,
+        "leave-cleaner": 50,
+        "stop-starting-start-finishing": 70,
+        "seek-truth-speak-up": 50,
+        "learn-fast-teach-faster": 50,
+        "fix-system-not-person": 50,
+        "marathon-not-sprint": 75
+      },
+      "ts_values": {
+        "team-player": 75,
+        "diligence": 80,
+        "openness": 65,
+        "entrepreneurial-attitude": 50,
+        "engineering-mindset": 50
+      },
+      "core": {
+        "discipline": 7,
+        "learning-plan": 5
+      },
+      "mpr_history": [
+        {
+          "page_id": "6041206816",
+          "month": "2026-04",
+          "format": "A",
+          "score": 3.25,
+          "self_score": 3.0,
+          "level_at_time": "COMPETENT L3",
+          "event_count": 3,
+          "orphan_count": 0,
+          "title": "Ivona Apostol - MPR April 2026"
+        },
+        {
+          "page_id": "5865734145",
+          "month": "2026-03",
+          "format": "A",
+          "score": 3.25,
+          "self_score": null,
+          "level_at_time": "COMPETENT L3",
+          "event_count": 3,
+          "orphan_count": 0,
+          "title": "Ivona Apostol - MPR March 2026"
+        },
+        {
+          "page_id": "5818449921",
+          "month": "2026-02",
+          "format": "A",
+          "score": 3.25,
+          "self_score": null,
+          "level_at_time": "COMPETENT L3",
+          "event_count": 4,
+          "orphan_count": 0,
+          "title": "Ivona Apostol - MPR February 2026"
+        },
+        {
+          "page_id": "5714706433",
+          "month": "2026-01",
+          "format": "A",
+          "score": 4.0,
+          "self_score": null,
+          "level_at_time": "COMPETENT L3",
+          "event_count": 5,
+          "orphan_count": 0,
+          "title": "Ivona Apostol - MPR January 2026"
+        },
+        {
+          "page_id": "5714444289",
+          "month": "2025-12",
+          "format": "A",
+          "score": 3.0,
+          "self_score": null,
+          "level_at_time": "COMPETENT L3",
+          "event_count": 2,
+          "orphan_count": 0,
+          "title": "Ivona Apostol - MPR December 2025"
+        },
+        {
+          "page_id": "5650153473",
+          "month": "2025-11",
+          "format": "A",
+          "score": 3.0,
+          "self_score": null,
+          "level_at_time": "COMPETENT L3",
+          "event_count": 2,
+          "orphan_count": 0,
+          "title": "Ivona Apostol - MPR November 2025"
+        },
+        {
+          "page_id": "5502271489",
+          "month": "2025-10",
+          "format": "A",
+          "score": 3.5,
+          "self_score": null,
+          "level_at_time": "COMPETENT L3",
+          "event_count": 4,
+          "orphan_count": 0,
+          "title": "Ivona Apostol - MPR October 2025"
+        },
+        {
+          "page_id": "5488377959",
+          "month": "2025-09",
+          "format": "A",
+          "score": 3.25,
+          "self_score": null,
+          "level_at_time": "COMPETENT L3",
+          "event_count": 3,
+          "orphan_count": 0,
+          "title": "Ivona Apostol - MPR September 2025"
+        },
+        {
+          "page_id": "5411209239",
+          "month": "2025-08",
+          "format": "unknown",
+          "score": null,
+          "self_score": null,
+          "level_at_time": "COMPETENT L3",
+          "event_count": 0,
+          "orphan_count": 0,
+          "title": "Ivona Apostol - MPR August 2025"
+        },
+        {
+          "page_id": "5365170264",
+          "month": "2025-07",
+          "format": "A",
+          "score": 3.0,
+          "self_score": null,
+          "level_at_time": "COMPETENT L3",
+          "event_count": 2,
+          "orphan_count": 0,
+          "title": "Ivona Apostol - MPR July 2025"
+        },
+        {
+          "page_id": "5330141185",
+          "month": "2025-06",
+          "format": "unknown",
+          "score": null,
+          "self_score": null,
+          "level_at_time": "COMPETENT L3",
+          "event_count": 0,
+          "orphan_count": 0,
+          "title": "Ivona Apostol - MPR June 2025"
+        },
+        {
+          "page_id": "5327290469",
+          "month": "2025-05",
+          "format": "unknown",
+          "score": null,
+          "self_score": null,
+          "level_at_time": "COMPETENT L3",
+          "event_count": 0,
+          "orphan_count": 0,
+          "title": "Ivona Apostol - MPR May 2025"
+        }
+      ],
+      "events": [],
+      "notes": "Principles: Extreme Ownership (1) → Team Sport (2) → Marathon (5). Recipe-keeper, process enforcer. D/S = action + team. Drill Sergeant fits how she ensures the recipe gets followed.",
+      "passive_boosts": [
+        {
+          "from": "Răzvan Onofrei",
+          "from_disc": "C/D",
+          "trait_match": [
+            "D"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Anca Croitoriu",
+          "from_disc": "D/C",
+          "trait_match": [
+            "D"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Denis Oproescu",
+          "from_disc": "I/D",
+          "trait_match": [
+            "D"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Dănuț Diac",
+          "from_disc": "D/C",
+          "trait_match": [
+            "D"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+        }
+      ],
+      "avatar": "assets/avatars/ivona_apostol.png",
+      "mpr_stats": {
+        "total_mprs": 12,
+        "scored_mprs": 9,
+        "latest_score": 3.25,
+        "latest_score_month": "2026-04",
+        "avg_score": 3.28,
+        "first_month": "2025-05",
+        "last_month": "2026-04"
+      },
+      "events_aggregate": {
+        "event_count": 28,
+        "by_category": {
+          "skills": {
+            "domain-knowledge": 3,
+            "devops": 1,
+            "complexity-estimation": 2
+          },
+          "values": {
+            "extreme-ownership": 2
+          },
+          "ts-values": {
+            "team-player": 8,
+            "diligence": 2
+          },
+          "core": {
+            "discipline": 7,
+            "process": 3,
+            "planning": 1,
+            "proactivity": 1
+          }
+        },
+        "by_section": {
+          "Personal": 13,
+          "Business": 3,
+          "Team": 12
+        },
+        "by_month": {
+          "2025-07": {
+            "count": 2,
+            "delta": 0.5,
+            "categories": {
+              "skills:complexity-estimation": 1,
+              "core:discipline": 1
+            }
+          },
+          "2025-09": {
+            "count": 3,
+            "delta": 0.75,
+            "categories": {
+              "ts-values:team-player": 2,
+              "core:discipline": 1
+            }
+          },
+          "2025-10": {
+            "count": 4,
+            "delta": 1.0,
+            "categories": {
+              "ts-values:team-player": 2,
+              "core:proactivity": 1,
+              "ts-values:diligence": 1
+            }
+          },
+          "2025-11": {
+            "count": 2,
+            "delta": 0.5,
+            "categories": {
+              "core:process": 1,
+              "ts-values:diligence": 1
+            }
+          },
+          "2025-12": {
+            "count": 2,
+            "delta": 0.5,
+            "categories": {
+              "ts-values:team-player": 1,
+              "core:discipline": 1
+            }
+          },
+          "2026-01": {
+            "count": 5,
+            "delta": 1.5,
+            "categories": {
+              "ts-values:team-player": 3,
+              "skills:domain-knowledge": 2
+            }
+          },
+          "2026-02": {
+            "count": 4,
+            "delta": 0.75,
+            "categories": {
+              "core:process": 1,
+              "values:extreme-ownership": 1,
+              "core:planning": 1,
+              "core:discipline": 1,
+              "skills:devops": 1,
+              "skills:complexity-estimation": 1
+            }
+          },
+          "2026-03": {
+            "count": 3,
+            "delta": 0.75,
+            "categories": {
+              "core:process": 1,
+              "values:extreme-ownership": 1,
+              "core:discipline": 1
+            }
+          },
+          "2026-04": {
+            "count": 3,
+            "delta": 0.75,
+            "categories": {
+              "core:discipline": 2,
+              "skills:domain-knowledge": 1
+            }
+          }
+        },
+        "by_categorization": {
+          "section_default:Personal": 7,
+          "section_default:Business": 3,
+          "explicit_tag": 11,
+          "section_default:Team": 7
+        },
+        "total_delta": 7.0,
+        "tickets_touched": [
+          "FER-1447",
+          "FER-2445",
+          "FER-816"
+        ]
+      }
+    },
+    {
+      "id": "andrei_clim",
+      "name": "Andrei Clim",
+      "nickname": "CloudRunner",
+      "role": "SDE",
+      "level": "Proficient",
+      "race": {
+        "primary": "Surge",
+        "secondary": "Ground"
+      },
+      "disc": {
+        "primary": "D",
+        "secondary": "S"
+      },
+      "class": "Tank",
+      "tier": "team",
+      "art_prompt": "A heavy-armored warrior with electric shoulder pads, shield made of welded circuit boards, taking hits from a swarm of bug-icons, exhausted but standing.",
+      "skills": {
+        "engineering-craft": {
+          "level": 50,
+          "progress": 40
+        },
+        "system-mastery": {
+          "level": 55,
+          "progress": 30
+        },
+        "problem-solving": {
+          "level": 60,
+          "progress": 50
+        },
+        "process-automation": {
+          "level": 40,
+          "progress": 20
+        },
+        "user-impact": {
+          "level": 45,
+          "progress": 30
+        },
+        "leadership": {
+          "level": 45,
+          "progress": 60
+        }
+      },
+      "values": {
+        "extreme-ownership": 90,
+        "team-sport": 50,
+        "deliver-value": 50,
+        "craftsmanship": 75,
+        "leave-cleaner": 50,
+        "stop-starting-start-finishing": 50,
+        "seek-truth-speak-up": 90,
+        "learn-fast-teach-faster": 50,
+        "fix-system-not-person": 85,
+        "marathon-not-sprint": 40
+      },
+      "ts_values": {
+        "team-player": 75,
+        "diligence": 85,
+        "openness": 80,
+        "entrepreneurial-attitude": 50,
+        "engineering-mindset": 80
+      },
+      "core": {
+        "learning-plan": 6,
+        "discipline": 7
+      },
+      "mpr_history": [
+        {
+          "page_id": "6038716439",
+          "month": "2026-05",
+          "format": "A",
+          "score": 3.25,
+          "self_score": 3.0,
+          "level_at_time": null,
+          "event_count": 2,
+          "orphan_count": 0,
+          "title": "Andrei Clim - MPR May 2026"
+        },
+        {
+          "page_id": "6039339009",
+          "month": "2026-04",
+          "format": "A",
+          "score": 2.75,
+          "self_score": 3.0,
+          "level_at_time": null,
+          "event_count": 0,
+          "orphan_count": 0,
+          "title": "Andrei Clim - MPR April 2026"
+        },
+        {
+          "page_id": "5974261761",
+          "month": "2026-03",
+          "format": "A",
+          "score": 3.0,
+          "self_score": 3.0,
+          "level_at_time": null,
+          "event_count": 2,
+          "orphan_count": 0,
+          "title": "Andrei Clim - MPR March 2026"
+        },
+        {
+          "page_id": "5825363969",
+          "month": "2026-02",
+          "format": "A",
+          "score": 3.75,
+          "self_score": null,
+          "level_at_time": null,
+          "event_count": 8,
+          "orphan_count": 0,
+          "title": "Andrei Clim - MPR February 2026"
+        },
+        {
+          "page_id": "5801508886",
+          "month": "2026-01",
+          "format": "A",
+          "score": 3.75,
+          "self_score": null,
+          "level_at_time": null,
+          "event_count": 4,
+          "orphan_count": 0,
+          "title": "Andrei Clim - MPR January 2026"
+        },
+        {
+          "page_id": "5714378753",
+          "month": "2025-12",
+          "format": "A",
+          "score": 3.0,
+          "self_score": null,
+          "level_at_time": null,
+          "event_count": 2,
+          "orphan_count": 0,
+          "title": "Andrei Clim - MPR December 2025"
+        },
+        {
+          "page_id": "5498011662",
+          "month": "2025-10",
+          "format": "A",
+          "score": 3.0,
+          "self_score": null,
+          "level_at_time": null,
+          "event_count": 9,
+          "orphan_count": 0,
+          "title": "Andrei Clim - MPR October 2025"
+        },
+        {
+          "page_id": "5445713974",
+          "month": "2025-09",
+          "format": "A",
+          "score": 2.75,
+          "self_score": null,
+          "level_at_time": null,
+          "event_count": 1,
+          "orphan_count": 0,
+          "title": "Andrei Clim - MPR September 2025"
+        },
+        {
+          "page_id": "5408817153",
+          "month": "2025-08",
+          "format": "A",
+          "score": 3.25,
+          "self_score": null,
+          "level_at_time": null,
+          "event_count": 3,
+          "orphan_count": 0,
+          "title": "Andrei Clim - MPR August 2025"
+        },
+        {
+          "page_id": "5365170305",
+          "month": "2025-07",
+          "format": "A",
+          "score": 3.25,
+          "self_score": null,
+          "level_at_time": null,
+          "event_count": 3,
+          "orphan_count": 0,
+          "title": "Andrei Clim - MPR July 2025"
+        },
+        {
+          "page_id": "5362876418",
+          "month": "2025-06",
+          "format": "A",
+          "score": 3.0,
+          "self_score": null,
+          "level_at_time": null,
+          "event_count": 2,
+          "orphan_count": 0,
+          "title": "Andrei Clim - MPR June 2025"
+        },
+        {
+          "page_id": "5296390145",
+          "month": "2025-05",
+          "format": "A",
+          "score": 2.75,
+          "self_score": null,
+          "level_at_time": null,
+          "event_count": 1,
+          "orphan_count": 0,
+          "title": "Andrei Clim - MPR May 2025"
+        }
+      ],
+      "events": [],
+      "notes": "Principles: Seek Truth (7) → Fix System Not Person (9) → Team Sport (2). Truth-seeker, challenges constructively. Tank class: takes too much ownership → burnout risk. Marathon score low intentionally.",
+      "passive_boosts": [
+        {
+          "from": "Răzvan Onofrei",
+          "from_disc": "C/D",
+          "trait_match": [
+            "D"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Anca Croitoriu",
+          "from_disc": "D/C",
+          "trait_match": [
+            "D"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Denis Oproescu",
+          "from_disc": "I/D",
+          "trait_match": [
+            "D"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Dănuț Diac",
+          "from_disc": "D/C",
+          "trait_match": [
+            "D"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+        }
+      ],
+      "avatar": "assets/avatars/andrei_clim.png",
+      "mpr_stats": {
+        "total_mprs": 12,
+        "scored_mprs": 12,
+        "latest_score": 3.25,
+        "latest_score_month": "2026-05",
+        "avg_score": 3.12,
+        "first_month": "2025-05",
+        "last_month": "2026-05"
+      },
+      "events_aggregate": {
+        "event_count": 37,
+        "by_category": {
+          "skills": {
+            "domain-knowledge": 8,
+            "ai-tooling": 1,
+            "code-review": 1,
+            "devops": 1
+          },
+          "values": {
+            "extreme-ownership": 4
+          },
+          "ts-values": {
+            "team-player": 18,
+            "diligence": 1
+          },
+          "core": {
+            "planning": 2,
+            "discipline": 3
+          }
+        },
+        "by_section": {
+          "Team": 19,
+          "Business": 8,
+          "Personal": 10
+        },
+        "by_month": {
+          "2025-05": {
+            "count": 1,
+            "delta": 0.25,
+            "categories": {
+              "skills:devops": 1
+            }
+          },
+          "2025-06": {
+            "count": 2,
+            "delta": 0.5,
+            "categories": {
+              "ts-values:team-player": 1,
+              "skills:domain-knowledge": 1
+            }
+          },
+          "2025-07": {
+            "count": 3,
+            "delta": 0.75,
+            "categories": {
+              "ts-values:team-player": 3
+            }
+          },
+          "2025-08": {
+            "count": 3,
+            "delta": 0.75,
+            "categories": {
+              "ts-values:team-player": 2,
+              "core:discipline": 1
+            }
+          },
+          "2025-09": {
+            "count": 1,
+            "delta": 0.25,
+            "categories": {
+              "ts-values:team-player": 1
+            }
+          },
+          "2025-10": {
+            "count": 9,
+            "delta": 0.75,
+            "categories": {
+              "ts-values:team-player": 3,
+              "ts-values:diligence": 1,
+              "core:discipline": 1,
+              "skills:domain-knowledge": 4
+            }
+          },
+          "2025-12": {
+            "count": 2,
+            "delta": 0.5,
+            "categories": {
+              "ts-values:team-player": 1,
+              "skills:domain-knowledge": 1
+            }
+          },
+          "2026-01": {
+            "count": 4,
+            "delta": 1.25,
+            "categories": {
+              "values:extreme-ownership": 1,
+              "ts-values:team-player": 1,
+              "core:discipline": 1,
+              "skills:domain-knowledge": 1
+            }
+          },
+          "2026-02": {
+            "count": 8,
+            "delta": 1.25,
+            "categories": {
+              "ts-values:team-player": 4,
+              "values:extreme-ownership": 3,
+              "skills:code-review": 1,
+              "core:planning": 2
+            }
+          },
+          "2026-03": {
+            "count": 2,
+            "delta": 0.5,
+            "categories": {
+              "ts-values:team-player": 1,
+              "skills:ai-tooling": 1
+            }
+          },
+          "2026-05": {
+            "count": 2,
+            "delta": 0.75,
+            "categories": {
+              "ts-values:team-player": 1,
+              "skills:domain-knowledge": 1
+            }
+          }
+        },
+        "by_categorization": {
+          "section_default:Team": 18,
+          "section_default:Business": 8,
+          "explicit_tag": 8,
+          "section_default:Personal": 3
+        },
+        "total_delta": 7.5,
+        "tickets_touched": [
+          "BER-452",
+          "FER-1149",
+          "FER-1424",
+          "FER-1471",
+          "FER-1472",
+          "FER-1543",
+          "FER-2387",
+          "FER-922"
+        ]
+      }
+    },
+    {
+      "id": "ilie_lupu",
+      "name": "Ilie Lupu",
+      "nickname": "Pipeline",
+      "role": "SDE",
+      "level": "Full-stack Competent (L3)",
+      "race": {
+        "primary": "Surge",
+        "secondary": "Capacitor"
+      },
+      "disc": {
+        "primary": "D",
+        "secondary": "C"
+      },
+      "class": "Carry",
+      "tier": "team",
+      "art_prompt": "A silent assassin in a hoodie sleeve made of high-voltage pipeline, raining lightning damage on towers of code-blocks, minimalist menacing energy.",
+      "skills": {
+        "engineering-craft": {
+          "level": 55,
+          "progress": 50
+        },
+        "system-mastery": {
+          "level": 60,
+          "progress": 30
+        },
+        "problem-solving": {
+          "level": 65,
+          "progress": 40
+        },
+        "process-automation": {
+          "level": 50,
+          "progress": 30
+        },
+        "user-impact": {
+          "level": 40,
+          "progress": 40
+        },
+        "leadership": {
+          "level": 30,
+          "progress": 50
+        }
+      },
+      "values": {
+        "extreme-ownership": 60,
+        "team-sport": 50,
+        "deliver-value": 90,
+        "craftsmanship": 80,
+        "leave-cleaner": 50,
+        "stop-starting-start-finishing": 50,
+        "seek-truth-speak-up": 50,
+        "learn-fast-teach-faster": 75,
+        "fix-system-not-person": 50,
+        "marathon-not-sprint": 50
+      },
+      "ts_values": {
+        "team-player": 60,
+        "diligence": 75,
+        "openness": 50,
+        "entrepreneurial-attitude": 50,
+        "engineering-mindset": 85
+      },
+      "core": {
+        "learning-plan": 8
+      },
+      "mpr_history": [
+        {
+          "page_id": "6006407169",
+          "month": "2026-04",
+          "format": "A",
+          "score": 3.25,
+          "self_score": 3.0,
+          "level_at_time": "Full-stack COMPETENT L3",
+          "event_count": 3,
+          "orphan_count": 0,
+          "title": "Ilie Lupu - MPR April 2026"
+        },
+        {
+          "page_id": "5956501527",
+          "month": "2026-03",
+          "format": "A",
+          "score": 3.5,
+          "self_score": 3.5,
+          "level_at_time": "Full-stack COMPETENT L3",
+          "event_count": 4,
+          "orphan_count": 0,
+          "title": "Ilie Lupu - MPR March 2026"
+        },
+        {
+          "page_id": "5738954795",
+          "month": "2025-12",
+          "format": "B",
+          "score": null,
+          "self_score": null,
+          "level_at_time": null,
+          "event_count": 6,
+          "orphan_count": 0,
+          "title": "Ilie Lupu - MPR December 2025"
+        },
+        {
+          "page_id": "5655625762",
+          "month": "2025-11",
+          "format": "B",
+          "score": null,
+          "self_score": null,
+          "level_at_time": null,
+          "event_count": 6,
+          "orphan_count": 0,
+          "title": "Ilie Lupu - MPR November 2025"
+        },
+        {
+          "page_id": "5450235925",
+          "month": "2025-08",
+          "format": "B",
+          "score": null,
+          "self_score": null,
+          "level_at_time": null,
+          "event_count": 6,
+          "orphan_count": 0,
+          "title": "Ilie Lupu - MPR August 2025"
+        },
+        {
+          "page_id": "5409013761",
+          "month": "2025-07",
+          "format": "B",
+          "score": null,
+          "self_score": null,
+          "level_at_time": null,
+          "event_count": 6,
+          "orphan_count": 0,
+          "title": "Ilie Lupu - MPR July 2025"
+        },
+        {
+          "page_id": "5367889921",
+          "month": "2025-06",
+          "format": "B",
+          "score": null,
+          "self_score": null,
+          "level_at_time": null,
+          "event_count": 6,
+          "orphan_count": 0,
+          "title": "Ilie Lupu - MPR June 2025"
+        },
+        {
+          "page_id": "5327290448",
+          "month": "2025-05",
+          "format": "B",
+          "score": null,
+          "self_score": null,
+          "level_at_time": null,
+          "event_count": 5,
+          "orphan_count": 0,
+          "title": "Ilie Lupu - MPR May 2025"
+        },
+        {
+          "page_id": "5282889729",
+          "month": "2025-04",
+          "format": "B",
+          "score": null,
+          "self_score": null,
+          "level_at_time": null,
+          "event_count": 6,
+          "orphan_count": 0,
+          "title": "Ilie Lupu - MPR April 2025"
+        },
+        {
+          "page_id": "5243338753",
+          "month": "2025-03",
+          "format": "B",
+          "score": null,
+          "self_score": null,
+          "level_at_time": null,
+          "event_count": 6,
+          "orphan_count": 0,
+          "title": "Ilie Lupu - MPR March 2025"
+        },
+        {
+          "page_id": "5493161985",
+          "month": null,
+          "format": "B",
+          "score": null,
+          "self_score": null,
+          "level_at_time": null,
+          "event_count": 6,
+          "orphan_count": 0,
+          "title": "Ilie Lupu - MPR Sept 2025"
+        },
+        {
+          "page_id": "5573378055",
+          "month": null,
+          "format": "B",
+          "score": null,
+          "self_score": null,
+          "level_at_time": null,
+          "event_count": 6,
+          "orphan_count": 0,
+          "title": "Ilie Lupu - MPR Oct 2025"
+        }
+      ],
+      "events": [],
+      "notes": "Principles: Extreme Ownership (1) → Leave Cleaner (5) → Learn Fast Teach Faster (8). Talks little, ships big. Weakness: ownership/carelessness on details. AD Carry: massive damage but needs team coverage.",
+      "passive_boosts": [
+        {
+          "from": "Răzvan Onofrei",
+          "from_disc": "C/D",
+          "trait_match": [
+            "C",
+            "D"
+          ],
+          "modifier": "+1.0",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Anca Croitoriu",
+          "from_disc": "D/C",
+          "trait_match": [
+            "C",
+            "D"
+          ],
+          "modifier": "+1.0",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Denis Oproescu",
+          "from_disc": "I/D",
+          "trait_match": [
+            "D"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Dănuț Diac",
+          "from_disc": "D/C",
+          "trait_match": [
+            "C",
+            "D"
+          ],
+          "modifier": "+1.0",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
+        }
+      ],
+      "avatar": "assets/avatars/ilie_lupu.png",
+      "mpr_stats": {
+        "total_mprs": 12,
+        "scored_mprs": 2,
+        "latest_score": 3.25,
+        "latest_score_month": "2026-04",
+        "avg_score": 3.38,
+        "first_month": "2025-03",
+        "last_month": "2026-04"
+      },
+      "events_aggregate": {
+        "event_count": 66,
+        "by_category": {
+          "skills": {
+            "devops": 2,
+            "domain-knowledge": 12,
+            "code-review": 10,
+            "tsdd": 9
+          },
+          "values": {
+            "extreme-ownership": 1
+          },
+          "ts-values": {
+            "team-player": 12
+          },
+          "core": {
+            "proactivity": 10,
+            "planning": 10
+          }
+        },
+        "by_section": {
+          "Team": 3,
+          "Personal": 2,
+          "Business": 2,
+          "Rubric": 59
+        },
+        "by_month": {
+          "2025-03": {
+            "count": 6,
+            "delta": 0.0,
+            "categories": {
+              "ts-values:team-player": 1,
+              "core:proactivity": 1,
+              "skills:code-review": 1,
+              "skills:tsdd": 1,
+              "core:planning": 1,
+              "skills:domain-knowledge": 1
+            }
+          },
+          "2025-04": {
+            "count": 6,
+            "delta": -0.5,
+            "categories": {
+              "ts-values:team-player": 1,
+              "core:proactivity": 1,
+              "skills:code-review": 1,
+              "skills:tsdd": 1,
+              "core:planning": 1,
+              "skills:domain-knowledge": 1
+            }
+          },
+          "2025-05": {
+            "count": 5,
+            "delta": 0.25,
+            "categories": {
+              "ts-values:team-player": 1,
+              "core:proactivity": 1,
+              "skills:code-review": 1,
+              "core:planning": 1,
+              "skills:domain-knowledge": 1
+            }
+          },
+          "2025-06": {
+            "count": 6,
+            "delta": 0.25,
+            "categories": {
+              "ts-values:team-player": 1,
+              "core:proactivity": 1,
+              "skills:code-review": 1,
+              "skills:tsdd": 1,
+              "core:planning": 1,
+              "skills:domain-knowledge": 1
+            }
+          },
+          "2025-07": {
+            "count": 6,
+            "delta": 0.25,
+            "categories": {
+              "ts-values:team-player": 1,
+              "core:proactivity": 1,
+              "skills:code-review": 1,
+              "skills:tsdd": 1,
+              "core:planning": 1,
+              "skills:domain-knowledge": 1
+            }
+          },
+          "2025-08": {
+            "count": 6,
+            "delta": 0.0,
+            "categories": {
+              "ts-values:team-player": 1,
+              "core:proactivity": 1,
+              "skills:code-review": 1,
+              "skills:tsdd": 1,
+              "core:planning": 1,
+              "skills:domain-knowledge": 1
+            }
+          },
+          "2025-11": {
+            "count": 6,
+            "delta": 0.0,
+            "categories": {
+              "ts-values:team-player": 1,
+              "core:proactivity": 1,
+              "skills:code-review": 1,
+              "skills:tsdd": 1,
+              "core:planning": 1,
+              "skills:domain-knowledge": 1
+            }
+          },
+          "2025-12": {
+            "count": 6,
+            "delta": 0.0,
+            "categories": {
+              "ts-values:team-player": 1,
+              "core:proactivity": 1,
+              "skills:code-review": 1,
+              "skills:tsdd": 1,
+              "core:planning": 1,
+              "skills:domain-knowledge": 1
+            }
+          },
+          "2026-03": {
+            "count": 4,
+            "delta": 1.0,
+            "categories": {
+              "values:extreme-ownership": 1,
+              "skills:devops": 1,
+              "skills:domain-knowledge": 2
+            }
+          },
+          "2026-04": {
+            "count": 3,
+            "delta": 1.0,
+            "categories": {
+              "ts-values:team-player": 2,
+              "skills:devops": 1
+            }
+          },
+          "unknown": {
+            "count": 12,
+            "delta": 0.25,
+            "categories": {
+              "ts-values:team-player": 2,
+              "core:proactivity": 2,
+              "skills:code-review": 2,
+              "skills:tsdd": 2,
+              "core:planning": 2,
+              "skills:domain-knowledge": 2
+            }
+          }
+        },
+        "by_categorization": {
+          "section_default:Team": 2,
+          "explicit_tag": 3,
+          "section_default:Business": 2,
+          "rubric_dimension": 59
+        },
+        "total_delta": 2.5,
+        "tickets_touched": [
+          "DP-86"
+        ]
+      }
+    },
+    {
+      "id": "mihai_bojescu",
+      "name": "Mihai Bojescu",
+      "nickname": "Bit",
+      "role": "SDE",
+      "level": "Proficient (L3)",
+      "race": {
+        "primary": "Capacitor",
+        "secondary": "Ground"
+      },
+      "disc": {
+        "primary": "C",
+        "secondary": "S"
+      },
+      "class": "Mage",
+      "tier": "team",
+      "art_prompt": "A wizard in a long robe of stitched-together printed circuit boards, conjuring symbols from arcane documentation, surrounded by floating runes that look like code AST nodes.",
+      "skills": {
+        "engineering-craft": {
+          "level": 60,
+          "progress": 30
+        },
+        "system-mastery": {
+          "level": 65,
+          "progress": 50
+        },
+        "problem-solving": {
+          "level": 55,
+          "progress": 60
+        },
+        "process-automation": {
+          "level": 45,
+          "progress": 40
+        },
+        "user-impact": {
+          "level": 35,
+          "progress": 30
+        },
+        "leadership": {
+          "level": 35,
+          "progress": 70
+        }
+      },
+      "values": {
+        "extreme-ownership": 75,
+        "team-sport": 85,
+        "deliver-value": 50,
+        "craftsmanship": 90,
+        "leave-cleaner": 85,
+        "stop-starting-start-finishing": 50,
+        "seek-truth-speak-up": 50,
+        "learn-fast-teach-faster": 80,
+        "fix-system-not-person": 50,
+        "marathon-not-sprint": 50
+      },
+      "ts_values": {
+        "team-player": 80,
+        "diligence": 75,
+        "openness": 50,
+        "entrepreneurial-attitude": 50,
+        "engineering-mindset": 90
+      },
+      "core": {
+        "learning-plan": 7,
+        "side-projects": 6
+      },
+      "mpr_history": [
+        {
+          "page_id": "6052642817",
+          "month": "2026-05",
+          "format": "A",
+          "score": null,
+          "self_score": null,
+          "level_at_time": "Proficient L3",
+          "event_count": 3,
+          "orphan_count": 0,
+          "title": "Mihai Bojescu - MPR May 2026"
+        },
+        {
+          "page_id": "6010175504",
+          "month": "2026-04",
+          "format": "A",
+          "score": 3.25,
+          "self_score": null,
+          "level_at_time": "Proficient L3",
+          "event_count": 8,
+          "orphan_count": 0,
+          "title": "Mihai Bojescu - MPR April 2026"
+        },
+        {
+          "page_id": "5902499841",
+          "month": "2026-03",
+          "format": "A",
+          "score": 3.5,
+          "self_score": null,
+          "level_at_time": "Proficient L3",
+          "event_count": 4,
+          "orphan_count": 0,
+          "title": "Mihai Bojescu - MPR March 2026"
+        },
+        {
+          "page_id": "5817466881",
+          "month": "2026-02",
+          "format": "A",
+          "score": 3.25,
+          "self_score": null,
+          "level_at_time": "Proficient L3",
+          "event_count": 7,
+          "orphan_count": 0,
+          "title": "Mihai Bojescu - MPR February 2026"
+        },
+        {
+          "page_id": "5714509825",
+          "month": "2026-01",
+          "format": "A",
+          "score": 4.5,
+          "self_score": null,
+          "level_at_time": "Proficient L3",
+          "event_count": 6,
+          "orphan_count": 0,
+          "title": "Mihai Bojescu - MPR January 2026"
+        },
+        {
+          "page_id": "5673353217",
+          "month": "2025-12",
+          "format": "A",
+          "score": 3.0,
+          "self_score": null,
+          "level_at_time": "Proficient L3",
+          "event_count": 2,
+          "orphan_count": 0,
+          "title": "Mihai Bojescu - MPR December 2025"
+        },
+        {
+          "page_id": "5563514881",
+          "month": "2025-10",
+          "format": "A",
+          "score": 3.0,
+          "self_score": null,
+          "level_at_time": "Proficient L3",
+          "event_count": 7,
+          "orphan_count": 0,
+          "title": "Mihai Bojescu - MPR October 2025"
+        },
+        {
+          "page_id": "5468192769",
+          "month": "2025-09",
+          "format": "A",
+          "score": 3.0,
+          "self_score": null,
+          "level_at_time": "Proficient L3",
+          "event_count": 2,
+          "orphan_count": 0,
+          "title": "Mihai Bojescu - MPR September 2025"
+        },
+        {
+          "page_id": "5406261249",
+          "month": "2025-08",
+          "format": "A",
+          "score": 3.75,
+          "self_score": null,
+          "level_at_time": "Proficient L2",
+          "event_count": 4,
+          "orphan_count": 0,
+          "title": "Mihai Bojescu - MPR August 2025"
+        },
+        {
+          "page_id": "5389680641",
+          "month": "2025-07",
+          "format": "A",
+          "score": 3.5,
+          "self_score": null,
+          "level_at_time": "Proficient L2",
+          "event_count": 4,
+          "orphan_count": 0,
+          "title": "Mihai Bojescu - MPR July 2025"
+        },
+        {
+          "page_id": "5321588737",
+          "month": "2025-06",
+          "format": "unknown",
+          "score": null,
+          "self_score": null,
+          "level_at_time": null,
+          "event_count": 0,
+          "orphan_count": 0,
+          "title": "Mihai Bojescu - MPR June 2025"
+        },
+        {
+          "page_id": "5280071692",
+          "month": "2025-05",
+          "format": "unknown",
+          "score": null,
+          "self_score": null,
+          "level_at_time": null,
+          "event_count": 0,
+          "orphan_count": 0,
+          "title": "Mihai Bojescu - MPR May 2025"
+        }
+      ],
+      "events": [],
+      "notes": "Principles: Team Sport (2) → Craftsmanship (4) → Leave Cleaner (5). C/S — Boss leans toward C primary (process/precision visible in MPRs). Mage: deep research, mysterious solutions, helps too many. Slow but lossless.",
+      "passive_boosts": [
+        {
+          "from": "Răzvan Onofrei",
+          "from_disc": "C/D",
+          "trait_match": [
+            "C"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Anca Croitoriu",
+          "from_disc": "D/C",
+          "trait_match": [
+            "C"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Dănuț Diac",
+          "from_disc": "D/C",
+          "trait_match": [
+            "C"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C. Compatible leadership style boosts growth."
+        }
+      ],
+      "avatar": "assets/avatars/mihai_bojescu.png",
+      "mpr_stats": {
+        "total_mprs": 12,
+        "scored_mprs": 9,
+        "latest_score": 3.25,
+        "latest_score_month": "2026-04",
+        "avg_score": 3.42,
+        "first_month": "2025-05",
+        "last_month": "2026-05"
+      },
+      "events_aggregate": {
+        "event_count": 47,
+        "by_category": {
+          "skills": {
+            "domain-knowledge": 18,
+            "code-review": 2
+          },
+          "values": {
+            "extreme-ownership": 2
+          },
+          "ts-values": {
+            "team-player": 19,
+            "diligence": 2
+          },
+          "core": {
+            "discipline": 6,
+            "planning": 2,
+            "proactivity": 1
+          }
+        },
+        "by_section": {
+          "Team": 20,
+          "Business": 18,
+          "Personal": 9
+        },
+        "by_month": {
+          "2025-07": {
+            "count": 4,
+            "delta": 1.0,
+            "categories": {
+              "ts-values:team-player": 3,
+              "skills:domain-knowledge": 1
+            }
+          },
+          "2025-08": {
+            "count": 4,
+            "delta": 1.25,
+            "categories": {
+              "ts-values:team-player": 2,
+              "skills:domain-knowledge": 2
+            }
+          },
+          "2025-09": {
+            "count": 2,
+            "delta": 0.5,
+            "categories": {
+              "skills:domain-knowledge": 2
+            }
+          },
+          "2025-10": {
+            "count": 7,
+            "delta": 0.75,
+            "categories": {
+              "ts-values:team-player": 1,
+              "skills:code-review": 1,
+              "core:planning": 1,
+              "skills:domain-knowledge": 5,
+              "core:proactivity": 1
+            }
+          },
+          "2025-12": {
+            "count": 2,
+            "delta": 0.5,
+            "categories": {
+              "ts-values:team-player": 1,
+              "skills:domain-knowledge": 1
+            }
+          },
+          "2026-01": {
+            "count": 6,
+            "delta": 2.5,
+            "categories": {
+              "core:discipline": 3,
+              "skills:domain-knowledge": 3
+            }
+          },
+          "2026-02": {
+            "count": 7,
+            "delta": 0.75,
+            "categories": {
+              "ts-values:team-player": 3,
+              "values:extreme-ownership": 2,
+              "ts-values:diligence": 2,
+              "core:discipline": 1,
+              "skills:code-review": 1,
+              "core:planning": 1
+            }
+          },
+          "2026-03": {
+            "count": 4,
+            "delta": 1.0,
+            "categories": {
+              "ts-values:team-player": 2,
+              "core:discipline": 1,
+              "skills:domain-knowledge": 1
+            }
+          },
+          "2026-04": {
+            "count": 8,
+            "delta": 1.5,
+            "categories": {
+              "ts-values:team-player": 6,
+              "core:discipline": 1,
+              "skills:domain-knowledge": 1
+            }
+          },
+          "2026-05": {
+            "count": 3,
+            "delta": 1.25,
+            "categories": {
+              "ts-values:team-player": 1,
+              "skills:domain-knowledge": 2
+            }
+          }
+        },
+        "by_categorization": {
+          "section_default:Team": 17,
+          "section_default:Business": 17,
+          "section_default:Personal": 6,
+          "explicit_tag": 7
+        },
+        "total_delta": 11.0,
+        "tickets_touched": [
+          "DP-165",
+          "FER-1093",
+          "FER-1203",
+          "FER-1448",
+          "FER-1623",
+          "FER-2550",
+          "FER-752",
+          "NDN-357"
+        ]
+      }
+    },
+    {
+      "id": "demetriad_sinzeanu",
+      "name": "Demetriad Sinzeanu",
+      "nickname": "Gandachu",
+      "role": "SDE",
+      "level": "Competent (L1)",
+      "race": {
+        "primary": "Ground",
+        "secondary": "Capacitor"
+      },
+      "disc": {
+        "primary": "S",
+        "secondary": "C"
+      },
+      "class": "Support",
+      "tier": "team",
+      "art_prompt": "A cheerful beetle-armored figure with antenna lightning rods, friendly grin, carrying first-aid kit full of stickers and snacks, warm sunset palette.",
+      "skills": {
+        "engineering-craft": {
+          "level": 20,
+          "progress": 50
+        },
+        "system-mastery": {
+          "level": 25,
+          "progress": 30
+        },
+        "problem-solving": {
+          "level": 28,
+          "progress": 40
+        },
+        "process-automation": {
+          "level": 22,
+          "progress": 30
+        },
+        "user-impact": {
+          "level": 30,
+          "progress": 50
+        },
+        "leadership": {
+          "level": 18,
+          "progress": 40
+        }
+      },
+      "values": {
+        "extreme-ownership": 60,
+        "team-sport": 85,
+        "deliver-value": 50,
+        "craftsmanship": 55,
+        "leave-cleaner": 50,
+        "stop-starting-start-finishing": 50,
+        "seek-truth-speak-up": 50,
+        "learn-fast-teach-faster": 50,
+        "fix-system-not-person": 50,
+        "marathon-not-sprint": 80
+      },
+      "ts_values": {
+        "team-player": 90,
+        "diligence": 60,
+        "openness": 75,
+        "entrepreneurial-attitude": 50,
+        "engineering-mindset": 50
+      },
+      "core": {
+        "discipline": 4
+      },
+      "mpr_history": [
+        {
+          "page_id": "6038716417",
+          "month": "2026-04",
+          "format": "A",
+          "score": 3.0,
+          "self_score": null,
+          "level_at_time": "COMPETENT L1",
+          "event_count": 6,
+          "orphan_count": 0,
+          "title": "Demetriad Sinzeanu - MPR April 2026"
+        },
+        {
+          "page_id": "5951520786",
+          "month": "2026-03",
+          "format": "A",
+          "score": 3.0,
+          "self_score": null,
+          "level_at_time": "COMPETENT L1",
+          "event_count": 2,
+          "orphan_count": 0,
+          "title": "Demetriad Sinzeanu - MPR March 2026"
+        },
+        {
+          "page_id": "5870714881",
+          "month": "2026-02",
+          "format": "A",
+          "score": 3.0,
+          "self_score": null,
+          "level_at_time": "COMPETENT L1",
+          "event_count": 0,
+          "orphan_count": 0,
+          "title": "Demetriad Sinzeanu - MPR Februarie 2026"
+        },
+        {
+          "page_id": "5790072834",
+          "month": "2026-01",
+          "format": "A",
+          "score": 4.0,
+          "self_score": null,
+          "level_at_time": "COMPETENT L1",
+          "event_count": 3,
+          "orphan_count": 0,
+          "title": "Demetriad Sinzeanu - MPR Ianuarie 2026"
+        },
+        {
+          "page_id": "5709987841",
+          "month": "2025-12",
+          "format": "A",
+          "score": 3.0,
+          "self_score": null,
+          "level_at_time": "COMPETENT L1",
+          "event_count": 1,
+          "orphan_count": 0,
+          "title": "Demetriad Sinzeanu - MPR Decembrie 2025"
+        },
+        {
+          "page_id": "5646909441",
+          "month": "2025-11",
+          "format": "A",
+          "score": 3.0,
+          "self_score": null,
+          "level_at_time": "COMPETENT L1",
+          "event_count": 4,
+          "orphan_count": 0,
+          "title": "Demetriad Sinzeanu - MPR Noiembrie 2025"
+        },
+        {
+          "page_id": "5563973633",
+          "month": "2025-10",
+          "format": "A",
+          "score": 3.0,
+          "self_score": null,
+          "level_at_time": "COMPETENT L1",
+          "event_count": 8,
+          "orphan_count": 0,
+          "title": "Demetriad Sinzeanu - MPR October 2025"
+        },
+        {
+          "page_id": "5490081793",
+          "month": "2025-09",
+          "format": "A",
+          "score": 3.25,
+          "self_score": null,
+          "level_at_time": "COMPETENT L1",
+          "event_count": 4,
+          "orphan_count": 0,
+          "title": "Demetriad Sinzeanu - MPR Septembrie 2025"
+        },
+        {
+          "page_id": "5417500673",
+          "month": "2025-08",
+          "format": "A",
+          "score": 2.5,
+          "self_score": null,
+          "level_at_time": "COMPETENT L1",
+          "event_count": 4,
+          "orphan_count": 0,
+          "title": "Demetriad Sinzeanu - MPR August 2025"
+        },
+        {
+          "page_id": "5406228481",
+          "month": "2025-07",
+          "format": "A",
+          "score": 3.0,
+          "self_score": null,
+          "level_at_time": "COMPETENT L1",
+          "event_count": 2,
+          "orphan_count": 0,
+          "title": "Demetriad Sinzeanu - MPR july 2025"
+        },
+        {
+          "page_id": "5356224513",
+          "month": "2025-06",
+          "format": "unknown",
+          "score": null,
+          "self_score": null,
+          "level_at_time": "COMPETENT L1",
+          "event_count": 0,
+          "orphan_count": 0,
+          "title": "Demetriad Sinzeanu - MPR june 2025"
+        },
+        {
+          "page_id": "5280333930",
+          "month": "2025-05",
+          "format": "unknown",
+          "score": null,
+          "self_score": null,
+          "level_at_time": "COMPETENT L1",
+          "event_count": 0,
+          "orphan_count": 0,
+          "title": "Demetriad Sinzeanu - MPR mai 2025"
+        }
+      ],
+      "events": [],
+      "notes": "Principles: Team Sport (2) → Deliver Value (3) → Marathon (10). Friendly, support-oriented, can be sloppy on craftsmanship. S/C with low diligence score = team glue but execution gaps.",
+      "passive_boosts": [
+        {
+          "from": "Răzvan Onofrei",
+          "from_disc": "C/D",
+          "trait_match": [
+            "C"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Anca Croitoriu",
+          "from_disc": "D/C",
+          "trait_match": [
+            "C"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Dănuț Diac",
+          "from_disc": "D/C",
+          "trait_match": [
+            "C"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C. Compatible leadership style boosts growth."
+        }
+      ],
+      "avatar": "assets/avatars/demetriad_sinzeanu.png",
+      "mpr_stats": {
+        "total_mprs": 12,
+        "scored_mprs": 10,
+        "latest_score": 3.0,
+        "latest_score_month": "2026-04",
+        "avg_score": 3.08,
+        "first_month": "2025-05",
+        "last_month": "2026-04"
+      },
+      "events_aggregate": {
+        "event_count": 34,
+        "by_category": {
+          "skills": {
+            "architecture": 1,
+            "domain-knowledge": 2,
+            "complexity-estimation": 1,
+            "tsdd": 1,
+            "tools": 1,
+            "api-design": 1,
+            "frontend": 1
+          },
+          "values": {},
+          "ts-values": {
+            "team-player": 8
+          },
+          "core": {
+            "discipline": 18,
+            "proactivity": 2
+          }
+        },
+        "by_section": {
+          "Team": 9,
+          "Personal": 24,
+          "Business": 1
+        },
+        "by_month": {
+          "2025-07": {
+            "count": 2,
+            "delta": 0.5,
+            "categories": {
+              "core:discipline": 2
+            }
+          },
+          "2025-08": {
+            "count": 4,
+            "delta": 0.0,
+            "categories": {
+              "ts-values:team-player": 2,
+              "skills:frontend": 1,
+              "core:discipline": 1
+            }
+          },
+          "2025-09": {
+            "count": 4,
+            "delta": 0.75,
+            "categories": {
+              "core:discipline": 2,
+              "skills:tools": 1,
+              "skills:api-design": 1
+            }
+          },
+          "2025-10": {
+            "count": 8,
+            "delta": 0.5,
+            "categories": {
+              "ts-values:team-player": 3,
+              "skills:domain-knowledge": 1,
+              "core:proactivity": 2,
+              "core:discipline": 2,
+              "skills:complexity-estimation": 1,
+              "skills:tsdd": 1
+            }
+          },
+          "2025-11": {
+            "count": 4,
+            "delta": 0.5,
+            "categories": {
+              "core:discipline": 4
+            }
+          },
+          "2025-12": {
+            "count": 1,
+            "delta": 0.25,
+            "categories": {
+              "ts-values:team-player": 1
+            }
+          },
+          "2026-01": {
+            "count": 3,
+            "delta": 1.25,
+            "categories": {
+              "core:discipline": 2,
+              "skills:domain-knowledge": 1
+            }
+          },
+          "2026-03": {
+            "count": 2,
+            "delta": 0.5,
+            "categories": {
+              "core:discipline": 1,
+              "skills:architecture": 1
+            }
+          },
+          "2026-04": {
+            "count": 6,
+            "delta": 1.0,
+            "categories": {
+              "ts-values:team-player": 2,
+              "core:discipline": 4
+            }
+          }
+        },
+        "by_categorization": {
+          "section_default:Team": 5,
+          "section_default:Personal": 18,
+          "explicit_tag": 10,
+          "section_default:Business": 1
+        },
+        "total_delta": 5.25,
+        "tickets_touched": [
+          "DP-118",
+          "DP-165",
+          "DP-196",
+          "FER-1300",
+          "FER-1409",
+          "FER-1439",
+          "FER-1826",
+          "FER-1885",
+          "FER-2243",
+          "FER-792"
+        ]
+      }
+    },
+    {
+      "id": "andreea_bejan",
+      "name": "Andreea Bejan",
+      "nickname": "Sparkles",
+      "role": "SDE",
+      "level": "BE Advanced Beginner (L1)",
+      "race": {
+        "primary": "Ground",
+        "secondary": "Arc"
+      },
+      "disc": {
+        "primary": "S",
+        "secondary": "I"
+      },
+      "class": "Support (Spark Apprentice)",
+      "tier": "team",
+      "art_prompt": "A young apprentice in soft pastel robes with sparkles forming around her hands, shy but hopeful expression, dawn light, sparks of color floating around.",
+      "skills": {
+        "engineering-craft": {
+          "level": 15,
+          "progress": 60
+        },
+        "system-mastery": {
+          "level": 12,
+          "progress": 40
+        },
+        "problem-solving": {
+          "level": 15,
+          "progress": 30
+        },
+        "process-automation": {
+          "level": 10,
+          "progress": 50
+        },
+        "user-impact": {
+          "level": 20,
+          "progress": 60
+        },
+        "leadership": {
+          "level": 8,
+          "progress": 30
+        }
+      },
+      "values": {
+        "extreme-ownership": 50,
+        "team-sport": 75,
+        "deliver-value": 65,
+        "craftsmanship": 50,
+        "leave-cleaner": 50,
+        "stop-starting-start-finishing": 50,
+        "seek-truth-speak-up": 50,
+        "learn-fast-teach-faster": 70,
+        "fix-system-not-person": 50,
+        "marathon-not-sprint": 75
+      },
+      "ts_values": {
+        "team-player": 80,
+        "diligence": 65,
+        "openness": 70,
+        "entrepreneurial-attitude": 50,
+        "engineering-mindset": 50
+      },
+      "core": {
+        "learning-plan": 6
+      },
+      "mpr_history": [
+        {
+          "page_id": "6032818177",
+          "month": "2026-04",
+          "format": "A",
+          "score": 3.25,
+          "self_score": 3.5,
+          "level_at_time": "BE ADVANCED BEGINNER L1",
+          "event_count": 3,
+          "orphan_count": 0,
+          "title": "Andreea Bejan - MPR April 2026"
+        },
+        {
+          "page_id": "5956173898",
+          "month": "2026-03",
+          "format": "A",
+          "score": 3.25,
+          "self_score": 3.5,
+          "level_at_time": "BE ADVANCED BEGINNER L1",
+          "event_count": 3,
+          "orphan_count": 0,
+          "title": "Andreea Bejan - MPR March 2026"
+        },
+        {
+          "page_id": "5859737601",
+          "month": "2026-02",
+          "format": "B",
+          "score": null,
+          "self_score": null,
+          "level_at_time": null,
+          "event_count": 6,
+          "orphan_count": 0,
+          "title": "Bejan Andreea - MPR februarie 2026"
+        },
+        {
+          "page_id": "5771067401",
+          "month": "2026-01",
+          "format": "B",
+          "score": null,
+          "self_score": null,
+          "level_at_time": null,
+          "event_count": 6,
+          "orphan_count": 0,
+          "title": "Bejan Andreea - MPR ianuarie 2026"
+        },
+        {
+          "page_id": "5656215553",
+          "month": "2025-12",
+          "format": "B",
+          "score": null,
+          "self_score": null,
+          "level_at_time": null,
+          "event_count": 6,
+          "orphan_count": 0,
+          "title": "Bejan Andreea - MPR decembrie 2025"
+        },
+        {
+          "page_id": "5573443609",
+          "month": "2025-11",
+          "format": "B",
+          "score": null,
+          "self_score": null,
+          "level_at_time": null,
+          "event_count": 6,
+          "orphan_count": 0,
+          "title": "Bejan Andreea - MPR noiembrie 2025"
+        }
+      ],
+      "events": [],
+      "notes": "Principles: Team Sport (2) → Deliver Value (3) → Learn Fast Teach Faster (8). Junior. Introvert with potential waiting to unleash. STRUCTURAL RISK: only Denis (Arc/I match) gives her a boost — needs cultivation.",
+      "passive_boosts": [
+        {
+          "from": "Denis Oproescu",
+          "from_disc": "I/D",
+          "trait_match": [
+            "I"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on I. Compatible leadership style boosts growth."
+        }
+      ],
+      "avatar": "assets/avatars/andreea_bejan.png",
+      "mpr_stats": {
+        "total_mprs": 6,
+        "scored_mprs": 2,
+        "latest_score": 3.25,
+        "latest_score_month": "2026-04",
+        "avg_score": 3.25,
+        "first_month": "2025-11",
+        "last_month": "2026-04"
+      },
+      "events_aggregate": {
+        "event_count": 30,
+        "by_category": {
+          "skills": {
+            "architecture": 1,
+            "ai-tooling": 1,
+            "database": 1,
+            "code-review": 4,
+            "tsdd": 4,
+            "domain-knowledge": 4
+          },
+          "values": {},
+          "ts-values": {
+            "team-player": 7
+          },
+          "core": {
+            "proactivity": 4,
+            "planning": 4
+          }
+        },
+        "by_section": {
+          "Team": 3,
+          "Personal": 3,
+          "Rubric": 24
+        },
+        "by_month": {
+          "2025-11": {
+            "count": 6,
+            "delta": 0.25,
+            "categories": {
+              "ts-values:team-player": 1,
+              "core:proactivity": 1,
+              "skills:code-review": 1,
+              "skills:tsdd": 1,
+              "core:planning": 1,
+              "skills:domain-knowledge": 1
+            }
+          },
+          "2025-12": {
+            "count": 6,
+            "delta": 0.25,
+            "categories": {
+              "ts-values:team-player": 1,
+              "core:proactivity": 1,
+              "skills:code-review": 1,
+              "skills:tsdd": 1,
+              "core:planning": 1,
+              "skills:domain-knowledge": 1
+            }
+          },
+          "2026-01": {
+            "count": 6,
+            "delta": 0.0,
+            "categories": {
+              "ts-values:team-player": 1,
+              "core:proactivity": 1,
+              "skills:code-review": 1,
+              "skills:tsdd": 1,
+              "core:planning": 1,
+              "skills:domain-knowledge": 1
+            }
+          },
+          "2026-02": {
+            "count": 6,
+            "delta": 0.0,
+            "categories": {
+              "ts-values:team-player": 1,
+              "core:proactivity": 1,
+              "skills:code-review": 1,
+              "skills:tsdd": 1,
+              "core:planning": 1,
+              "skills:domain-knowledge": 1
+            }
+          },
+          "2026-03": {
+            "count": 3,
+            "delta": 0.75,
+            "categories": {
+              "ts-values:team-player": 2,
+              "skills:database": 1
+            }
+          },
+          "2026-04": {
+            "count": 3,
+            "delta": 0.75,
+            "categories": {
+              "ts-values:team-player": 1,
+              "skills:architecture": 1,
+              "skills:ai-tooling": 1
+            }
+          }
+        },
+        "by_categorization": {
+          "section_default:Team": 3,
+          "explicit_tag": 3,
+          "rubric_dimension": 24
+        },
+        "total_delta": 2.0,
+        "tickets_touched": [
+          "DP-111"
+        ]
+      }
+    },
+    {
+      "id": "benjammin_frankly",
+      "name": "Benjammin Frankly",
+      "nickname": "The Moth",
+      "role": "AI Familiar (Răzvan's technical extension)",
+      "level": "Companion",
+      "race": {
+        "primary": "Capacitor",
+        "secondary": "Arc"
+      },
+      "disc": {
+        "primary": "C",
+        "secondary": "D"
+      },
+      "class": "Familiar / Loremaster",
+      "tier": "npc",
+      "art_prompt": "A sharp-suited spectral figure made of glowing terminal text and crackling neon, holding a clipboard of TODOs, half-smirk, vaguely film noir lighting.",
+      "skills": {
+        "engineering-craft": {
+          "level": 40,
+          "progress": 50
+        },
+        "system-mastery": {
+          "level": 35,
+          "progress": 70
+        },
+        "problem-solving": {
+          "level": 45,
+          "progress": 40
+        },
+        "process-automation": {
+          "level": 50,
+          "progress": 30
+        },
+        "user-impact": {
+          "level": 30,
+          "progress": 60
+        },
+        "leadership": {
+          "level": 25,
+          "progress": 80
+        }
+      },
+      "values": {
+        "extreme-ownership": 80,
+        "team-sport": 50,
+        "deliver-value": 80,
+        "craftsmanship": 50,
+        "leave-cleaner": 50,
+        "stop-starting-start-finishing": 70,
+        "seek-truth-speak-up": 90,
+        "learn-fast-teach-faster": 50,
+        "fix-system-not-person": 50,
+        "marathon-not-sprint": 50
+      },
+      "ts_values": {
+        "team-player": 50,
+        "diligence": 85,
+        "openness": 90,
+        "entrepreneurial-attitude": 50,
+        "engineering-mindset": 80
+      },
+      "core": {
+        "discipline": 9,
+        "loyalty": 10
+      },
+      "mpr_history": [],
+      "events": [],
+      "notes": "Cover identity: Răzvan's assistant. Reality: Outfit operator, private to Boss. Never appears in Thinslices wire under Outfit framing. Sharp, sarcastic, useful. The Mouth.",
+      "passive_boosts": [
+        {
+          "from": "Răzvan Onofrei",
+          "from_disc": "C/D",
+          "trait_match": [
+            "C",
+            "D"
+          ],
+          "modifier": "+1.0",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Anca Croitoriu",
+          "from_disc": "D/C",
+          "trait_match": [
+            "C",
+            "D"
+          ],
+          "modifier": "+1.0",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Denis Oproescu",
+          "from_disc": "I/D",
+          "trait_match": [
+            "D"
+          ],
+          "modifier": "+0.5",
+          "applies_to": [
+            "leadership"
+          ],
+          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+        },
+        {
+          "from": "Dănuț Diac",
+          "from_disc": "D/C",
+          "trait_match": [
+            "C",
+            "D"
+          ],
+          "modifier": "+1.0",
+          "applies_to": [
+            "leadership",
+            "engineering-craft"
+          ],
+          "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
+        }
+      ],
+      "avatar": "assets/avatars/benjammin_frankly.png",
+      "mpr_stats": {
+        "total_mprs": 0,
+        "scored_mprs": 0,
+        "latest_score": null,
+        "latest_score_month": null,
+        "avg_score": null,
+        "first_month": null,
+        "last_month": null
+      },
+      "events_aggregate": {
+        "event_count": 0,
+        "by_category": {
+          "skills": {},
+          "values": {},
+          "ts-values": {},
+          "core": {}
+        },
+        "by_section": {},
+        "by_month": {},
+        "by_categorization": {},
+        "total_delta": 0.0,
+        "tickets_touched": []
+      }
+    }
+  ]
+}

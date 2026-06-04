@@ -1,521 +1,650 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DSA Portal — Team RPG</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>DSA Portal · Team Ledger</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
   :root {
-    --bg: #0a0e1a;
-    --bg-card: #141a2e;
-    --bg-card-hover: #1a2240;
-    --border: #2a3458;
-    --volt-cyan: #00d9ff;
-    --volt-yellow: #ffd700;
-    --volt-purple: #b14aff;
-    --volt-green: #4ade80;
-    --volt-red: #f87171;
-    --text: #e8edff;
-    --text-dim: #8a94b8;
-    --text-faint: #5a648a;
+    --bg:           #0e0e10;
+    --bg-elev:      #131316;
+    --bg-overlay:   rgba(14,14,16,0.94);
+    --rule:         #25252a;
+    --rule-soft:    #1c1c20;
+    --text:         #e8e6e1;
+    --text-mid:     #a8a59d;
+    --text-dim:     #6b6962;
+    --text-faint:   #4a4844;
+    --accent:       #d4a574;        /* warm amber, used sparingly */
+    --accent-soft:  #8a7456;
+    --link:         #c8c4bc;
+    --neg:          #b3604a;
+    --pos:          #7b9a6f;
+    --maxw:         1180px;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
-    background: var(--bg);
-    background-image:
-      radial-gradient(circle at 20% 10%, rgba(0,217,255,0.08) 0%, transparent 40%),
-      radial-gradient(circle at 80% 80%, rgba(177,74,255,0.06) 0%, transparent 40%);
-    color: var(--text);
-    min-height: 100vh;
-    padding: 20px;
-    line-height: 1.5;
-  }
-  header {
-    max-width: 1400px;
-    margin: 0 auto 40px;
-    padding: 30px 20px;
-    border-bottom: 1px solid var(--border);
-  }
-  h1 {
-    font-size: 2.5em;
-    color: var(--volt-cyan);
-    text-shadow: 0 0 20px rgba(0,217,255,0.4);
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-  }
-  h1 span { color: var(--volt-yellow); }
-  .subtitle {
-    color: var(--text-dim);
-    font-size: 0.95em;
-  }
-  .legend {
-    margin-top: 20px;
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-    font-size: 0.85em;
-    color: var(--text-dim);
-  }
-  .legend-item { display: flex; gap: 8px; align-items: center; }
-  .race-dot {
-    width: 10px; height: 10px; border-radius: 50%;
-    box-shadow: 0 0 8px currentColor;
-  }
-  .race-Surge { color: var(--volt-yellow); background: var(--volt-yellow); }
-  .race-Arc { color: var(--volt-purple); background: var(--volt-purple); }
-  .race-Ground { color: var(--volt-green); background: var(--volt-green); }
-  .race-Capacitor { color: var(--volt-cyan); background: var(--volt-cyan); }
 
-  .filters {
-    max-width: 1400px;
-    margin: 0 auto 30px;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  .container { max-width: var(--maxw); margin: 0 auto; padding: 0 32px; }
+
+  /* ---------- Masthead ---------- */
+  .masthead { border-bottom: 1px solid var(--rule); padding: 36px 0 28px; }
+  .masthead .container { display: flex; align-items: baseline; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+  .brand { font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: 22px; letter-spacing: -0.01em; }
+  .brand span { color: var(--text-dim); font-style: italic; font-weight: 400; }
+  .meta-line {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* ---------- Lede ---------- */
+  .lede { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .lede h1 {
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 500;
+    font-size: 56px;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    max-width: 820px;
+    margin-bottom: 24px;
+  }
+  .lede h1 em { color: var(--accent); font-style: italic; font-weight: 400; }
+  .lede p {
+    color: var(--text-mid);
+    max-width: 640px;
+    font-size: 17px;
+    line-height: 1.65;
+  }
+  .lede .byline {
+    margin-top: 32px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ---------- Filter strip ---------- */
+  .filters { padding: 28px 0 24px; border-bottom: 1px solid var(--rule); position: sticky; top: 0; background: var(--bg); z-index: 50; }
+  .filters .container { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+  .filter-group { display: flex; gap: 4px; align-items: center; }
+  .filter-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-right: 8px;
   }
   .filter-btn {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    color: var(--text);
-    padding: 8px 16px;
-    border-radius: 4px;
+    background: none;
+    border: none;
+    color: var(--text-mid);
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    padding: 6px 10px;
     cursor: pointer;
-    font-family: inherit;
-    font-size: 0.85em;
-    transition: all 0.15s;
+    border-radius: 2px;
+    transition: color 120ms ease, background 120ms ease;
   }
-  .filter-btn:hover { border-color: var(--volt-cyan); }
-  .filter-btn.active {
-    background: var(--volt-cyan);
-    color: var(--bg);
-    border-color: var(--volt-cyan);
+  .filter-btn:hover { color: var(--text); }
+  .filter-btn.active { color: var(--bg); background: var(--text); font-weight: 500; }
+  .filter-sep { width: 1px; height: 16px; background: var(--rule); }
+
+  /* ---------- Section header ---------- */
+  .section-header { padding: 56px 0 24px; }
+  .section-header h2 {
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 12px;
   }
 
+  /* ---------- Roster grid ---------- */
+  .roster { padding-bottom: 80px; }
   .grid {
-    max-width: 1400px;
-    margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
   }
-
   .card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 20px;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.2s;
+    background: var(--bg);
+    padding: 28px 24px 24px;
     cursor: pointer;
+    transition: background 140ms ease;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    min-height: 320px;
   }
-  .card:hover {
-    background: var(--bg-card-hover);
-    border-color: var(--volt-cyan);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(0,217,255,0.15);
-  }
+  .card:hover { background: var(--bg-elev); }
+
+  .card-head { display: flex; gap: 16px; align-items: flex-start; }
   .avatar {
     width: 56px; height: 56px;
     border-radius: 50%;
-    border: 2px solid var(--race-color, var(--volt-cyan));
-    box-shadow: 0 0 12px var(--race-color, var(--volt-cyan));
+    background: var(--bg-elev);
+    border: 1px solid var(--rule);
     object-fit: cover;
-    background: var(--bg);
     flex-shrink: 0;
   }
   .avatar-fallback {
-    width: 56px; height: 56px;
-    border-radius: 50%;
-    border: 2px dashed var(--race-color, var(--volt-cyan));
-    background: var(--bg);
     display: flex; align-items: center; justify-content: center;
-    font-size: 1.1em; font-weight: bold;
-    color: var(--race-color, var(--volt-cyan));
-    flex-shrink: 0;
-  }
-  .card-header-left { display: flex; gap: 14px; align-items: center; }
-  .modal-avatar {
-    width: 96px; height: 96px;
-    border-radius: 50%;
-    border: 3px solid var(--volt-cyan);
-    box-shadow: 0 0 18px rgba(0,217,255,0.5);
-    object-fit: cover;
-    float: left;
-    margin: 0 16px 8px 0;
-  }
-  .modal-avatar-fallback {
-    width: 96px; height: 96px;
-    border-radius: 50%;
-    border: 3px dashed var(--volt-cyan);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 2em; font-weight: bold;
-    color: var(--volt-cyan);
-    float: left;
-    margin: 0 16px 8px 0;
-  }
-  .card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--race-color, var(--volt-cyan));
-    box-shadow: 0 0 12px var(--race-color, var(--volt-cyan));
-  }
-
-  .card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 12px;
-    gap: 12px;
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 22px;
+    color: var(--text-dim);
   }
   .card-name {
-    font-size: 1.2em;
-    color: var(--text);
-    font-weight: 600;
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
   }
   .card-nick {
-    color: var(--text-dim);
-    font-size: 0.85em;
+    font-family: 'Newsreader', Georgia, serif;
     font-style: italic;
+    color: var(--text-mid);
+    font-size: 14px;
+    margin-top: 2px;
   }
-  .card-class {
-    text-align: right;
-    font-size: 0.85em;
-  }
-  .card-class .class-name {
-    color: var(--volt-yellow);
-    font-weight: 600;
-  }
-  .card-class .race-tag {
+  .card-role {
+    font-size: 12px;
     color: var(--text-dim);
-    font-size: 0.8em;
+    margin-top: 4px;
   }
 
-  .card-meta {
+  .tag-row {
     display: flex;
-    gap: 8px;
     flex-wrap: wrap;
-    margin-bottom: 16px;
-    font-size: 0.75em;
+    gap: 6px;
   }
-  .pill {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 2px 10px;
+  .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.06em;
     color: var(--text-dim);
+    text-transform: uppercase;
+    padding: 3px 7px;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
   }
-  .pill.tier-leadership { border-color: var(--volt-yellow); color: var(--volt-yellow); }
-  .pill.tier-npc { border-color: var(--volt-purple); color: var(--volt-purple); }
-  .pill.disc { font-family: inherit; font-weight: 600; color: var(--volt-cyan); border-color: var(--volt-cyan); }
+  .tag.race-Surge     { color: #d4a574; border-color: rgba(212,165,116,0.3); }
+  .tag.race-Arc       { color: #c8a08e; border-color: rgba(200,160,142,0.3); }
+  .tag.race-Ground    { color: #94a884; border-color: rgba(148,168,132,0.3); }
+  .tag.race-Capacitor { color: #8a9bb4; border-color: rgba(138,155,180,0.3); }
 
-  .chart-container {
-    height: 240px;
-    margin: 8px 0 16px;
-    position: relative;
-  }
-
-  .stats-row {
+  .stat-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-top: 12px;
-    font-size: 0.78em;
+    gap: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--rule-soft);
   }
-  .stat-block h4 {
-    color: var(--text-faint);
-    font-size: 0.7em;
+  .stat-block .stat-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
-  .stat-row {
+  .stat-block .stat-value {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1;
+  }
+  .stat-block .stat-value .unit {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-dim);
+    margin-left: 4px;
+  }
+  .stat-block .stat-sub {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 4px;
+  }
+
+  .card-foot {
+    margin-top: auto;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding-top: 14px;
+    border-top: 1px solid var(--rule-soft);
+  }
+  .card-foot .level-stamp {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
     color: var(--text-dim);
-    padding: 2px 0;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
-  .stat-row .v { color: var(--text); }
-  .stat-row .v.high { color: var(--volt-green); }
-  .stat-row .v.mid { color: var(--volt-yellow); }
-  .stat-row .v.low { color: var(--volt-red); }
-
-  .boosts {
-    margin-top: 14px;
-    padding-top: 12px;
-    border-top: 1px dashed var(--border);
-    font-size: 0.72em;
-    color: var(--text-faint);
-  }
-  .boosts strong { color: var(--text-dim); }
-  .boost-item {
-    display: inline-block;
-    background: rgba(0,217,255,0.08);
-    border: 1px solid rgba(0,217,255,0.2);
-    padding: 1px 6px;
-    border-radius: 3px;
-    margin: 2px;
-    color: var(--volt-cyan);
-  }
-
-  .notes {
-    margin-top: 14px;
-    padding-top: 12px;
-    border-top: 1px dashed var(--border);
-    font-size: 0.78em;
-    color: var(--text-dim);
-    line-height: 1.5;
+  .card-foot .read-more {
+    font-family: 'Newsreader', Georgia, serif;
     font-style: italic;
+    font-size: 13px;
+    color: var(--accent);
   }
 
-  footer {
-    max-width: 1400px;
-    margin: 60px auto 20px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border);
-    text-align: center;
-    color: var(--text-faint);
-    font-size: 0.85em;
-  }
-  footer a { color: var(--volt-cyan); text-decoration: none; }
-  footer a:hover { text-decoration: underline; }
-
-  /* Modal */
-  .modal {
-    display: none;
+  /* ---------- Drilldown overlay (article) ---------- */
+  .reader {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.85);
-    z-index: 100;
+    background: var(--bg-overlay);
+    backdrop-filter: blur(6px);
     overflow-y: auto;
-    padding: 40px 20px;
+    z-index: 100;
+    display: none;
   }
-  .modal.open { display: block; }
-  .modal-content {
-    max-width: 800px;
+  .reader.open { display: block; }
+  .reader-inner {
+    max-width: 880px;
     margin: 0 auto;
-    background: var(--bg-card);
-    border: 1px solid var(--volt-cyan);
-    border-radius: 8px;
-    padding: 30px;
-    position: relative;
+    padding: 56px 48px 96px;
+    background: var(--bg);
+    min-height: 100vh;
+    border-left: 1px solid var(--rule);
+    border-right: 1px solid var(--rule);
   }
-  .modal-close {
-    position: absolute;
-    top: 12px; right: 16px;
-    background: none;
-    border: none;
-    color: var(--text-dim);
-    font-size: 1.5em;
-    cursor: pointer;
-  }
-  .modal-close:hover { color: var(--volt-red); }
-  .modal h2 { color: var(--volt-cyan); margin-bottom: 8px; }
-  .modal h3 {
-    color: var(--volt-yellow);
-    margin: 20px 0 8px;
-    font-size: 0.95em;
+  .reader-close {
+    position: fixed;
+    top: 24px;
+    right: 32px;
+    background: var(--bg-elev);
+    border: 1px solid var(--rule);
+    color: var(--text-mid);
+    padding: 8px 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 2px;
+    z-index: 102;
   }
-  .modal pre {
-    background: #050810;
-    padding: 16px;
-    border-radius: 4px;
-    overflow-x: auto;
-    font-size: 0.8em;
-    color: var(--text-dim);
-    border: 1px solid var(--border);
-  }
-  .mpr-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.85em;
-  }
-  .mpr-table th, .mpr-table td {
-    text-align: left;
-    padding: 8px;
-    border-bottom: 1px solid var(--border);
-  }
-  .mpr-table th { color: var(--text-faint); font-weight: normal; text-transform: uppercase; font-size: 0.75em; }
+  .reader-close:hover { color: var(--text); border-color: var(--text-mid); }
 
-  @media (max-width: 600px) {
-    h1 { font-size: 1.6em; }
-    .grid { grid-template-columns: 1fr; }
-    .modal-content { padding: 20px; }
+  .article-head {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 24px;
+    align-items: flex-start;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 36px;
   }
+  .article-head .avatar { width: 96px; height: 96px; }
+  .article-head h1 {
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+  }
+  .article-head .article-nick {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    color: var(--accent);
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+  .article-head .meta-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  .article-section { margin-bottom: 48px; }
+  .article-section h3 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+
+  .pull-quote {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    font-size: 19px;
+    line-height: 1.5;
+    color: var(--text-mid);
+    border-left: 2px solid var(--accent-soft);
+    padding: 4px 0 4px 20px;
+    margin: 24px 0;
+  }
+
+  .data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .data-table th, .data-table td {
+    padding: 9px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .data-table th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    font-weight: 500;
+    border-bottom: 1px solid var(--rule);
+  }
+  .data-table td.num { font-family: 'JetBrains Mono', monospace; text-align: right; color: var(--text); }
+  .data-table td.k   { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-mid); }
+  .data-table tr:hover td { background: var(--bg-elev); }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  @media (max-width: 720px) {
+    .two-col { grid-template-columns: 1fr; }
+    .lede h1 { font-size: 40px; }
+    .article-head { grid-template-columns: 64px 1fr; }
+    .article-head .avatar { width: 64px; height: 64px; }
+    .article-head h1 { font-size: 28px; }
+    .reader-inner { padding: 40px 24px 80px; }
+  }
+
+  .bar-pair { display: grid; grid-template-columns: 1fr 56px; gap: 14px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--rule-soft); }
+  .bar-pair:last-child { border-bottom: none; }
+  .bar-pair .k {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-mid);
+    letter-spacing: 0.04em;
+  }
+  .bar-pair .bar-track {
+    height: 3px;
+    background: var(--rule-soft);
+    position: relative;
+    margin-top: 6px;
+  }
+  .bar-pair .bar-fill {
+    position: absolute;
+    inset: 0;
+    background: var(--text-mid);
+    transform-origin: left;
+  }
+  .bar-pair .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    text-align: right;
+    color: var(--text);
+  }
+
+  .radar-mini { width: 100%; height: 180px; }
+  .radar-full { width: 100%; height: 340px; }
+
+  .art-prompt {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    color: var(--text-mid);
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 16px 20px;
+    background: var(--bg-elev);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+  }
+
+  .delta-pos { color: var(--pos); }
+  .delta-neg { color: var(--neg); }
+
+  /* ---------- Footer ---------- */
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 32px 0 64px;
+    margin-top: 80px;
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+  footer .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  footer a { color: var(--link); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  footer a:hover { color: var(--text); border-color: var(--text-mid); }
+
+  /* loading / error states */
+  .loading, .err {
+    padding: 96px 0;
+    text-align: center;
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    color: var(--text-dim);
+  }
+  .err { color: var(--neg); }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 0; }
+  ::-webkit-scrollbar-thumb:hover { background: #3a3a40; }
 </style>
 </head>
 <body>
 
-<header>
-  <h1>⚡ DSA Portal <span>Team RPG</span></h1>
-  <div class="subtitle">Volt universe · Currents flowing through the system · MPR-driven character sheets</div>
-  <div class="legend">
-    <div class="legend-item"><span class="race-dot race-Surge"></span> Surge (D · Lightning)</div>
-    <div class="legend-item"><span class="race-dot race-Arc"></span> Arc (I · Electric arc)</div>
-    <div class="legend-item"><span class="race-dot race-Ground"></span> Ground (S · Earth wire)</div>
-    <div class="legend-item"><span class="race-dot race-Capacitor"></span> Capacitor (C · Stored charge)</div>
+<header class="masthead">
+  <div class="container">
+    <div class="brand">DSA Portal <span>— team ledger</span></div>
+    <div class="meta-line" id="masthead-meta">Loading…</div>
   </div>
 </header>
 
-<div class="filters" id="filters">
-  <button class="filter-btn active" data-filter="all">All</button>
-  <button class="filter-btn" data-filter="leadership">Leadership</button>
-  <button class="filter-btn" data-filter="team">Team</button>
-  <button class="filter-btn" data-filter="npc">NPC</button>
-  <button class="filter-btn" data-filter="Surge">Surge</button>
-  <button class="filter-btn" data-filter="Arc">Arc</button>
-  <button class="filter-btn" data-filter="Ground">Ground</button>
-  <button class="filter-btn" data-filter="Capacitor">Capacitor</button>
-</div>
-
-<div class="grid" id="grid"></div>
-
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <button class="modal-close" onclick="closeModal()">×</button>
-    <div id="modal-body"></div>
+<section class="lede">
+  <div class="container">
+    <h1>Eleven elephants on the line. <em>One ledger to read them by.</em></h1>
+    <p>A continuous, evidence-anchored record of the DSA Portal team — parsed from Monthly Performance Reviews and rendered as character sheets. Skills compound. Values align. Sections speak. Tags categorize. Nothing is decorative.</p>
+    <div class="byline">Compiled by Benjammin · Sourced from MPR corpus · Updated continuously</div>
   </div>
+</section>
+
+<nav class="filters">
+  <div class="container">
+    <div class="filter-group">
+      <span class="filter-label">Tier</span>
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="leadership">Leadership</button>
+      <button class="filter-btn" data-filter="team">Team</button>
+      <button class="filter-btn" data-filter="npc">NPC</button>
+    </div>
+    <div class="filter-sep"></div>
+    <div class="filter-group">
+      <span class="filter-label">Race</span>
+      <button class="filter-btn" data-filter="Surge">Surge</button>
+      <button class="filter-btn" data-filter="Arc">Arc</button>
+      <button class="filter-btn" data-filter="Ground">Ground</button>
+      <button class="filter-btn" data-filter="Capacitor">Capacitor</button>
+    </div>
+  </div>
+</nav>
+
+<section class="roster">
+  <div class="container">
+    <div class="section-header">
+      <h2 id="section-title">The Roster</h2>
+    </div>
+    <div id="grid" class="grid">
+      <div class="loading">Reading the corpus…</div>
+    </div>
+  </div>
+</section>
+
+<div class="reader" id="reader">
+  <button class="reader-close" onclick="closeReader()">Close · Esc</button>
+  <div class="reader-inner" id="reader-body"></div>
 </div>
 
 <footer>
-  Data: <code>team.json</code> · Schema: <a href="schema.md">schema.md</a> ·
-  Source: <a href="https://github.com/razvan-thinslices/dsa-team-rpg" target="_blank">razvan-thinslices/dsa-team-rpg</a>
+  <div class="container">
+    <div>DSA Portal Team Ledger · v0.2 (lean editorial)</div>
+    <div>
+      <a href="https://github.com/" target="_blank">source</a> ·
+      <a href="schema.md">schema</a> ·
+      <a href="OPERATIONS.md">operations</a>
+    </div>
+  </div>
 </footer>
 
 <script>
-const RACE_COLORS = {
-  Surge: '#ffd700',
-  Arc: '#b14aff',
-  Ground: '#4ade80',
-  Capacitor: '#00d9ff'
+let DATA = null;
+const radarCharts = {};
+
+const TIER_ORDER = { leadership: 0, team: 1, npc: 2 };
+const VALUE_LABELS = {
+  'extreme-ownership': 'Extreme Ownership',
+  'team-sport': 'Team Sport',
+  'deliver-value': 'Deliver Value',
+  'craftsmanship': 'Craftsmanship',
+  'leave-cleaner': 'Leave Cleaner',
+  'stop-starting-start-finishing': 'Finish, Don\u2019t Start',
+  'seek-truth-speak-up': 'Seek Truth',
+  'learn-fast-teach-faster': 'Learn / Teach',
+  'fix-system-not-person': 'Fix the System',
+  'marathon-not-sprint': 'Marathon'
+};
+const TS_LABELS = {
+  'team-player': 'Team Player',
+  'diligence': 'Diligence',
+  'openness': 'Openness',
+  'entrepreneurial-attitude': 'Entrepreneurial',
+  'engineering-mindset': 'Engineering Mind'
 };
 
-let TEAM = null;
-let CHARTS = {};
-
-function classifyValue(v) {
-  if (v >= 70) return 'high';
-  if (v >= 40) return 'mid';
-  return 'low';
+function fmtScore(n) {
+  if (n == null || isNaN(n)) return '—';
+  return Number(n).toFixed(2);
 }
-
+function fmtDelta(n) {
+  if (n == null || isNaN(n)) return '';
+  const v = Number(n);
+  const cls = v > 0 ? 'delta-pos' : v < 0 ? 'delta-neg' : '';
+  const sign = v > 0 ? '+' : '';
+  return `<span class="${cls}">${sign}${v.toFixed(2)}</span>`;
+}
 function initials(name) {
-  return name.split(/\s+/).map(w => w[0]).join('').slice(0, 2).toUpperCase();
+  return name.split(/\s+/).map(p => p[0]).slice(0,2).join('').toUpperCase();
 }
-
-function avatarTag(c, size) {
-  const cls = size === 'modal' ? 'modal-avatar' : 'avatar';
-  const fbCls = size === 'modal' ? 'modal-avatar-fallback' : 'avatar-fallback';
+function avatarTag(c, cls = '') {
   if (c.avatar) {
-    return `<img class="${cls}" src="${c.avatar}" alt="${c.name}" onerror="this.outerHTML='<div class=\\'${fbCls}\\'>${initials(c.name)}</div>'">`;
+    return `<img class="avatar ${cls}" src="${c.avatar}" alt="${c.name}"
+              onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'avatar avatar-fallback ${cls}',textContent:'${initials(c.name)}'}))">`;
   }
-  return `<div class="${fbCls}">${initials(c.name)}</div>`;
+  return `<div class="avatar avatar-fallback ${cls}">${initials(c.name)}</div>`;
 }
 
 function renderCard(c) {
-  const race = c.race.primary;
-  const color = RACE_COLORS[race];
-  const tierPill = c.tier === 'leadership' ? 'tier-leadership' : (c.tier === 'npc' ? 'tier-npc' : '');
-
-  const skillRows = Object.entries(c.skills).map(([k, v]) =>
-    `<div class="stat-row"><span>${k}</span><span class="v ${classifyValue(v.level)}">L${v.level}</span></div>`
-  ).join('');
-
-  const valueRows = Object.entries(c.values).slice(0, 5).map(([k, v]) =>
-    `<div class="stat-row"><span>${k}</span><span class="v ${classifyValue(v)}">${v}%</span></div>`
-  ).join('');
-
-  const boostList = (c.passive_boosts || []).map(b =>
-    `<span class="boost-item" title="${b.rationale}">${b.from.split(' ')[0]} ${b.modifier}</span>`
-  ).join('');
+  const mpr = c.mpr_stats || {};
+  const evt = c.events_aggregate || {};
+  const score = mpr.latest_score ?? null;
+  const avg = mpr.avg_score ?? null;
+  const total = mpr.total_mprs ?? 0;
+  const evCount = evt.event_count ?? 0;
+  const delta = evt.total_delta;
 
   return `
-    <div class="card" data-tier="${c.tier}" data-race="${race}" style="--race-color: ${color}" onclick="openModal('${c.id}')">
-      <div class="card-header">
-        <div class="card-header-left">
-          ${avatarTag(c, 'card')}
-          <div>
-            <div class="card-name">${c.name}</div>
-            <div class="card-nick">"${c.nickname}"</div>
-          </div>
-        </div>
-        <div class="card-class">
-          <div class="class-name">${c.class}</div>
-          <div class="race-tag">${race}${c.race.secondary && c.race.secondary !== race ? '/' + c.race.secondary : ''}</div>
+    <article class="card" data-tier="${c.tier}" data-race="${c.race.primary}" onclick="openReader('${c.id}')">
+      <div class="card-head">
+        ${avatarTag(c)}
+        <div>
+          <div class="card-name">${c.name}</div>
+          <div class="card-nick">"${c.nickname || c.class}"</div>
+          <div class="card-role">${c.role || c.class}</div>
         </div>
       </div>
-      <div class="card-meta">
-        <span class="pill ${tierPill}">${c.tier}</span>
-        <span class="pill">${c.role}</span>
-        <span class="pill">${c.level}</span>
-        <span class="pill disc">${c.disc.primary}/${c.disc.secondary}</span>
+      <div class="tag-row">
+        <span class="tag race-${c.race.primary}">${c.race.primary}</span>
+        <span class="tag">${c.class}</span>
+        <span class="tag">DISC ${c.disc.primary}${c.disc.secondary ? '/' + c.disc.secondary : ''}</span>
+        ${c.level ? `<span class="tag">${c.level}</span>` : ''}
       </div>
-      <div class="chart-container">
-        <canvas id="radar-${c.id}"></canvas>
-      </div>
-      <div class="stats-row">
+      <div class="stat-row">
         <div class="stat-block">
-          <h4>Skills</h4>
-          ${skillRows}
+          <div class="stat-label">MPR Latest</div>
+          <div class="stat-value">${fmtScore(score)}</div>
+          <div class="stat-sub">avg ${fmtScore(avg)} · ${total} review${total === 1 ? '' : 's'}</div>
         </div>
         <div class="stat-block">
-          <h4>Top Values</h4>
-          ${valueRows}
+          <div class="stat-label">Events</div>
+          <div class="stat-value">${evCount}<span class="unit">${delta != null ? '· ' + fmtDelta(delta) : ''}</span></div>
+          <div class="stat-sub">${mpr.first_month || '—'} → ${mpr.last_month || '—'}</div>
         </div>
       </div>
-      ${boostList ? `<div class="boosts"><strong>Passive boosts:</strong><br>${boostList}</div>` : ''}
-      ${c.notes ? `<div class="notes">${c.notes}</div>` : ''}
-    </div>
+      <div style="position:relative;height:120px;">
+        <canvas id="radar-${c.id}" class="radar-mini"></canvas>
+      </div>
+      <div class="card-foot">
+        <span class="level-stamp">${c.tier}</span>
+        <span class="read-more">Read sheet →</span>
+      </div>
+    </article>
   `;
 }
 
-function renderRadar(c) {
-  const ctx = document.getElementById('radar-' + c.id);
+function buildRadar(canvasId, c, isMini) {
+  const labels = Object.keys(c.values).map(k => VALUE_LABELS[k] || k);
+  const data = Object.values(c.values);
+  const ctx = document.getElementById(canvasId);
   if (!ctx) return;
-  const color = RACE_COLORS[c.race.primary];
-  const skillKeys = Object.keys(c.skills);
-  const skillVals = skillKeys.map(k => c.skills[k].level);
-
-  CHARTS[c.id] = new Chart(ctx, {
+  if (radarCharts[canvasId]) { radarCharts[canvasId].destroy(); }
+  radarCharts[canvasId] = new Chart(ctx, {
     type: 'radar',
     data: {
-      labels: skillKeys.map(s => s.replace(/-/g, ' ').split(' ').map(w => w[0].toUpperCase() + w.slice(1)).join(' ')),
+      labels,
       datasets: [{
-        label: 'Skill Level',
-        data: skillVals,
-        borderColor: color,
-        backgroundColor: color + '33',
-        borderWidth: 2,
-        pointBackgroundColor: color,
-        pointBorderColor: '#0a0e1a',
-        pointRadius: 3,
-        pointHoverRadius: 5
+        data,
+        borderColor: isMini ? '#8a857c' : '#d4a574',
+        backgroundColor: isMini ? 'rgba(138,133,124,0.06)' : 'rgba(212,165,116,0.08)',
+        borderWidth: isMini ? 1 : 1.5,
+        pointRadius: isMini ? 0 : 2,
+        pointBackgroundColor: isMini ? '#8a857c' : '#d4a574'
       }]
     },
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      plugins: { legend: { display: false } },
+      plugins: { legend: { display: false }, tooltip: { enabled: !isMini } },
       scales: {
         r: {
           beginAtZero: true,
           max: 100,
-          ticks: {
-            stepSize: 25,
-            color: '#5a648a',
-            backdropColor: 'transparent',
-            font: { size: 9 }
-          },
-          grid: { color: '#2a3458' },
-          angleLines: { color: '#2a3458' },
+          ticks: { display: false, stepSize: 25 },
+          grid: { color: isMini ? '#1c1c20' : '#25252a' },
+          angleLines: { color: isMini ? '#1c1c20' : '#25252a' },
           pointLabels: {
-            color: '#8a94b8',
+            display: !isMini,
+            color: '#a8a59d',
             font: { size: 10, family: 'JetBrains Mono, monospace' }
           }
         }
@@ -524,106 +653,252 @@ function renderRadar(c) {
   });
 }
 
-function openModal(charId) {
-  const c = TEAM.characters.find(x => x.id === charId);
-  if (!c) return;
+function renderReader(c) {
+  const mpr = c.mpr_stats || {};
+  const evt = c.events_aggregate || {};
+  const monthly = evt.by_month || {};
+  const monthKeys = Object.keys(monthly).sort();
 
-  const valuesAll = Object.entries(c.values).map(([k, v]) =>
-    `<tr><td>${k}</td><td>${v}%</td></tr>`
-  ).join('');
+  const valueRows = Object.entries(c.values).sort((a,b) => b[1]-a[1]).map(([k, v]) => {
+    const label = VALUE_LABELS[k] || k;
+    return `<div class="bar-pair">
+      <div>
+        <div class="k">${label}</div>
+        <div class="bar-track"><div class="bar-fill" style="width:${v}%"></div></div>
+      </div>
+      <div class="num">${v}</div>
+    </div>`;
+  }).join('');
 
-  const tsValues = Object.entries(c.ts_values).map(([k, v]) =>
-    `<tr><td>${k}</td><td>${v}%</td></tr>`
-  ).join('');
+  const tsRows = Object.entries(c.ts_values).sort((a,b) => b[1]-a[1]).map(([k, v]) => {
+    const label = TS_LABELS[k] || k;
+    return `<div class="bar-pair">
+      <div>
+        <div class="k">${label}</div>
+        <div class="bar-track"><div class="bar-fill" style="width:${v}%"></div></div>
+      </div>
+      <div class="num">${v}</div>
+    </div>`;
+  }).join('');
 
-  const core = Object.entries(c.core).map(([k, v]) =>
-    `<tr><td>${k}</td><td>${v}</td></tr>`
-  ).join('');
+  const coreRows = Object.entries(c.core || {}).map(([k, v]) =>
+    `<tr><td class="k">${k}</td><td class="num">${v}</td></tr>`).join('');
 
-  const mprRows = (c.mpr_history || []).map(m =>
-    `<tr><td>${m.month}</td><td>${m.score}</td><td>${m.self}</td><td>${m.note || ''}</td></tr>`
-  ).join('');
+  const skillRows = Object.entries(c.skills || {}).sort((a,b) => b[1].level - a[1].level).map(([k, s]) =>
+    `<tr><td class="k">${k}</td><td class="num">${s.level}</td><td class="num">${s.progress}</td></tr>`).join('');
 
-  const boostsFull = (c.passive_boosts || []).map(b =>
-    `<tr><td>${b.from}</td><td>${b.from_disc}</td><td>${b.modifier}</td><td>${b.applies_to.join(', ')}</td><td>${b.rationale}</td></tr>`
-  ).join('');
+  const mprRows = (c.mpr_history || [])
+    .filter(m => m.score != null)
+    .sort((a,b) => (b.month || '').localeCompare(a.month || ''))
+    .map(m => `<tr>
+      <td class="k">${m.month}</td>
+      <td class="num">${fmtScore(m.score)}</td>
+      <td class="num">${m.self_score != null ? fmtScore(m.self_score) : '—'}</td>
+      <td>${m.level_at_time || ''}</td>
+    </tr>`).join('');
 
-  document.getElementById('modal-body').innerHTML = `
-    ${avatarTag(c, 'modal')}
-    <h2>${c.name} — "${c.nickname}"</h2>
-    <div class="subtitle">${c.race.primary}/${c.race.secondary} · ${c.class} · ${c.role} · ${c.level} · DISC ${c.disc.primary}/${c.disc.secondary}</div>
-    <div style="clear: both;"></div>
+  const monthRows = monthKeys.map(mk => {
+    const m = monthly[mk];
+    return `<tr>
+      <td class="k">${mk}</td>
+      <td class="num">${m.count}</td>
+      <td class="num">${fmtDelta(m.delta)}</td>
+    </tr>`;
+  }).join('');
 
-    ${c.art_prompt ? `<h3>Art Prompt</h3><pre>${c.art_prompt}</pre>` : ''}
+  // top tags
+  const topCats = [];
+  Object.entries(evt.by_category || {}).forEach(([cat, tags]) => {
+    Object.entries(tags).forEach(([t, n]) => topCats.push({ cat, tag: t, n }));
+  });
+  topCats.sort((a,b) => b.n - a.n);
+  const topCatRows = topCats.slice(0, 12).map(x =>
+    `<tr><td class="k">${x.cat}</td><td class="k">${x.tag}</td><td class="num">${x.n}</td></tr>`).join('');
 
-    <h3>DSA Decalogue Values (alignment %)</h3>
-    <table class="mpr-table">${valuesAll}</table>
+  const boostRows = (c.passive_boosts || []).map(b =>
+    `<tr><td class="k">${b.from}</td><td class="k">${b.from_disc}</td><td class="num">${b.modifier}</td><td>${(b.applies_to || []).join(', ')}</td></tr>`).join('');
 
-    <h3>Thinslices Values</h3>
-    <table class="mpr-table">${tsValues}</table>
+  document.getElementById('reader-body').innerHTML = `
+    <div class="article-head">
+      ${avatarTag(c)}
+      <div>
+        <h1>${c.name}</h1>
+        <div class="article-nick">"${c.nickname || c.class}"</div>
+        <div class="meta-tags">
+          <span class="tag race-${c.race.primary}">${c.race.primary} · ${c.race.secondary || ''}</span>
+          <span class="tag">${c.class}</span>
+          <span class="tag">${c.role}</span>
+          <span class="tag">DISC ${c.disc.primary}${c.disc.secondary ? '/' + c.disc.secondary : ''}</span>
+          <span class="tag">${c.level}</span>
+          <span class="tag">${c.tier}</span>
+        </div>
+      </div>
+    </div>
 
-    <h3>Core (Self-Assigned)</h3>
-    <table class="mpr-table">${core}</table>
+    ${c.art_prompt ? `<div class="article-section">
+      <h3>Character Art Prompt</h3>
+      <div class="art-prompt">${c.art_prompt}</div>
+    </div>` : ''}
 
-    ${mprRows ? `<h3>MPR History</h3>
-      <table class="mpr-table">
-        <thead><tr><th>Month</th><th>Manager</th><th>Self</th><th>Note</th></tr></thead>
-        <tbody>${mprRows}</tbody>
-      </table>` : ''}
+    <div class="article-section">
+      <h3>MPR Trajectory</h3>
+      <div class="two-col">
+        <div>
+          <table class="data-table">
+            <thead><tr><th>Month</th><th class="num">Score</th><th class="num">Self</th><th>Level</th></tr></thead>
+            <tbody>${mprRows || '<tr><td colspan="4" class="k">No scored MPRs.</td></tr>'}</tbody>
+          </table>
+        </div>
+        <div>
+          <p class="pull-quote">
+            ${mpr.total_mprs || 0} reviews on file. Latest <strong>${fmtScore(mpr.latest_score)}</strong> in ${mpr.latest_score_month || '—'}.
+            Running average <strong>${fmtScore(mpr.avg_score)}</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
 
-    ${boostsFull ? `<h3>Passive Boosts (DISC compatibility)</h3>
-      <table class="mpr-table">
-        <thead><tr><th>From</th><th>DISC</th><th>Mod</th><th>Applies to</th><th>Why</th></tr></thead>
-        <tbody>${boostsFull}</tbody>
-      </table>` : ''}
+    <div class="article-section">
+      <h3>Values · DSA Decalogue Alignment</h3>
+      <div class="two-col">
+        <div>${valueRows}</div>
+        <div style="position:relative;">
+          <canvas id="radar-full-${c.id}" class="radar-full"></canvas>
+        </div>
+      </div>
+    </div>
 
-    ${c.notes ? `<h3>Notes</h3><p style="color:var(--text-dim);font-style:italic;">${c.notes}</p>` : ''}
+    <div class="article-section">
+      <h3>Values · Thinslices</h3>
+      ${tsRows}
+    </div>
+
+    ${skillRows ? `<div class="article-section">
+      <h3>Skill Tree</h3>
+      <table class="data-table">
+        <thead><tr><th>Path</th><th class="num">Level</th><th class="num">Progress</th></tr></thead>
+        <tbody>${skillRows}</tbody>
+      </table>
+    </div>` : ''}
+
+    ${coreRows ? `<div class="article-section">
+      <h3>Core · Self-Assigned</h3>
+      <table class="data-table">
+        <thead><tr><th>Practice</th><th class="num">Pts</th></tr></thead>
+        <tbody>${coreRows}</tbody>
+      </table>
+    </div>` : ''}
+
+    <div class="article-section">
+      <h3>Event Activity (parsed from MPRs)</h3>
+      <div class="two-col">
+        <div>
+          <table class="data-table">
+            <thead><tr><th>Month</th><th class="num">Events</th><th class="num">Δ</th></tr></thead>
+            <tbody>${monthRows || '<tr><td colspan="3" class="k">No event activity parsed.</td></tr>'}</tbody>
+          </table>
+        </div>
+        <div>
+          ${topCatRows ? `<table class="data-table">
+            <thead><tr><th>Category</th><th>Tag</th><th class="num">N</th></tr></thead>
+            <tbody>${topCatRows}</tbody>
+          </table>` : '<p class="k">No tag distribution.</p>'}
+        </div>
+      </div>
+    </div>
+
+    ${boostRows ? `<div class="article-section">
+      <h3>Passive Boosts · DISC Compatibility</h3>
+      <table class="data-table">
+        <thead><tr><th>From</th><th>DISC</th><th class="num">Mod</th><th>Applies to</th></tr></thead>
+        <tbody>${boostRows}</tbody>
+      </table>
+    </div>` : ''}
+
+    ${c.notes ? `<div class="article-section">
+      <h3>Field Notes</h3>
+      <p class="pull-quote">${c.notes}</p>
+    </div>` : ''}
   `;
-  document.getElementById('modal').classList.add('open');
+
+  // Render full radar after DOM injection
+  requestAnimationFrame(() => buildRadar(`radar-full-${c.id}`, c, false));
 }
 
-function closeModal() {
-  document.getElementById('modal').classList.remove('open');
+function openReader(id) {
+  const c = DATA.characters.find(x => x.id === id);
+  if (!c) return;
+  renderReader(c);
+  document.getElementById('reader').classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
 
-document.getElementById('modal').addEventListener('click', (e) => {
-  if (e.target.id === 'modal') closeModal();
+function closeReader() {
+  document.getElementById('reader').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeReader();
+});
+
+document.getElementById('reader').addEventListener('click', (e) => {
+  if (e.target.id === 'reader') closeReader();
 });
 
 function applyFilter(f) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === f));
+  let label = 'The Roster';
+  if (f !== 'all') label = `The Roster · ${f.charAt(0).toUpperCase()}${f.slice(1)}`;
+  document.getElementById('section-title').textContent = label;
+
   document.querySelectorAll('.card').forEach(card => {
-    if (f === 'all') {
-      card.style.display = '';
-    } else if (['leadership','team','npc'].includes(f)) {
-      card.style.display = card.dataset.tier === f ? '' : 'none';
-    } else {
-      card.style.display = card.dataset.race === f ? '' : 'none';
-    }
+    if (f === 'all') card.style.display = '';
+    else if (['leadership','team','npc'].includes(f)) card.style.display = card.dataset.tier === f ? '' : 'none';
+    else card.style.display = card.dataset.race === f ? '' : 'none';
   });
 }
 
-document.getElementById('filters').addEventListener('click', (e) => {
-  if (e.target.classList.contains('filter-btn')) {
-    applyFilter(e.target.dataset.filter);
-  }
+document.querySelector('.filters').addEventListener('click', (e) => {
+  if (e.target.classList.contains('filter-btn')) applyFilter(e.target.dataset.filter);
 });
 
-fetch('team.json')
-  .then(r => r.json())
-  .then(data => {
-    TEAM = data;
-    // Sort: leadership first, then team, then npc
-    const tierOrder = { leadership: 0, team: 1, npc: 2 };
-    const sorted = [...data.characters].sort((a, b) =>
-      (tierOrder[a.tier] - tierOrder[b.tier]) || a.name.localeCompare(b.name)
-    );
-    document.getElementById('grid').innerHTML = sorted.map(renderCard).join('');
-    sorted.forEach(renderRadar);
-  })
-  .catch(err => {
-    document.getElementById('grid').innerHTML = `<div style="color:var(--volt-red);">Failed to load team.json: ${err.message}</div>`;
-  });
+// Bootstrap: try characters.json (rich) first, fall back to team.json
+async function bootstrap() {
+  let data = null;
+  try {
+    const r = await fetch('data/characters.json');
+    if (r.ok) data = await r.json();
+  } catch (_) {}
+  if (!data) {
+    try {
+      const r = await fetch('team.json');
+      if (r.ok) data = await r.json();
+    } catch (_) {}
+  }
+  if (!data) {
+    document.getElementById('grid').innerHTML = '<div class="err">Could not load team data.</div>';
+    return;
+  }
+  DATA = data;
+
+  // Masthead meta
+  const lastMonths = data.characters
+    .map(c => c.mpr_stats?.last_month)
+    .filter(Boolean)
+    .sort();
+  const latest = lastMonths[lastMonths.length - 1] || '—';
+  const totalEvents = data.characters.reduce((acc, c) => acc + (c.events_aggregate?.event_count || 0), 0);
+  document.getElementById('masthead-meta').textContent =
+    `${data.characters.length} characters · ${totalEvents} events · through ${latest}`;
+
+  const sorted = [...data.characters].sort((a, b) =>
+    (TIER_ORDER[a.tier] - TIER_ORDER[b.tier]) || a.name.localeCompare(b.name));
+  document.getElementById('grid').innerHTML = sorted.map(renderCard).join('');
+  sorted.forEach(c => buildRadar(`radar-${c.id}`, c, true));
+}
+
+bootstrap();
 </script>
 
 </body>

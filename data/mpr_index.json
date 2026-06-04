@@ -1,0 +1,878 @@
+{
+  "version": 2,
+  "generated_at": "2026-06-04T03:32:33.454758+00:00",
+  "characters": {
+    "andreea_bejan": [
+      {
+        "page_id": "5573443609",
+        "month": "2025-11",
+        "format": "B",
+        "score": null,
+        "self_score": null,
+        "level_at_time": null,
+        "event_count": 6,
+        "orphan_count": 0,
+        "title": "Bejan Andreea - MPR noiembrie 2025"
+      },
+      {
+        "page_id": "5656215553",
+        "month": "2025-12",
+        "format": "B",
+        "score": null,
+        "self_score": null,
+        "level_at_time": null,
+        "event_count": 6,
+        "orphan_count": 0,
+        "title": "Bejan Andreea - MPR decembrie 2025"
+      },
+      {
+        "page_id": "5771067401",
+        "month": "2026-01",
+        "format": "B",
+        "score": null,
+        "self_score": null,
+        "level_at_time": null,
+        "event_count": 6,
+        "orphan_count": 0,
+        "title": "Bejan Andreea - MPR ianuarie 2026"
+      },
+      {
+        "page_id": "5859737601",
+        "month": "2026-02",
+        "format": "B",
+        "score": null,
+        "self_score": null,
+        "level_at_time": null,
+        "event_count": 6,
+        "orphan_count": 0,
+        "title": "Bejan Andreea - MPR februarie 2026"
+      },
+      {
+        "page_id": "5956173898",
+        "month": "2026-03",
+        "format": "A",
+        "score": 3.25,
+        "self_score": 3.5,
+        "level_at_time": "BE ADVANCED BEGINNER L1",
+        "event_count": 3,
+        "orphan_count": 0,
+        "title": "Andreea Bejan - MPR March 2026"
+      },
+      {
+        "page_id": "6032818177",
+        "month": "2026-04",
+        "format": "A",
+        "score": 3.25,
+        "self_score": 3.5,
+        "level_at_time": "BE ADVANCED BEGINNER L1",
+        "event_count": 3,
+        "orphan_count": 0,
+        "title": "Andreea Bejan - MPR April 2026"
+      }
+    ],
+    "andrei_clim": [
+      {
+        "page_id": "5296390145",
+        "month": "2025-05",
+        "format": "A",
+        "score": 2.75,
+        "self_score": null,
+        "level_at_time": null,
+        "event_count": 1,
+        "orphan_count": 0,
+        "title": "Andrei Clim - MPR May 2025"
+      },
+      {
+        "page_id": "5362876418",
+        "month": "2025-06",
+        "format": "A",
+        "score": 3.0,
+        "self_score": null,
+        "level_at_time": null,
+        "event_count": 2,
+        "orphan_count": 0,
+        "title": "Andrei Clim - MPR June 2025"
+      },
+      {
+        "page_id": "5365170305",
+        "month": "2025-07",
+        "format": "A",
+        "score": 3.25,
+        "self_score": null,
+        "level_at_time": null,
+        "event_count": 3,
+        "orphan_count": 0,
+        "title": "Andrei Clim - MPR July 2025"
+      },
+      {
+        "page_id": "5408817153",
+        "month": "2025-08",
+        "format": "A",
+        "score": 3.25,
+        "self_score": null,
+        "level_at_time": null,
+        "event_count": 3,
+        "orphan_count": 0,
+        "title": "Andrei Clim - MPR August 2025"
+      },
+      {
+        "page_id": "5445713974",
+        "month": "2025-09",
+        "format": "A",
+        "score": 2.75,
+        "self_score": null,
+        "level_at_time": null,
+        "event_count": 1,
+        "orphan_count": 0,
+        "title": "Andrei Clim - MPR September 2025"
+      },
+      {
+        "page_id": "5498011662",
+        "month": "2025-10",
+        "format": "A",
+        "score": 3.0,
+        "self_score": null,
+        "level_at_time": null,
+        "event_count": 9,
+        "orphan_count": 0,
+        "title": "Andrei Clim - MPR October 2025"
+      },
+      {
+        "page_id": "5714378753",
+        "month": "2025-12",
+        "format": "A",
+        "score": 3.0,
+        "self_score": null,
+        "level_at_time": null,
+        "event_count": 2,
+        "orphan_count": 0,
+        "title": "Andrei Clim - MPR December 2025"
+      },
+      {
+        "page_id": "5801508886",
+        "month": "2026-01",
+        "format": "A",
+        "score": 3.75,
+        "self_score": null,
+        "level_at_time": null,
+        "event_count": 4,
+        "orphan_count": 0,
+        "title": "Andrei Clim - MPR January 2026"
+      },
+      {
+        "page_id": "5825363969",
+        "month": "2026-02",
+        "format": "A",
+        "score": 3.75,
+        "self_score": null,
+        "level_at_time": null,
+        "event_count": 8,
+        "orphan_count": 0,
+        "title": "Andrei Clim - MPR February 2026"
+      },
+      {
+        "page_id": "5974261761",
+        "month": "2026-03",
+        "format": "A",
+        "score": 3.0,
+        "self_score": 3.0,
+        "level_at_time": null,
+        "event_count": 2,
+        "orphan_count": 0,
+        "title": "Andrei Clim - MPR March 2026"
+      },
+      {
+        "page_id": "6038716439",
+        "month": "2026-05",
+        "format": "A",
+        "score": 3.25,
+        "self_score": 3.0,
+        "level_at_time": null,
+        "event_count": 2,
+        "orphan_count": 0,
+        "title": "Andrei Clim - MPR May 2026"
+      },
+      {
+        "page_id": "6039339009",
+        "month": "2026-04",
+        "format": "A",
+        "score": 2.75,
+        "self_score": 3.0,
+        "level_at_time": null,
+        "event_count": 0,
+        "orphan_count": 0,
+        "title": "Andrei Clim - MPR April 2026"
+      }
+    ],
+    "demetriad": [
+      {
+        "page_id": "5280333930",
+        "month": "2025-05",
+        "format": "unknown",
+        "score": null,
+        "self_score": null,
+        "level_at_time": "COMPETENT L1",
+        "event_count": 0,
+        "orphan_count": 0,
+        "title": "Demetriad Sinzeanu - MPR mai 2025"
+      },
+      {
+        "page_id": "5356224513",
+        "month": "2025-06",
+        "format": "unknown",
+        "score": null,
+        "self_score": null,
+        "level_at_time": "COMPETENT L1",
+        "event_count": 0,
+        "orphan_count": 0,
+        "title": "Demetriad Sinzeanu - MPR june 2025"
+      },
+      {
+        "page_id": "5406228481",
+        "month": "2025-07",
+        "format": "A",
+        "score": 3.0,
+        "self_score": null,
+        "level_at_time": "COMPETENT L1",
+        "event_count": 2,
+        "orphan_count": 0,
+        "title": "Demetriad Sinzeanu - MPR july 2025"
+      },
+      {
+        "page_id": "5417500673",
+        "month": "2025-08",
+        "format": "A",
+        "score": 2.5,
+        "self_score": null,
+        "level_at_time": "COMPETENT L1",
+        "event_count": 4,
+        "orphan_count": 0,
+        "title": "Demetriad Sinzeanu - MPR August 2025"
+      },
+      {
+        "page_id": "5490081793",
+        "month": "2025-09",
+        "format": "A",
+        "score": 3.25,
+        "self_score": null,
+        "level_at_time": "COMPETENT L1",
+        "event_count": 4,
+        "orphan_count": 0,
+        "title": "Demetriad Sinzeanu - MPR Septembrie 2025"
+      },
+      {
+        "page_id": "5563973633",
+        "month": "2025-10",
+        "format": "A",
+        "score": 3.0,
+        "self_score": null,
+        "level_at_time": "COMPETENT L1",
+        "event_count": 8,
+        "orphan_count": 0,
+        "title": "Demetriad Sinzeanu - MPR October 2025"
+      },
+      {
+        "page_id": "5646909441",
+        "month": "2025-11",
+        "format": "A",
+        "score": 3.0,
+        "self_score": null,
+        "level_at_time": "COMPETENT L1",
+        "event_count": 4,
+        "orphan_count": 0,
+        "title": "Demetriad Sinzeanu - MPR Noiembrie 2025"
+      },
+      {
+        "page_id": "5709987841",
+        "month": "2025-12",
+        "format": "A",
+        "score": 3.0,
+        "self_score": null,
+        "level_at_time": "COMPETENT L1",
+        "event_count": 1,
+        "orphan_count": 0,
+        "title": "Demetriad Sinzeanu - MPR Decembrie 2025"
+      },
+      {
+        "page_id": "5790072834",
+        "month": "2026-01",
+        "format": "A",
+        "score": 4.0,
+        "self_score": null,
+        "level_at_time": "COMPETENT L1",
+        "event_count": 3,
+        "orphan_count": 0,
+        "title": "Demetriad Sinzeanu - MPR Ianuarie 2026"
+      },
+      {
+        "page_id": "5870714881",
+        "month": "2026-02",
+        "format": "A",
+        "score": 3.0,
+        "self_score": null,
+        "level_at_time": "COMPETENT L1",
+        "event_count": 0,
+        "orphan_count": 0,
+        "title": "Demetriad Sinzeanu - MPR Februarie 2026"
+      },
+      {
+        "page_id": "5951520786",
+        "month": "2026-03",
+        "format": "A",
+        "score": 3.0,
+        "self_score": null,
+        "level_at_time": "COMPETENT L1",
+        "event_count": 2,
+        "orphan_count": 0,
+        "title": "Demetriad Sinzeanu - MPR March 2026"
+      },
+      {
+        "page_id": "6038716417",
+        "month": "2026-04",
+        "format": "A",
+        "score": 3.0,
+        "self_score": null,
+        "level_at_time": "COMPETENT L1",
+        "event_count": 6,
+        "orphan_count": 0,
+        "title": "Demetriad Sinzeanu - MPR April 2026"
+      }
+    ],
+    "ilie_lupu": [
+      {
+        "page_id": "5243338753",
+        "month": "2025-03",
+        "format": "B",
+        "score": null,
+        "self_score": null,
+        "level_at_time": null,
+        "event_count": 6,
+        "orphan_count": 0,
+        "title": "Ilie Lupu - MPR March 2025"
+      },
+      {
+        "page_id": "5282889729",
+        "month": "2025-04",
+        "format": "B",
+        "score": null,
+        "self_score": null,
+        "level_at_time": null,
+        "event_count": 6,
+        "orphan_count": 0,
+        "title": "Ilie Lupu - MPR April 2025"
+      },
+      {
+        "page_id": "5327290448",
+        "month": "2025-05",
+        "format": "B",
+        "score": null,
+        "self_score": null,
+        "level_at_time": null,
+        "event_count": 5,
+        "orphan_count": 0,
+        "title": "Ilie Lupu - MPR May 2025"
+      },
+      {
+        "page_id": "5367889921",
+        "month": "2025-06",
+        "format": "B",
+        "score": null,
+        "self_score": null,
+        "level_at_time": null,
+        "event_count": 6,
+        "orphan_count": 0,
+        "title": "Ilie Lupu - MPR June 2025"
+      },
+      {
+        "page_id": "5409013761",
+        "month": "2025-07",
+        "format": "B",
+        "score": null,
+        "self_score": null,
+        "level_at_time": null,
+        "event_count": 6,
+        "orphan_count": 0,
+        "title": "Ilie Lupu - MPR July 2025"
+      },
+      {
+        "page_id": "5450235925",
+        "month": "2025-08",
+        "format": "B",
+        "score": null,
+        "self_score": null,
+        "level_at_time": null,
+        "event_count": 6,
+        "orphan_count": 0,
+        "title": "Ilie Lupu - MPR August 2025"
+      },
+      {
+        "page_id": "5493161985",
+        "month": null,
+        "format": "B",
+        "score": null,
+        "self_score": null,
+        "level_at_time": null,
+        "event_count": 6,
+        "orphan_count": 0,
+        "title": "Ilie Lupu - MPR Sept 2025"
+      },
+      {
+        "page_id": "5573378055",
+        "month": null,
+        "format": "B",
+        "score": null,
+        "self_score": null,
+        "level_at_time": null,
+        "event_count": 6,
+        "orphan_count": 0,
+        "title": "Ilie Lupu - MPR Oct 2025"
+      },
+      {
+        "page_id": "5655625762",
+        "month": "2025-11",
+        "format": "B",
+        "score": null,
+        "self_score": null,
+        "level_at_time": null,
+        "event_count": 6,
+        "orphan_count": 0,
+        "title": "Ilie Lupu - MPR November 2025"
+      },
+      {
+        "page_id": "5738954795",
+        "month": "2025-12",
+        "format": "B",
+        "score": null,
+        "self_score": null,
+        "level_at_time": null,
+        "event_count": 6,
+        "orphan_count": 0,
+        "title": "Ilie Lupu - MPR December 2025"
+      },
+      {
+        "page_id": "5956501527",
+        "month": "2026-03",
+        "format": "A",
+        "score": 3.5,
+        "self_score": 3.5,
+        "level_at_time": "Full-stack COMPETENT L3",
+        "event_count": 4,
+        "orphan_count": 0,
+        "title": "Ilie Lupu - MPR March 2026"
+      },
+      {
+        "page_id": "6006407169",
+        "month": "2026-04",
+        "format": "A",
+        "score": 3.25,
+        "self_score": 3.0,
+        "level_at_time": "Full-stack COMPETENT L3",
+        "event_count": 3,
+        "orphan_count": 0,
+        "title": "Ilie Lupu - MPR April 2026"
+      }
+    ],
+    "ivona": [
+      {
+        "page_id": "5327290469",
+        "month": "2025-05",
+        "format": "unknown",
+        "score": null,
+        "self_score": null,
+        "level_at_time": "COMPETENT L3",
+        "event_count": 0,
+        "orphan_count": 0,
+        "title": "Ivona Apostol - MPR May 2025"
+      },
+      {
+        "page_id": "5330141185",
+        "month": "2025-06",
+        "format": "unknown",
+        "score": null,
+        "self_score": null,
+        "level_at_time": "COMPETENT L3",
+        "event_count": 0,
+        "orphan_count": 0,
+        "title": "Ivona Apostol - MPR June 2025"
+      },
+      {
+        "page_id": "5365170264",
+        "month": "2025-07",
+        "format": "A",
+        "score": 3.0,
+        "self_score": null,
+        "level_at_time": "COMPETENT L3",
+        "event_count": 2,
+        "orphan_count": 0,
+        "title": "Ivona Apostol - MPR July 2025"
+      },
+      {
+        "page_id": "5411209239",
+        "month": "2025-08",
+        "format": "unknown",
+        "score": null,
+        "self_score": null,
+        "level_at_time": "COMPETENT L3",
+        "event_count": 0,
+        "orphan_count": 0,
+        "title": "Ivona Apostol - MPR August 2025"
+      },
+      {
+        "page_id": "5488377959",
+        "month": "2025-09",
+        "format": "A",
+        "score": 3.25,
+        "self_score": null,
+        "level_at_time": "COMPETENT L3",
+        "event_count": 3,
+        "orphan_count": 0,
+        "title": "Ivona Apostol - MPR September 2025"
+      },
+      {
+        "page_id": "5502271489",
+        "month": "2025-10",
+        "format": "A",
+        "score": 3.5,
+        "self_score": null,
+        "level_at_time": "COMPETENT L3",
+        "event_count": 4,
+        "orphan_count": 0,
+        "title": "Ivona Apostol - MPR October 2025"
+      },
+      {
+        "page_id": "5650153473",
+        "month": "2025-11",
+        "format": "A",
+        "score": 3.0,
+        "self_score": null,
+        "level_at_time": "COMPETENT L3",
+        "event_count": 2,
+        "orphan_count": 0,
+        "title": "Ivona Apostol - MPR November 2025"
+      },
+      {
+        "page_id": "5714444289",
+        "month": "2025-12",
+        "format": "A",
+        "score": 3.0,
+        "self_score": null,
+        "level_at_time": "COMPETENT L3",
+        "event_count": 2,
+        "orphan_count": 0,
+        "title": "Ivona Apostol - MPR December 2025"
+      },
+      {
+        "page_id": "5714706433",
+        "month": "2026-01",
+        "format": "A",
+        "score": 4.0,
+        "self_score": null,
+        "level_at_time": "COMPETENT L3",
+        "event_count": 5,
+        "orphan_count": 0,
+        "title": "Ivona Apostol - MPR January 2026"
+      },
+      {
+        "page_id": "5818449921",
+        "month": "2026-02",
+        "format": "A",
+        "score": 3.25,
+        "self_score": null,
+        "level_at_time": "COMPETENT L3",
+        "event_count": 4,
+        "orphan_count": 0,
+        "title": "Ivona Apostol - MPR February 2026"
+      },
+      {
+        "page_id": "5865734145",
+        "month": "2026-03",
+        "format": "A",
+        "score": 3.25,
+        "self_score": null,
+        "level_at_time": "COMPETENT L3",
+        "event_count": 3,
+        "orphan_count": 0,
+        "title": "Ivona Apostol - MPR March 2026"
+      },
+      {
+        "page_id": "6041206816",
+        "month": "2026-04",
+        "format": "A",
+        "score": 3.25,
+        "self_score": 3.0,
+        "level_at_time": "COMPETENT L3",
+        "event_count": 3,
+        "orphan_count": 0,
+        "title": "Ivona Apostol - MPR April 2026"
+      }
+    ],
+    "mihai_bojescu": [
+      {
+        "page_id": "5280071692",
+        "month": "2025-05",
+        "format": "unknown",
+        "score": null,
+        "self_score": null,
+        "level_at_time": null,
+        "event_count": 0,
+        "orphan_count": 0,
+        "title": "Mihai Bojescu - MPR May 2025"
+      },
+      {
+        "page_id": "5321588737",
+        "month": "2025-06",
+        "format": "unknown",
+        "score": null,
+        "self_score": null,
+        "level_at_time": null,
+        "event_count": 0,
+        "orphan_count": 0,
+        "title": "Mihai Bojescu - MPR June 2025"
+      },
+      {
+        "page_id": "5389680641",
+        "month": "2025-07",
+        "format": "A",
+        "score": 3.5,
+        "self_score": null,
+        "level_at_time": "Proficient L2",
+        "event_count": 4,
+        "orphan_count": 0,
+        "title": "Mihai Bojescu - MPR July 2025"
+      },
+      {
+        "page_id": "5406261249",
+        "month": "2025-08",
+        "format": "A",
+        "score": 3.75,
+        "self_score": null,
+        "level_at_time": "Proficient L2",
+        "event_count": 4,
+        "orphan_count": 0,
+        "title": "Mihai Bojescu - MPR August 2025"
+      },
+      {
+        "page_id": "5468192769",
+        "month": "2025-09",
+        "format": "A",
+        "score": 3.0,
+        "self_score": null,
+        "level_at_time": "Proficient L3",
+        "event_count": 2,
+        "orphan_count": 0,
+        "title": "Mihai Bojescu - MPR September 2025"
+      },
+      {
+        "page_id": "5563514881",
+        "month": "2025-10",
+        "format": "A",
+        "score": 3.0,
+        "self_score": null,
+        "level_at_time": "Proficient L3",
+        "event_count": 7,
+        "orphan_count": 0,
+        "title": "Mihai Bojescu - MPR October 2025"
+      },
+      {
+        "page_id": "5673353217",
+        "month": "2025-12",
+        "format": "A",
+        "score": 3.0,
+        "self_score": null,
+        "level_at_time": "Proficient L3",
+        "event_count": 2,
+        "orphan_count": 0,
+        "title": "Mihai Bojescu - MPR December 2025"
+      },
+      {
+        "page_id": "5714509825",
+        "month": "2026-01",
+        "format": "A",
+        "score": 4.5,
+        "self_score": null,
+        "level_at_time": "Proficient L3",
+        "event_count": 6,
+        "orphan_count": 0,
+        "title": "Mihai Bojescu - MPR January 2026"
+      },
+      {
+        "page_id": "5817466881",
+        "month": "2026-02",
+        "format": "A",
+        "score": 3.25,
+        "self_score": null,
+        "level_at_time": "Proficient L3",
+        "event_count": 7,
+        "orphan_count": 0,
+        "title": "Mihai Bojescu - MPR February 2026"
+      },
+      {
+        "page_id": "5902499841",
+        "month": "2026-03",
+        "format": "A",
+        "score": 3.5,
+        "self_score": null,
+        "level_at_time": "Proficient L3",
+        "event_count": 4,
+        "orphan_count": 0,
+        "title": "Mihai Bojescu - MPR March 2026"
+      },
+      {
+        "page_id": "6010175504",
+        "month": "2026-04",
+        "format": "A",
+        "score": 3.25,
+        "self_score": null,
+        "level_at_time": "Proficient L3",
+        "event_count": 8,
+        "orphan_count": 0,
+        "title": "Mihai Bojescu - MPR April 2026"
+      },
+      {
+        "page_id": "6052642817",
+        "month": "2026-05",
+        "format": "A",
+        "score": null,
+        "self_score": null,
+        "level_at_time": "Proficient L3",
+        "event_count": 3,
+        "orphan_count": 0,
+        "title": "Mihai Bojescu - MPR May 2026"
+      }
+    ],
+    "razvan": [
+      {
+        "page_id": "5280071725",
+        "month": "2025-05",
+        "format": "unknown",
+        "score": null,
+        "self_score": null,
+        "level_at_time": null,
+        "event_count": 0,
+        "orphan_count": 0,
+        "title": "Razvan Onofrei - MPR May 2025"
+      },
+      {
+        "page_id": "5369823233",
+        "month": "2025-06",
+        "format": "unknown",
+        "score": null,
+        "self_score": null,
+        "level_at_time": "SDL ADVANCED BEGINNER L3",
+        "event_count": 0,
+        "orphan_count": 0,
+        "title": "Razvan Onofrei - MPR June 2025"
+      },
+      {
+        "page_id": "5406982145",
+        "month": "2025-07",
+        "format": "A",
+        "score": 3.25,
+        "self_score": null,
+        "level_at_time": "SDL ADVANCED BEGINNER L3",
+        "event_count": 4,
+        "orphan_count": 0,
+        "title": "Razvan Onofrei - MPR July 2025"
+      },
+      {
+        "page_id": "5444468737",
+        "month": "2025-08",
+        "format": "unknown",
+        "score": null,
+        "self_score": null,
+        "level_at_time": "SDL ADVANCED BEGINNER L3",
+        "event_count": 0,
+        "orphan_count": 0,
+        "title": "Razvan Onofrei - MPR August 2025"
+      },
+      {
+        "page_id": "5492342843",
+        "month": "2025-09",
+        "format": "A",
+        "score": 3.75,
+        "self_score": null,
+        "level_at_time": "SDL ADVANCED BEGINNER L3",
+        "event_count": 0,
+        "orphan_count": 0,
+        "title": "Razvan Onofrei - MPR September 2025"
+      },
+      {
+        "page_id": "5565677569",
+        "month": "2025-10",
+        "format": "A",
+        "score": 3.0,
+        "self_score": null,
+        "level_at_time": "SDL ADVANCED BEGINNER L3",
+        "event_count": 5,
+        "orphan_count": 0,
+        "title": "Razvan Onofrei - MPR October 2025"
+      },
+      {
+        "page_id": "5637931009",
+        "month": "2025-11",
+        "format": "A",
+        "score": 3.5,
+        "self_score": null,
+        "level_at_time": "SDL ADVANCED BEGINNER L3",
+        "event_count": 3,
+        "orphan_count": 0,
+        "title": "Razvan Onofrei - MPR November 2025"
+      },
+      {
+        "page_id": "5715263489",
+        "month": "2025-12",
+        "format": "A",
+        "score": 3.25,
+        "self_score": null,
+        "level_at_time": "SDL ADVANCED BEGINNER L3",
+        "event_count": 1,
+        "orphan_count": 0,
+        "title": "Razvan Onofrei - MPR December 2025"
+      },
+      {
+        "page_id": "5792661506",
+        "month": "2026-01",
+        "format": "A",
+        "score": 3.75,
+        "self_score": null,
+        "level_at_time": "SDL COMPETENT L2",
+        "event_count": 3,
+        "orphan_count": 0,
+        "title": "Razvan Onofrei - MPR January 2026"
+      },
+      {
+        "page_id": "5873696769",
+        "month": "2026-02",
+        "format": "A",
+        "score": 3.5,
+        "self_score": null,
+        "level_at_time": "SDL COMPETENT L2",
+        "event_count": 2,
+        "orphan_count": 0,
+        "title": "Razvan Onofrei - MPR February 2026"
+      },
+      {
+        "page_id": "5977899009",
+        "month": "2026-03",
+        "format": "A",
+        "score": 3.75,
+        "self_score": null,
+        "level_at_time": "SDL COMPETENT L2",
+        "event_count": 0,
+        "orphan_count": 0,
+        "title": "Razvan Onofrei - MPR March 2026"
+      },
+      {
+        "page_id": "6060933148",
+        "month": "2026-04",
+        "format": "A",
+        "score": 3.0,
+        "self_score": null,
+        "level_at_time": "SDL COMPETENT L2",
+        "event_count": 0,
+        "orphan_count": 0,
+        "title": "Razvan Onofrei - MPR April 2026"
+      }
+    ]
+  }
+}
