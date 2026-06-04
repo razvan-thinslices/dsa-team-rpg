@@ -117,6 +117,45 @@
     transform: translateY(-2px);
     box-shadow: 0 4px 20px rgba(0,217,255,0.15);
   }
+  .avatar {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    border: 2px solid var(--race-color, var(--volt-cyan));
+    box-shadow: 0 0 12px var(--race-color, var(--volt-cyan));
+    object-fit: cover;
+    background: var(--bg);
+    flex-shrink: 0;
+  }
+  .avatar-fallback {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    border: 2px dashed var(--race-color, var(--volt-cyan));
+    background: var(--bg);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1em; font-weight: bold;
+    color: var(--race-color, var(--volt-cyan));
+    flex-shrink: 0;
+  }
+  .card-header-left { display: flex; gap: 14px; align-items: center; }
+  .modal-avatar {
+    width: 96px; height: 96px;
+    border-radius: 50%;
+    border: 3px solid var(--volt-cyan);
+    box-shadow: 0 0 18px rgba(0,217,255,0.5);
+    object-fit: cover;
+    float: left;
+    margin: 0 16px 8px 0;
+  }
+  .modal-avatar-fallback {
+    width: 96px; height: 96px;
+    border-radius: 50%;
+    border: 3px dashed var(--volt-cyan);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2em; font-weight: bold;
+    color: var(--volt-cyan);
+    float: left;
+    margin: 0 16px 8px 0;
+  }
   .card::before {
     content: '';
     position: absolute;
@@ -366,6 +405,19 @@ function classifyValue(v) {
   return 'low';
 }
 
+function initials(name) {
+  return name.split(/\s+/).map(w => w[0]).join('').slice(0, 2).toUpperCase();
+}
+
+function avatarTag(c, size) {
+  const cls = size === 'modal' ? 'modal-avatar' : 'avatar';
+  const fbCls = size === 'modal' ? 'modal-avatar-fallback' : 'avatar-fallback';
+  if (c.avatar) {
+    return `<img class="${cls}" src="${c.avatar}" alt="${c.name}" onerror="this.outerHTML='<div class=\\'${fbCls}\\'>${initials(c.name)}</div>'">`;
+  }
+  return `<div class="${fbCls}">${initials(c.name)}</div>`;
+}
+
 function renderCard(c) {
   const race = c.race.primary;
   const color = RACE_COLORS[race];
@@ -386,9 +438,12 @@ function renderCard(c) {
   return `
     <div class="card" data-tier="${c.tier}" data-race="${race}" style="--race-color: ${color}" onclick="openModal('${c.id}')">
       <div class="card-header">
-        <div>
-          <div class="card-name">${c.name}</div>
-          <div class="card-nick">"${c.nickname}"</div>
+        <div class="card-header-left">
+          ${avatarTag(c, 'card')}
+          <div>
+            <div class="card-name">${c.name}</div>
+            <div class="card-nick">"${c.nickname}"</div>
+          </div>
         </div>
         <div class="card-class">
           <div class="class-name">${c.class}</div>
@@ -494,8 +549,10 @@ function openModal(charId) {
   ).join('');
 
   document.getElementById('modal-body').innerHTML = `
+    ${avatarTag(c, 'modal')}
     <h2>${c.name} — "${c.nickname}"</h2>
     <div class="subtitle">${c.race.primary}/${c.race.secondary} · ${c.class} · ${c.role} · ${c.level} · DISC ${c.disc.primary}/${c.disc.secondary}</div>
+    <div style="clear: both;"></div>
 
     ${c.art_prompt ? `<h3>Art Prompt</h3><pre>${c.art_prompt}</pre>` : ''}
 

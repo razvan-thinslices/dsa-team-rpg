@@ -135,7 +135,7 @@
     {
       "id": "razvan_onofrei",
       "name": "Răzvan Onofrei",
-      "nickname": "The Boss",
+      "nickname": "Benjammin",
       "role": "SDL",
       "level": "Competent (L2)",
       "race": {
@@ -250,7 +250,8 @@
           ],
           "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
         }
-      ]
+      ],
+      "avatar": "assets/avatars/razvan_onofrei.png"
     },
     {
       "id": "anca_croitoriu",
@@ -359,7 +360,8 @@
           ],
           "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
         }
-      ]
+      ],
+      "avatar": "assets/avatars/anca_croitoriu.jpg"
     },
     {
       "id": "denis_oproescu",
@@ -464,7 +466,8 @@
           ],
           "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
         }
-      ]
+      ],
+      "avatar": "assets/avatars/denis_oproescu.png"
     },
     {
       "id": "danut_diac",
@@ -573,14 +576,15 @@
           ],
           "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
         }
-      ]
+      ],
+      "avatar": "assets/avatars/danut_diac.png"
     },
     {
       "id": "ivona_apostol",
       "name": "Ivona Apostol",
       "nickname": "LadyCodeBaker",
       "role": "SDE",
-      "level": "Competent",
+      "level": "Competent (L3)",
       "race": {
         "primary": "Surge",
         "secondary": "Ground"
@@ -693,12 +697,13 @@
           ],
           "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
         }
-      ]
+      ],
+      "avatar": "assets/avatars/ivona_apostol.png"
     },
     {
       "id": "andrei_clim",
       "name": "Andrei Clim",
-      "nickname": "—",
+      "nickname": "CloudRunner",
       "role": "SDE",
       "level": "Proficient",
       "race": {
@@ -813,14 +818,15 @@
           ],
           "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
         }
-      ]
+      ],
+      "avatar": "assets/avatars/andrei_clim.png"
     },
     {
       "id": "ilie_lupu",
       "name": "Ilie Lupu",
       "nickname": "Pipeline",
       "role": "SDE",
-      "level": "Proficient",
+      "level": "Full-stack Competent (L3)",
       "race": {
         "primary": "Surge",
         "secondary": "Capacitor"
@@ -938,14 +944,15 @@
           ],
           "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
         }
-      ]
+      ],
+      "avatar": "assets/avatars/ilie_lupu.png"
     },
     {
       "id": "mihai_bojescu",
       "name": "Mihai Bojescu",
-      "nickname": "Clean Coder",
+      "nickname": "Bit",
       "role": "SDE",
-      "level": "Proficient",
+      "level": "Proficient (L3)",
       "race": {
         "primary": "Capacitor",
         "secondary": "Ground"
@@ -1049,14 +1056,15 @@
           ],
           "rationale": "DISC overlap on C. Compatible leadership style boosts growth."
         }
-      ]
+      ],
+      "avatar": "assets/avatars/mihai_bojescu.png"
     },
     {
       "id": "demetriad_sinzeanu",
       "name": "Demetriad Sinzeanu",
-      "nickname": "Gandacus",
+      "nickname": "Gandachu",
       "role": "SDE",
-      "level": "Advanced Beginner",
+      "level": "Competent (L1)",
       "race": {
         "primary": "Ground",
         "secondary": "Capacitor"
@@ -1159,14 +1167,15 @@
           ],
           "rationale": "DISC overlap on C. Compatible leadership style boosts growth."
         }
-      ]
+      ],
+      "avatar": "assets/avatars/demetriad_sinzeanu.png"
     },
     {
       "id": "andreea_bejan",
       "name": "Andreea Bejan",
       "nickname": "Sparkles",
       "role": "SDE",
-      "level": "Advanced Beginner",
+      "level": "BE Advanced Beginner (L1)",
       "race": {
         "primary": "Ground",
         "secondary": "Arc"
@@ -1242,12 +1251,13 @@
           ],
           "rationale": "DISC overlap on I. Compatible leadership style boosts growth."
         }
-      ]
+      ],
+      "avatar": "assets/avatars/andreea_bejan.png"
     },
     {
       "id": "benjammin_frankly",
       "name": "Benjammin Frankly",
-      "nickname": "Benji / The Mouth",
+      "nickname": "The Moth",
       "role": "AI Familiar (Răzvan's technical extension)",
       "level": "Companion",
       "race": {
@@ -1368,7 +1378,8 @@
           ],
           "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
         }
-      ]
+      ],
+      "avatar": null
     }
   ]
 }
