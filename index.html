@@ -265,6 +265,96 @@
     letter-spacing: 0.02em;
   }
 
+  /* ---------- Card highlight & progress ---------- */
+  .card-highlight {
+    margin: 10px 0 0;
+    padding: 9px 11px;
+    background: var(--bg);
+    border: 1px solid var(--rule-soft);
+    border-left: 3px solid var(--accent);
+    border-radius: 5px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--text-mid);
+    position: relative;
+  }
+  .card-highlight .ch-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .card-highlight .ch-text {
+    color: var(--text);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .card-highlight .ch-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 6px;
+    flex-wrap: wrap;
+  }
+  .card-highlight .ch-month {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dim);
+  }
+  .card-highlight .ch-delta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+  .ch-delta.pos { background: rgba(90,138,90,0.12); color: var(--pos); }
+  .ch-delta.neg { background: rgba(192,80,80,0.1); color: var(--neg); }
+  .ch-tag {
+    font-size: 10px;
+    background: var(--bg-elev);
+    border: 1px solid var(--rule-soft);
+    border-radius: 3px;
+    padding: 1px 5px;
+    color: var(--text-dim);
+  }
+
+  .card-progress {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 8px;
+    padding: 6px 10px;
+    background: var(--bg);
+    border: 1px solid var(--rule-soft);
+    border-radius: 5px;
+    font-size: 11px;
+  }
+  .card-progress .cp-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    flex: 1;
+  }
+  .card-progress .cp-trend {
+    font-size: 14px;
+    line-height: 1;
+  }
+  .card-progress .cp-delta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .cp-delta.up { color: var(--pos); }
+  .cp-delta.down { color: var(--neg); }
+  .cp-delta.flat { color: var(--text-dim); }
+
   /* ---------- Drilldown overlay (article) ---------- */
   .reader {
     position: fixed;
@@ -574,6 +664,50 @@ function avatarTag(c, cls = '') {
   return `<div class="avatar avatar-fallback ${cls}">${initials(c.name)}</div>`;
 }
 
+function fmtMonthShort(m) {
+  if (!m || m === '0000-00') return '';
+  const [y, mo] = m.split('-');
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return (months[parseInt(mo,10)-1] || mo) + ' ' + y.slice(2);
+}
+
+function renderCardHighlight(c) {
+  const h = c.card_highlight;
+  if (!h || !h.text) return '';
+  const deltaNum = h.delta || 0;
+  const deltaClass = deltaNum > 0 ? 'pos' : (deltaNum < 0 ? 'neg' : '');
+  const deltaStr = deltaNum !== 0 ? `<span class="ch-delta ${deltaClass}">${deltaNum > 0 ? '+' : ''}${deltaNum.toFixed(2)}</span>` : '';
+  const tagChips = (h.tags || []).map(t => `<span class="ch-tag">${t}</span>`).join('');
+  const monthStr = fmtMonthShort(h.month);
+  return `
+    <div class="card-highlight">
+      <div class="ch-label">Recent Accomplishment</div>
+      <div class="ch-text">${h.text}</div>
+      <div class="ch-meta">
+        ${monthStr ? `<span class="ch-month">${monthStr}</span>` : ''}
+        ${deltaStr}
+        ${tagChips}
+      </div>
+    </div>`;
+}
+
+function renderCardProgress(c) {
+  const p = c.card_progress;
+  if (!p) return '';
+  const trend = p.trend || 'flat';
+  const icon = trend === 'up' ? '↑' : (trend === 'down' ? '↓' : '→');
+  const recentMonths = (p.recent_months || []).map(fmtMonthShort).filter(Boolean);
+  const periodLabel = recentMonths.length ? recentMonths[recentMonths.length - 1] + (recentMonths.length > 1 ? ' – ' + recentMonths[0] : '') : 'recent';
+  const delta = p.recent_2m_delta ?? 0;
+  const sign = delta >= 0 ? '+' : '';
+  return `
+    <div class="card-progress">
+      <span class="cp-label">Progress · ${periodLabel}</span>
+      <span class="cp-trend">${icon}</span>
+      <span class="cp-delta ${trend}">${sign}${delta.toFixed(2)}</span>
+    </div>`;
+}
+
 function renderCard(c) {
   const mpr = c.mpr_stats || {};
   const evt = c.events_aggregate || {};
@@ -611,7 +745,9 @@ function renderCard(c) {
           <div class="stat-sub">${mpr.first_month || '—'} → ${mpr.last_month || '—'}</div>
         </div>
       </div>
-      <div style="position:relative;height:120px;">
+      ${renderCardHighlight(c)}
+      ${renderCardProgress(c)}
+      <div style="position:relative;height:110px;margin-top:10px;">
         <canvas id="radar-${c.id}" class="radar-mini"></canvas>
       </div>
       <div class="card-foot">
