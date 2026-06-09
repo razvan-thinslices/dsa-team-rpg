@@ -860,12 +860,12 @@
           "progress": 40
         },
         "leadership": {
-          "level": 30,
+          "level": 31.0,
           "progress": 50
         }
       },
       "values": {
-        "extreme-ownership": 60,
+        "extreme-ownership": 65.0,
         "team-sport": 50,
         "deliver-value": 90,
         "craftsmanship": 80,
@@ -887,7 +887,32 @@
         "learning-plan": 8
       },
       "mpr_history": [],
-      "events": [],
+      "events": [
+        {
+          "id": "evt_001",
+          "date": "2026-05-31",
+          "source": "mpr_2026_05",
+          "type": "skill",
+          "target": "leadership",
+          "delta": "+1",
+          "note": "Owned the SMB credentials discussion with Todd (business stakeholder) as part of Roll-out Gathering Place. Clarified service account requirements (write perms, traceability), drove to resolution: AD service accounts for DSA Portal (StgFiles + ProdFiles) obtained.",
+          "ticket_ref": "",
+          "instance_count": 1,
+          "team_improvement_added": false
+        },
+        {
+          "id": "evt_002",
+          "date": "2026-05-31",
+          "source": "mpr_2026_05",
+          "type": "value_alignment",
+          "target": "extreme-ownership",
+          "delta": "+5%",
+          "note": "Took ownership of business communication with Todd re SMB credentials — went beyond technical implementation to resolve infra access at stakeholder level.",
+          "ticket_ref": "",
+          "instance_count": 1,
+          "team_improvement_added": false
+        }
+      ],
       "notes": "Principles: Extreme Ownership (1) → Leave Cleaner (5) → Learn Fast Teach Faster (8). Talks little, ships big. Weakness: ownership/carelessness on details. AD Carry: massive damage but needs team coverage.",
       "passive_boosts": [
         {
