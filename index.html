@@ -266,6 +266,55 @@
   }
 
   /* ---------- Card highlight & progress ---------- */
+  .card-strengths {
+    margin: 10px 0 0;
+    padding: 9px 11px;
+    background: var(--bg);
+    border: 1px solid var(--rule-soft);
+    border-radius: 5px;
+  }
+  .card-strengths .ch-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 6px;
+  }
+  .str-row {
+    display: grid;
+    grid-template-columns: 110px 1fr 28px;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 5px;
+  }
+  .str-row:last-child { margin-bottom: 0; }
+  .str-label {
+    font-size: 11px;
+    color: var(--text-mid);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .str-track {
+    height: 5px;
+    background: var(--rule-soft);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .str-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+  }
+  .str-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dim);
+    text-align: right;
+  }
+
   .card-highlight {
     margin: 10px 0 0;
     padding: 9px 11px;
@@ -660,6 +709,14 @@ const TS_LABELS = {
   'entrepreneurial-attitude': 'Entrepreneurial',
   'engineering-mindset': 'Engineering Mind'
 };
+const SKILL_LABELS = {
+  'engineering-craft':  'Engineering Craft',
+  'system-mastery':     'System Mastery',
+  'problem-solving':    'Problem Solving',
+  'process-automation': 'Process Automation',
+  'user-impact':        'User Impact',
+  'leadership':         'Leadership'
+};
 
 function fmtScore(n) {
   if (n == null || isNaN(n)) return '—';
@@ -688,6 +745,28 @@ function fmtMonthShort(m) {
   const [y, mo] = m.split('-');
   const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   return (months[parseInt(mo,10)-1] || mo) + ' ' + y.slice(2);
+}
+
+function renderCardStrengths(c) {
+  const skills = c.skills || {};
+  const top = Object.entries(skills)
+    .filter(([, s]) => s.level > 0)
+    .sort((a, b) => b[1].level - a[1].level)
+    .slice(0, 3);
+  if (!top.length) return '';
+
+  const MAX_LEVEL = 100;
+  const items = top.map(([k, s]) => {
+    const label = SKILL_LABELS[k] || k.replace(/-/g, ' ');
+    const pct = Math.min(100, Math.round(s.level / MAX_LEVEL * 100));
+    return `<div class="str-row">
+      <div class="str-label">${label}</div>
+      <div class="str-track"><div class="str-fill" style="width:${pct}%"></div></div>
+      <div class="str-num">${s.level}</div>
+    </div>`;
+  }).join('');
+
+  return `<div class="card-strengths"><div class="ch-label">Top Skills</div>${items}</div>`;
 }
 
 function renderCardHighlight(c) {
@@ -781,6 +860,7 @@ function renderCard(c) {
           <div class="stat-sub">${mpr.first_month || '—'} → ${mpr.last_month || '—'}</div>
         </div>
       </div>
+      ${renderCardStrengths(c)}
       ${renderCardHighlight(c)}
       ${renderCardProgress(c)}
       <div style="position:relative;height:110px;margin-top:10px;">
