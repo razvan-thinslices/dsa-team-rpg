@@ -591,7 +591,7 @@
       },
       "disc": {
         "primary": "D",
-        "secondary": "S"
+        "secondary": "C"
       },
       "class": "Drill Sergeant",
       "tier": "team",
@@ -647,31 +647,35 @@
       },
       "mpr_history": [],
       "events": [],
-      "notes": "Principles: Extreme Ownership (1) → Team Sport (2) → Marathon (5). Recipe-keeper, process enforcer. D/S = action + team. Drill Sergeant fits how she ensures the recipe gets followed.",
+      "notes": "Principles: Extreme Ownership (1) → Team Sport (2) → Leave Campground Cleaner (5). Drill Sergeant: drives ownership + enforces process standards. D primary: results, accountability, pushes through. C secondary: diligence, process automation, leave-cleaner discipline. (Corrected from D/S — team-loyalty read as S was actually D-accountability.)",
       "passive_boosts": [
         {
           "from": "Răzvan Onofrei",
           "from_disc": "C/D",
           "trait_match": [
+            "C",
             "D"
           ],
-          "modifier": "+0.5",
+          "modifier": "+1.0",
           "applies_to": [
-            "leadership"
+            "leadership",
+            "engineering-craft"
           ],
-          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+          "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
         },
         {
           "from": "Anca Croitoriu",
           "from_disc": "D/C",
           "trait_match": [
+            "C",
             "D"
           ],
-          "modifier": "+0.5",
+          "modifier": "+1.0",
           "applies_to": [
-            "leadership"
+            "leadership",
+            "engineering-craft"
           ],
-          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+          "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
         },
         {
           "from": "Denis Oproescu",
@@ -689,13 +693,15 @@
           "from": "Dănuț Diac",
           "from_disc": "D/C",
           "trait_match": [
+            "C",
             "D"
           ],
-          "modifier": "+0.5",
+          "modifier": "+1.0",
           "applies_to": [
-            "leadership"
+            "leadership",
+            "engineering-craft"
           ],
-          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+          "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
         }
       ],
       "avatar": "assets/avatars/ivona_apostol.png"
@@ -711,8 +717,8 @@
         "secondary": "Ground"
       },
       "disc": {
-        "primary": "D",
-        "secondary": "S"
+        "primary": "C",
+        "secondary": "D"
       },
       "class": "Tank",
       "tier": "team",
@@ -768,31 +774,35 @@
       },
       "mpr_history": [],
       "events": [],
-      "notes": "Principles: Seek Truth (7) → Fix System Not Person (9) → Team Sport (2). Truth-seeker, challenges constructively. Tank class: takes too much ownership → burnout risk. Marathon score low intentionally.",
+      "notes": "Principles: Seek Truth (7) → Fix System Not Person (9) → Team Sport (2). Tank: analytical challenger primary, drives ownership secondary. C primary: questions everything, pushes for clarity, data-first. D secondary: owns the problem until burnout risk (marathon-not-sprint: 40 intentionally low). Tank trap: takes on too many problems analytically + refuses to let go. I-tertiary explains the constructive framing. (Corrected from D/S.)",
       "passive_boosts": [
         {
           "from": "Răzvan Onofrei",
           "from_disc": "C/D",
           "trait_match": [
+            "C",
             "D"
           ],
-          "modifier": "+0.5",
+          "modifier": "+1.0",
           "applies_to": [
-            "leadership"
+            "leadership",
+            "engineering-craft"
           ],
-          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+          "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
         },
         {
           "from": "Anca Croitoriu",
           "from_disc": "D/C",
           "trait_match": [
+            "C",
             "D"
           ],
-          "modifier": "+0.5",
+          "modifier": "+1.0",
           "applies_to": [
-            "leadership"
+            "leadership",
+            "engineering-craft"
           ],
-          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+          "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
         },
         {
           "from": "Denis Oproescu",
@@ -810,13 +820,15 @@
           "from": "Dănuț Diac",
           "from_disc": "D/C",
           "trait_match": [
+            "C",
             "D"
           ],
-          "modifier": "+0.5",
+          "modifier": "+1.0",
           "applies_to": [
-            "leadership"
+            "leadership",
+            "engineering-craft"
           ],
-          "rationale": "DISC overlap on D. Compatible leadership style boosts growth."
+          "rationale": "DISC overlap on C,D. Compatible leadership style boosts growth."
         }
       ],
       "avatar": "assets/avatars/andrei_clim.png"
