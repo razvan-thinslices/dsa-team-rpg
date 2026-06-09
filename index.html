@@ -416,8 +416,8 @@
     color: var(--text);
   }
 
-  .radar-mini { width: 100%; height: 180px; }
-  .radar-full { width: 100%; height: 340px; }
+  .radar-mini { width: 100%; height: 180px; background: #fff; border-radius: 4px; }
+  .radar-full { width: 100%; height: 340px; background: var(--bg-elev); border-radius: 4px; }
 
   .art-prompt {
     font-family: 'Inter', system-ui, sans-serif;
@@ -644,14 +644,25 @@ function buildRadar(canvasId, c, isMini) {
   options: {
     responsive: true,
     maintainAspectRatio: false,
-    plugins: { legend: { display: false }, tooltip: { enabled: !isMini } },
+    plugins: { legend: { display: false }, tooltip: {
+      enabled: true,
+      callbacks: {
+        title: (items) => items[0]?.label || '',
+        label: (item) => ` ${item.raw}%`
+      },
+      bodyFont: { family: 'Inter, system-ui, sans-serif', size: 12 },
+      titleFont: { family: 'Inter, system-ui, sans-serif', size: 11 },
+      backgroundColor: 'rgba(30,28,25,0.88)',
+      padding: 8,
+      cornerRadius: 4
+    } },
     scales: {
       r: {
         beginAtZero: true,
         max: 100,
         ticks: { display: false, stepSize: 25 },
-        grid: { color: isMini ? '#EDECE8' : '#E4E2DC' },
-        angleLines: { color: isMini ? '#EDECE8' : '#E4E2DC' },
+        grid: { color: isMini ? '#D8D5CF' : '#E4E2DC' },
+        angleLines: { color: isMini ? '#D8D5CF' : '#E4E2DC' },
         pointLabels: {
           display: !isMini,
           color: '#6B6860',
