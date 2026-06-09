@@ -825,19 +825,22 @@ function renderCardProgress(c) {
 
   if (p.basis === 'mpr_score') {
     const latestM = fmtMonthShort(p.latest_month);
-    if (p.diff !== null && p.diff !== undefined && p.prev_month) {
+    // diff is score delta (e.g. -0.75, +0.50)
+    const diff = p.diff;
+    if (diff !== null && diff !== undefined && p.prev_month) {
       const prevM = fmtMonthShort(p.prev_month);
-      const sign  = p.diff >= 0 ? '+' : '';
+      const sign  = diff >= 0 ? '+' : '';
       label = `MPR · ${prevM} → ${latestM}`;
-      valueHtml = `<span class="cp-score">${p.latest_score.toFixed(2)}</span><span class="cp-delta ${trend}">${sign}${p.diff.toFixed(2)}</span>`;
+      valueHtml = `<span class="cp-score">${Number(p.latest_score).toFixed(2)}</span>`
+                + `<span class="cp-delta ${trend}">${sign}${Number(diff).toFixed(2)}</span>`;
     } else {
-      // only one scored MPR — just show the score
       label = `MPR · ${latestM}`;
-      valueHtml = `<span class="cp-score">${p.latest_score.toFixed(2)}</span>`;
+      valueHtml = `<span class="cp-score">${Number(p.latest_score).toFixed(2)}</span>`;
     }
   } else {
-    // event_delta fallback (no scored MPRs)
-    const delta = p.diff ?? 0;
+    // event_delta fallback — support both 'diff' (new) and 'recent_2m_delta' (legacy)
+    const raw = p.diff ?? p.recent_2m_delta ?? 0;
+    const delta = Number(raw);
     const sign  = delta >= 0 ? '+' : '';
     label = 'Progress · recent';
     valueHtml = `<span class="cp-delta ${trend}">${sign}${delta.toFixed(2)}</span>`;
