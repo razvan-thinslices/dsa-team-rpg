@@ -423,8 +423,11 @@
           "domain-knowledge"
         ],
         "delta": 0.5,
+        "delta_raw": "+0.50",
         "month": "2025-07",
-        "section": "Business"
+        "source": "mpr_event",
+        "type": "",
+        "target": ""
       },
       "card_progress": {
         "recent_2m_delta": 2.0,
@@ -434,7 +437,8 @@
           "2026-02",
           "2026-01"
         ]
-      }
+      },
+      "stat_changes": []
     },
     {
       "id": "anca_croitoriu",
@@ -1078,8 +1082,11 @@
           "discipline"
         ],
         "delta": 0.25,
+        "delta_raw": "+0.25",
         "month": "2026-03",
-        "section": "Personal"
+        "source": "mpr_event",
+        "type": "",
+        "target": ""
       },
       "card_progress": {
         "recent_2m_delta": 1.5,
@@ -1089,7 +1096,8 @@
           "2026-04",
           "2026-03"
         ]
-      }
+      },
+      "stat_changes": []
     },
     {
       "id": "andrei_clim",
@@ -1415,8 +1423,11 @@
           "domain-knowledge"
         ],
         "delta": 0.5,
+        "delta_raw": "+0.50",
         "month": "2026-05",
-        "section": "Business"
+        "source": "mpr_event",
+        "type": "",
+        "target": ""
       },
       "card_progress": {
         "recent_2m_delta": 1.25,
@@ -1426,7 +1437,8 @@
           "2026-05",
           "2026-03"
         ]
-      }
+      },
+      "stat_changes": []
     },
     {
       "id": "ilie_lupu",
@@ -1771,13 +1783,17 @@
         "last_month": "2026-04"
       },
       "card_highlight": {
-        "text": "Appreciative written feedback from Mihai Bojescu",
+        "text": "Took ownership of business communication with Todd re SMB credentials — went beyond technical implementation to resolve infra access at stakeholder level.",
         "tags": [
-          "team-player"
+          "value_alignment",
+          "extreme-ownership"
         ],
-        "delta": 0.5,
-        "month": "2026-04",
-        "section": "Team"
+        "delta": 5.0,
+        "delta_raw": "+5%",
+        "month": "2026-05",
+        "source": "stat_change",
+        "type": "value_alignment",
+        "target": "extreme-ownership"
       },
       "card_progress": {
         "recent_2m_delta": 2.0,
@@ -1787,7 +1803,33 @@
           "2026-04",
           "2026-03"
         ]
-      }
+      },
+      "stat_changes": [
+        {
+          "id": "evt_001",
+          "date": "2026-05-31",
+          "source": "mpr_2026_05",
+          "type": "skill",
+          "target": "leadership",
+          "delta": "+1",
+          "note": "Owned the SMB credentials discussion with Todd (business stakeholder) as part of Roll-out Gathering Place. Clarified service account requirements (write perms, traceability), drove to resolution: AD service accounts for DSA Portal (StgFiles + ProdFiles) obtained.",
+          "ticket_ref": "",
+          "instance_count": 1,
+          "team_improvement_added": false
+        },
+        {
+          "id": "evt_002",
+          "date": "2026-05-31",
+          "source": "mpr_2026_05",
+          "type": "value_alignment",
+          "target": "extreme-ownership",
+          "delta": "+5%",
+          "note": "Took ownership of business communication with Todd re SMB credentials — went beyond technical implementation to resolve infra access at stakeholder level.",
+          "ticket_ref": "",
+          "instance_count": 1,
+          "team_improvement_added": false
+        }
+      ]
     },
     {
       "id": "mihai_bojescu",
@@ -2094,8 +2136,11 @@
           "team-player"
         ],
         "delta": 0.5,
+        "delta_raw": "+0.50",
         "month": "2026-04",
-        "section": "Team"
+        "source": "mpr_event",
+        "type": "",
+        "target": ""
       },
       "card_progress": {
         "recent_2m_delta": 2.75,
@@ -2105,7 +2150,8 @@
           "2026-05",
           "2026-04"
         ]
-      }
+      },
+      "stat_changes": []
     },
     {
       "id": "demetriad_sinzeanu",
@@ -2407,8 +2453,11 @@
           "architecture"
         ],
         "delta": 0.25,
+        "delta_raw": "+0.25",
         "month": "2026-03",
-        "section": "Personal"
+        "source": "mpr_event",
+        "type": "",
+        "target": ""
       },
       "card_progress": {
         "recent_2m_delta": 1.5,
@@ -2418,7 +2467,8 @@
           "2026-04",
           "2026-03"
         ]
-      }
+      },
+      "stat_changes": []
     },
     {
       "id": "andreea_bejan",
@@ -2615,8 +2665,11 @@
           "database"
         ],
         "delta": 0.25,
+        "delta_raw": "+0.25",
         "month": "2026-03",
-        "section": "Personal"
+        "source": "mpr_event",
+        "type": "",
+        "target": ""
       },
       "card_progress": {
         "recent_2m_delta": 1.5,
@@ -2626,7 +2679,8 @@
           "2026-04",
           "2026-03"
         ]
-      }
+      },
+      "stat_changes": []
     },
     {
       "id": "benjammin_frankly",

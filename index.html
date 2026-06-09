@@ -322,6 +322,18 @@
     padding: 1px 5px;
     color: var(--text-dim);
   }
+  .card-highlight.stat-change {
+    border-left-color: var(--pos);
+  }
+  .card-highlight.stat-change .ch-label {
+    color: var(--pos);
+  }
+  .ch-tag.stat-badge {
+    background: rgba(90,138,90,0.08);
+    border-color: rgba(90,138,90,0.25);
+    color: var(--pos);
+    font-weight: 600;
+  }
 
   .card-progress {
     display: flex;
@@ -354,6 +366,13 @@
   .cp-delta.up { color: var(--pos); }
   .cp-delta.down { color: var(--neg); }
   .cp-delta.flat { color: var(--text-dim); }
+
+  /* Stat changes table — note rows sit flush under the data row */
+  .stat-changes-table tr:has(td[colspan]) td {
+    background: var(--bg);
+    border-top: none;
+    padding-top: 0;
+  }
 
   /* ---------- Drilldown overlay (article) ---------- */
   .reader {
@@ -674,19 +693,36 @@ function fmtMonthShort(m) {
 function renderCardHighlight(c) {
   const h = c.card_highlight;
   if (!h || !h.text) return '';
-  const deltaNum = h.delta || 0;
-  const deltaClass = deltaNum > 0 ? 'pos' : (deltaNum < 0 ? 'neg' : '');
-  const deltaStr = deltaNum !== 0 ? `<span class="ch-delta ${deltaClass}">${deltaNum > 0 ? '+' : ''}${deltaNum.toFixed(2)}</span>` : '';
-  const tagChips = (h.tags || []).map(t => `<span class="ch-tag">${t}</span>`).join('');
+
+  const isStatChange = h.source === 'stat_change';
+  const deltaRaw = h.delta_raw || '';
+
+  // For stat changes: show type + target as badge, not MPR category tags
+  let badgeHtml = '';
+  if (isStatChange && h.type && h.target) {
+    const typeLabel = h.type === 'skill' ? '⬆ skill' : h.type === 'value_alignment' ? '◆ value' : h.type;
+    const targetLabel = h.target.replace(/-/g, ' ');
+    badgeHtml = `<span class="ch-tag stat-badge">${typeLabel}</span><span class="ch-tag">${targetLabel}</span>`;
+  } else {
+    badgeHtml = (h.tags || []).filter(Boolean).map(t => `<span class="ch-tag">${t}</span>`).join('');
+  }
+
   const monthStr = fmtMonthShort(h.month);
+  const deltaNum = typeof h.delta === 'number' ? h.delta : parseFloat(h.delta || '0');
+  const deltaClass = deltaNum > 0 ? 'pos' : (deltaNum < 0 ? 'neg' : '');
+  const deltaDisplay = deltaRaw || (deltaNum !== 0 ? (deltaNum > 0 ? '+' : '') + deltaNum.toFixed(2) : '');
+  const deltaStr = deltaDisplay ? `<span class="ch-delta ${deltaClass}">${deltaDisplay}</span>` : '';
+
+  const label = isStatChange ? 'Stat Change' : 'Recent Accomplishment';
+
   return `
-    <div class="card-highlight">
-      <div class="ch-label">Recent Accomplishment</div>
+    <div class="card-highlight${isStatChange ? ' stat-change' : ''}">
+      <div class="ch-label">${label}</div>
       <div class="ch-text">${h.text}</div>
       <div class="ch-meta">
         ${monthStr ? `<span class="ch-month">${monthStr}</span>` : ''}
         ${deltaStr}
-        ${tagChips}
+        ${badgeHtml}
       </div>
     </div>`;
 }
@@ -844,6 +880,23 @@ function renderReader(c) {
   const skillRows = Object.entries(c.skills || {}).sort((a,b) => b[1].level - a[1].level).map(([k, s]) =>
     `<tr><td class="k">${k}</td><td class="num">${s.level}</td><td class="num">${s.progress}</td></tr>`).join('');
 
+  const STAT_TYPE_LABELS = { skill: '⬆ skill', value_alignment: '◆ value', ts_value: '● ts-value', core: '○ core' };
+  const statChangeRows = (c.stat_changes || []).map(ev => {
+    const typeLabel = STAT_TYPE_LABELS[ev.type] || ev.type || '·';
+    const target = (ev.target || '').replace(/-/g, ' ');
+    const delta = ev.delta ? `<span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;color:${String(ev.delta).startsWith('-') ? 'var(--neg)' : 'var(--pos)'}">${ev.delta}</span>` : '';
+    const dateShort = ev.date ? fmtMonthShort(ev.date.slice(0,7)) : '—';
+    const note = ev.note ? `<div style="font-size:11px;color:var(--text-mid);margin-top:3px;line-height:1.5">${ev.note}</div>` : '';
+    const src = ev.source || '';
+    return `<tr>
+      <td class="k" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim)">${dateShort}</td>
+      <td class="k" style="font-size:11px">${typeLabel}</td>
+      <td class="k">${target} ${delta}</td>
+      <td class="k" style="font-size:10px;color:var(--text-dim)">${src}</td>
+    </tr>
+    ${note ? `<tr><td colspan="4" style="padding:0 8px 8px">${note}</td></tr>` : ''}`;
+  }).join('');
+
   const mprRows = (c.mpr_history || [])
     .filter(m => m.score != null)
     .sort((a,b) => (b.month || '').localeCompare(a.month || ''))
@@ -935,6 +988,14 @@ function renderReader(c) {
       <table class="data-table">
         <thead><tr><th>Path</th><th class="num">Level</th><th class="num">Progress</th></tr></thead>
         <tbody>${skillRows}</tbody>
+      </table>
+    </div>` : ''}
+
+    ${statChangeRows ? `<div class="article-section">
+      <h3>Stat Changes · Curated Log</h3>
+      <table class="data-table stat-changes-table">
+        <thead><tr><th>When</th><th>Type</th><th>Target · Δ</th><th>Source</th></tr></thead>
+        <tbody>${statChangeRows}</tbody>
       </table>
     </div>` : ''}
 

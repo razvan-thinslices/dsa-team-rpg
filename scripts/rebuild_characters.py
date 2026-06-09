@@ -48,6 +48,38 @@ def get_best_recent_event(char_events: list) -> dict | None:
         return max(with_note, key=lambda e: e.get("delta", 0))
     return None
 
+def safe_team_month(ev: dict) -> str:
+    """team.json events use 'date' field (YYYY-MM-DD or YYYY-MM)."""
+    d = ev.get("date", "")
+    if not d:
+        return "0000-00"
+    return d[:7]  # YYYY-MM
+
+def get_best_team_event(team_events: list) -> dict | None:
+    """Pick the most impactful recent team.json stat-change event for card highlight."""
+    now = datetime.now(timezone.utc)
+    cutoff_3m = (now - timedelta(days=90)).strftime("%Y-%m")
+    cutoff_1m = (now - timedelta(days=31)).strftime("%Y-%m")
+
+    with_note = [e for e in team_events if e.get("note")]
+    recent_3m = [e for e in with_note if safe_team_month(e) >= cutoff_3m]
+
+    def abs_delta(e):
+        d = str(e.get("delta", "0")).replace("%", "").replace("+", "")
+        try:
+            return abs(float(d))
+        except ValueError:
+            return 0.0
+
+    if recent_3m:
+        return max(recent_3m, key=abs_delta)
+
+    recent_1m = [e for e in with_note if safe_team_month(e) >= cutoff_1m]
+    if recent_1m:
+        return max(recent_1m, key=abs_delta)
+
+    return None
+
 def main():
     team    = json.loads((ROOT / "team.json").read_text())
     mpr_idx = json.loads((DATA / "mpr_index.json").read_text())
@@ -61,6 +93,7 @@ def main():
 
         ch_mpr       = mpr_idx.get("characters", {}).get(short_id, [])
         ch_events_raw = [e for e in events.get("events", []) if e.get("character_id") == short_id]
+        team_events   = ch.get("events", [])  # static stat-change log from team.json
 
         ch["mpr_history"] = sorted(ch_mpr, key=safe_month, reverse=True)
 
@@ -89,17 +122,42 @@ def main():
             "last_month":        ch["mpr_history"][0]["month"] if ch["mpr_history"] else None,
         }
 
-        best = get_best_recent_event(ch_events_raw)
-        if best:
+        # card_highlight: prefer team.json stat-change events (stable, curated),
+        # fallback to MPR-parsed events
+        best_team = get_best_team_event(team_events)
+        best_mpr  = get_best_recent_event(ch_events_raw)
+
+        if best_team:
+            def _abs_delta_str(e):
+                d = str(e.get("delta", "0")).replace("%", "").replace("+", "")
+                try:
+                    return abs(float(d))
+                except ValueError:
+                    return 0.0
+
+            ch["card_highlight"] = {
+                "text":   best_team.get("note", ""),
+                "tags":   [best_team.get("type", ""), best_team.get("target", "")] if best_team.get("target") else [],
+                "delta":  _abs_delta_str(best_team),
+                "delta_raw": str(best_team.get("delta", "")),
+                "month":  safe_team_month(best_team),
+                "source": "stat_change",
+                "type":   best_team.get("type", ""),
+                "target": best_team.get("target", ""),
+            }
+        elif best_mpr:
             all_cats: list[str] = []
-            for cat, items in best.get("tag_categories", {}).items():
+            for cat, items in best_mpr.get("tag_categories", {}).items():
                 all_cats.extend(items)
             ch["card_highlight"] = {
-                "text":    best.get("note", ""),
+                "text":    best_mpr.get("note", ""),
                 "tags":    all_cats[:3],
-                "delta":   best.get("delta", 0),
-                "month":   safe_month(best),
-                "section": best.get("section", ""),
+                "delta":   best_mpr.get("delta", 0),
+                "delta_raw": f"{best_mpr.get('delta', 0):+.2f}",
+                "month":   safe_month(best_mpr),
+                "source":  "mpr_event",
+                "type":    "",
+                "target":  "",
             }
         else:
             ch["card_highlight"] = None
@@ -113,6 +171,14 @@ def main():
             "trend":           "up" if recent_delta > prev_delta else ("down" if recent_delta < prev_delta else "flat"),
             "recent_months":   sorted_months[:2],
         }
+
+        # Expose team_events as stat_changes for drilldown display
+        # Sort by date descending, newest first
+        ch["stat_changes"] = sorted(
+            team_events,
+            key=lambda e: e.get("date", "0000-00-00"),
+            reverse=True,
+        )
 
     (DATA / "characters.json").write_text(json.dumps(team, indent=2, ensure_ascii=False))
     print(f"[rebuild] characters.json written — {len(team['characters'])} characters")
