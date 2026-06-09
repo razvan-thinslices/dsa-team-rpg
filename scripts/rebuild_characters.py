@@ -162,15 +162,50 @@ def main():
         else:
             ch["card_highlight"] = None
 
-        sorted_months = sorted(by_month.keys(), reverse=True)
-        recent_delta = sum(by_month[m]["delta"] for m in sorted_months[:2]) if sorted_months else 0
-        prev_delta   = sum(by_month[m]["delta"] for m in sorted_months[2:4]) if len(sorted_months) >= 3 else 0
-        ch["card_progress"] = {
-            "recent_2m_delta": round(recent_delta, 2),
-            "prev_2m_delta":   round(prev_delta, 2),
-            "trend":           "up" if recent_delta > prev_delta else ("down" if recent_delta < prev_delta else "flat"),
-            "recent_months":   sorted_months[:2],
-        }
+        # card_progress: based on MPR score trajectory (stable, calibrated)
+        # Only use event-delta fallback when there are no scored MPRs
+        scored_mprs = sorted(
+            [m for m in ch["mpr_history"] if m.get("score") is not None],
+            key=lambda m: (m.get("month") or "0000-00") if isinstance(m, dict) else "0000-00",
+            reverse=True,
+        )
+
+        if len(scored_mprs) >= 2:
+            latest_score = scored_mprs[0]["score"]
+            prev_score   = scored_mprs[1]["score"]
+            diff = round(latest_score - prev_score, 2)
+            ch["card_progress"] = {
+                "basis":             "mpr_score",
+                "latest_score":      latest_score,
+                "latest_month":      scored_mprs[0].get("month", ""),
+                "prev_score":        prev_score,
+                "prev_month":        scored_mprs[1].get("month", ""),
+                "diff":              diff,
+                "trend":             "up" if diff > 0 else ("down" if diff < 0 else "flat"),
+            }
+        elif len(scored_mprs) == 1:
+            ch["card_progress"] = {
+                "basis":         "mpr_score",
+                "latest_score":  scored_mprs[0]["score"],
+                "latest_month":  scored_mprs[0].get("month", ""),
+                "prev_score":    None,
+                "prev_month":    None,
+                "diff":          None,
+                "trend":         "flat",
+            }
+        else:
+            # No scored MPRs — event delta fallback, but flag it
+            sorted_months = sorted(by_month.keys(), reverse=True)
+            recent_delta = sum(by_month[m]["delta"] for m in sorted_months[:2]) if sorted_months else 0
+            prev_delta   = sum(by_month[m]["delta"] for m in sorted_months[2:4]) if len(sorted_months) >= 3 else 0
+            ch["card_progress"] = {
+                "basis":            "event_delta",
+                "recent_2m_delta":  round(recent_delta, 2),
+                "prev_2m_delta":    round(prev_delta, 2),
+                "diff":             round(recent_delta - prev_delta, 2),
+                "trend":            "up" if recent_delta > prev_delta else ("down" if recent_delta < prev_delta else "flat"),
+                "recent_months":    sorted_months[:2],
+            }
 
         # Expose team_events as stat_changes for drilldown display
         # Sort by date descending, newest first

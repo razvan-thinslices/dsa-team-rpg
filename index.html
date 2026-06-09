@@ -412,6 +412,13 @@
     font-size: 11px;
     font-weight: 600;
   }
+  .card-progress .cp-score {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text);
+    margin-right: 2px;
+  }
   .cp-delta.up { color: var(--pos); }
   .cp-delta.down { color: var(--neg); }
   .cp-delta.flat { color: var(--text-dim); }
@@ -809,17 +816,38 @@ function renderCardHighlight(c) {
 function renderCardProgress(c) {
   const p = c.card_progress;
   if (!p) return '';
+
   const trend = p.trend || 'flat';
-  const icon = trend === 'up' ? '↑' : (trend === 'down' ? '↓' : '→');
-  const recentMonths = (p.recent_months || []).map(fmtMonthShort).filter(Boolean);
-  const periodLabel = recentMonths.length ? recentMonths[recentMonths.length - 1] + (recentMonths.length > 1 ? ' – ' + recentMonths[0] : '') : 'recent';
-  const delta = p.recent_2m_delta ?? 0;
-  const sign = delta >= 0 ? '+' : '';
+  const icon  = trend === 'up' ? '↑' : (trend === 'down' ? '↓' : '→');
+
+  let label = '';
+  let valueHtml = '';
+
+  if (p.basis === 'mpr_score') {
+    const latestM = fmtMonthShort(p.latest_month);
+    if (p.diff !== null && p.diff !== undefined && p.prev_month) {
+      const prevM = fmtMonthShort(p.prev_month);
+      const sign  = p.diff >= 0 ? '+' : '';
+      label = `MPR · ${prevM} → ${latestM}`;
+      valueHtml = `<span class="cp-score">${p.latest_score.toFixed(2)}</span><span class="cp-delta ${trend}">${sign}${p.diff.toFixed(2)}</span>`;
+    } else {
+      // only one scored MPR — just show the score
+      label = `MPR · ${latestM}`;
+      valueHtml = `<span class="cp-score">${p.latest_score.toFixed(2)}</span>`;
+    }
+  } else {
+    // event_delta fallback (no scored MPRs)
+    const delta = p.diff ?? 0;
+    const sign  = delta >= 0 ? '+' : '';
+    label = 'Progress · recent';
+    valueHtml = `<span class="cp-delta ${trend}">${sign}${delta.toFixed(2)}</span>`;
+  }
+
   return `
     <div class="card-progress">
-      <span class="cp-label">Progress · ${periodLabel}</span>
+      <span class="cp-label">${label}</span>
       <span class="cp-trend">${icon}</span>
-      <span class="cp-delta ${trend}">${sign}${delta.toFixed(2)}</span>
+      ${valueHtml}
     </div>`;
 }
 
