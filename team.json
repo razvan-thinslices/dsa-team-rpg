@@ -2,7 +2,7 @@
   "$schema": "./schema.md",
   "meta": {
     "version": "0.1.0",
-    "generated": "2026-06-04",
+    "generated": "2026-06-11",
     "source": "Backfilled from MPR history (last 6 months) + Boss's DISC reading + Decalogue retros",
     "universe": "Volt",
     "team": "DSA Portal",
@@ -645,7 +645,14 @@
         "discipline": 7,
         "learning-plan": 5
       },
-      "mpr_history": [],
+      "mpr_history": [
+        {
+          "month": "2026-05",
+          "score": 3.5,
+          "self": 3.25,
+          "note": "2.5 + 0.50(B) + 0.50(P) + 0.50(T). DP-300 Arcadia mock from scratch (52 files). Sub-reporter of the month."
+        }
+      ],
       "events": [],
       "notes": "Principles: Extreme Ownership (1) → Team Sport (2) → Leave Campground Cleaner (5). Drill Sergeant: drives ownership + enforces process standards. D primary: results, accountability, pushes through. C secondary: diligence, process automation, leave-cleaner discipline. (Corrected from D/S — team-loyalty read as S was actually D-accountability.)",
       "passive_boosts": [
@@ -772,7 +779,14 @@
         "learning-plan": 6,
         "discipline": 7
       },
-      "mpr_history": [],
+      "mpr_history": [
+        {
+          "month": "2026-05",
+          "score": 3.25,
+          "self": 3.0,
+          "note": "2.5 + 0.25(B) + 0.25(P) + 0.25(T). Clean execution across 4 PRs, 3/4 absent from MPR."
+        }
+      ],
       "events": [],
       "notes": "Principles: Seek Truth (7) → Fix System Not Person (9) → Team Sport (2). Tank: analytical challenger primary, drives ownership secondary. C primary: questions everything, pushes for clarity, data-first. D secondary: owns the problem until burnout risk (marathon-not-sprint: 40 intentionally low). Tank trap: takes on too many problems analytically + refuses to let go. I-tertiary explains the constructive framing. (Corrected from D/S.)",
       "passive_boosts": [
@@ -898,7 +912,14 @@
       "core": {
         "learning-plan": 8
       },
-      "mpr_history": [],
+      "mpr_history": [
+        {
+          "month": "2026-05",
+          "score": 3.5,
+          "self": 2.72,
+          "note": "2.5 + 0.50(B) + 0.25(P) + 0.25(T). 17 PRs, 4-stream delivery. Sub-reporting gap 0.78."
+        }
+      ],
       "events": [
         {
           "id": "evt_001",
@@ -1050,7 +1071,14 @@
         "learning-plan": 7,
         "side-projects": 6
       },
-      "mpr_history": [],
+      "mpr_history": [
+        {
+          "month": "2026-05",
+          "score": 3.5,
+          "self": 3.75,
+          "note": "2.5 + 1.0. DB investigation unblocked .NET team + staging pipeline. Client-facing status presentation."
+        }
+      ],
       "events": [],
       "notes": "Principles: Team Sport (2) → Craftsmanship (4) → Leave Cleaner (5). C/S — Boss leans toward C primary (process/precision visible in MPRs). Mage: deep research, mysterious solutions, helps too many. Slow but lossless.",
       "passive_boosts": [
@@ -1161,7 +1189,14 @@
       "core": {
         "discipline": 4
       },
-      "mpr_history": [],
+      "mpr_history": [
+        {
+          "month": "2026-05",
+          "score": 3.25,
+          "self": 3.25,
+          "note": "2.5 + 0.25(B) + 0.50(P) + 0.00(T). SQL execution plan analysis above C1 bar; offset by recurring pipeline breakage."
+        }
+      ],
       "events": [],
       "notes": "Principles: Team Sport (2) → Deliver Value (3) → Marathon (10). Friendly, support-oriented, can be sloppy on craftsmanship. S/C with low diligence score = team glue but execution gaps.",
       "passive_boosts": [
@@ -1272,7 +1307,14 @@
       "core": {
         "learning-plan": 6
       },
-      "mpr_history": [],
+      "mpr_history": [
+        {
+          "month": "2026-05",
+          "score": 3.25,
+          "self": 3.0,
+          "note": "2.5 + 0.75. Testing docs improvement + AWS serverless toy project + auto-PR-summary Slack channel."
+        }
+      ],
       "events": [],
       "notes": "Principles: Team Sport (2) → Deliver Value (3) → Learn Fast Teach Faster (8). Junior. Introvert with potential waiting to unleash. STRUCTURAL RISK: only Denis (Arc/I match) gives her a boost — needs cultivation.",
       "passive_boosts": [
