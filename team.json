@@ -653,7 +653,44 @@
           "note": "2.5 + 0.50(B) + 0.50(P) + 0.50(T). DP-300 Arcadia mock from scratch (52 files). Sub-reporter of the month."
         }
       ],
-      "events": [],
+      "events": [
+        {
+          "id": "ivona_may26_e001",
+          "date": "2026-05-31",
+          "source": "mpr_2026_05",
+          "type": "mpr_bonus",
+          "target": "business",
+          "delta": "+0.5",
+          "note": "DP-300 Arcadia mock from scratch (52 files). DP-354 tariff mapping. DP-229 Secrets Manager prevention. DP-196 cross-DB consistency subtasks. Strong business impact, [Business] section left empty in MPR.",
+          "ticket_ref": "DP-300",
+          "instance_count": 5,
+          "team_improvement_added": false
+        },
+        {
+          "id": "ivona_may26_e002",
+          "date": "2026-05-31",
+          "source": "mpr_2026_05",
+          "type": "skill",
+          "target": "engineering-craft",
+          "delta": "+1",
+          "note": "DP-300: Arcadia mock server from scratch with CI/CD integration. Clean, 52 files, reusable across team.",
+          "ticket_ref": "DP-300",
+          "instance_count": 1,
+          "team_improvement_added": true
+        },
+        {
+          "id": "ivona_may26_e003",
+          "date": "2026-05-31",
+          "source": "mpr_2026_05",
+          "type": "mpr_bonus",
+          "target": "team",
+          "delta": "+0.5",
+          "note": "DP-229 pre-analysis caught Secrets Manager gap in prod before rollout. Validation harness (DP-238) produced findings → tickets for whole team. Staging testing guide reusable artifact.",
+          "ticket_ref": "DP-238",
+          "instance_count": 1,
+          "team_improvement_added": true
+        }
+      ],
       "notes": "Principles: Extreme Ownership (1) → Team Sport (2) → Leave Campground Cleaner (5). Drill Sergeant: drives ownership + enforces process standards. D primary: results, accountability, pushes through. C secondary: diligence, process automation, leave-cleaner discipline. (Corrected from D/S — team-loyalty read as S was actually D-accountability.)",
       "passive_boosts": [
         {
@@ -787,7 +824,44 @@
           "note": "2.5 + 0.25(B) + 0.25(P) + 0.25(T). Clean execution across 4 PRs, 3/4 absent from MPR."
         }
       ],
-      "events": [],
+      "events": [
+        {
+          "id": "andrei_may26_e001",
+          "date": "2026-05-31",
+          "source": "mpr_2026_05",
+          "type": "mpr_bonus",
+          "target": "business",
+          "delta": "+0.25",
+          "note": "DP-214 BillSubtotalType resolution (exact→broad→keyword), DSA manual interventions eliminated. Real impact, assigned task.",
+          "ticket_ref": "DP-214",
+          "instance_count": 1,
+          "team_improvement_added": false
+        },
+        {
+          "id": "andrei_may26_e002",
+          "date": "2026-05-31",
+          "source": "mpr_2026_05",
+          "type": "skill",
+          "target": "engineering-craft",
+          "delta": "+1",
+          "note": "DP-214 net simplification (-191 lines), DP-262 infra cleanup, DP-296 query rewrite. Consistent quality across 4 PRs; [Personal] left blank despite evidence.",
+          "ticket_ref": "DP-262",
+          "instance_count": 3,
+          "team_improvement_added": false
+        },
+        {
+          "id": "andrei_may26_e003",
+          "date": "2026-05-31",
+          "source": "mpr_2026_05",
+          "type": "mpr_bonus",
+          "target": "team",
+          "delta": "+0.25",
+          "note": "2 substantive PR reviews (DP-211: 4 inline correctness comments; DP-215: hardcoded numbers). DP-211 review→fix pattern: reviewed correctly, Demi merged anyway, Andrei had to fix.",
+          "ticket_ref": "DP-211",
+          "instance_count": 2,
+          "team_improvement_added": false
+        }
+      ],
       "notes": "Principles: Seek Truth (7) → Fix System Not Person (9) → Team Sport (2). Tank: analytical challenger primary, drives ownership secondary. C primary: questions everything, pushes for clarity, data-first. D secondary: owns the problem until burnout risk (marathon-not-sprint: 40 intentionally low). Tank trap: takes on too many problems analytically + refuses to let go. I-tertiary explains the constructive framing. (Corrected from D/S.)",
       "passive_boosts": [
         {
@@ -944,6 +1018,42 @@
           "ticket_ref": "",
           "instance_count": 1,
           "team_improvement_added": false
+        },
+        {
+          "id": "ilie_may26_e001",
+          "date": "2026-05-31",
+          "source": "mpr_2026_05",
+          "type": "mpr_bonus",
+          "target": "business",
+          "delta": "+0.5",
+          "note": "DP-215 meter readings (C3 FS largest PR, customer-visible). DP-198 Arcadia mock owner (orchestrated Ivona + self). DP-286 received readings fix. 5 Gathering Place rollout subtasks. 4 parallel streams, all Done.",
+          "ticket_ref": "DP-215",
+          "instance_count": 4,
+          "team_improvement_added": false
+        },
+        {
+          "id": "ilie_may26_e002",
+          "date": "2026-05-31",
+          "source": "mpr_2026_05",
+          "type": "mpr_bonus",
+          "target": "personal",
+          "delta": "+0.25",
+          "note": "Full-stack range: ECR/CDK infra + NestJS BE + E2E testing. Unprompted documentation (obfuscation guide, 87 lines). TDC sessions before coding on 2 tickets.",
+          "ticket_ref": "DP-198",
+          "instance_count": 1,
+          "team_improvement_added": false
+        },
+        {
+          "id": "ilie_may26_e003",
+          "date": "2026-05-31",
+          "source": "mpr_2026_05",
+          "type": "mpr_bonus",
+          "target": "team",
+          "delta": "+0.25",
+          "note": "SMB credentials with Todd — owned stakeholder conversation, obtained AD service accounts for staging+prod. DP-198 orchestration (Ivona+self). 2 TDC sessions facilitated.",
+          "ticket_ref": "DP-263",
+          "instance_count": 1,
+          "team_improvement_added": true
         }
       ],
       "notes": "Principles: Extreme Ownership (1) → Leave Cleaner (5) → Learn Fast Teach Faster (8). Talks little, ships big. Weakness: ownership/carelessness on details. AD Carry: massive damage but needs team coverage.",
@@ -1079,7 +1189,56 @@
           "note": "2.5 + 1.0. DB investigation unblocked .NET team + staging pipeline. Client-facing status presentation."
         }
       ],
-      "events": [],
+      "events": [
+        {
+          "id": "mihai_may26_e001",
+          "date": "2026-05-31",
+          "source": "mpr_2026_05",
+          "type": "mpr_bonus",
+          "target": "business",
+          "delta": "+0.5",
+          "note": "DB investigation: Usage&Cost/Payables Summary stuck in EMS+Rebuild — documented problem, escalated to .NET team, unblocked staging pipeline + got additional DB permissions. Informed client.",
+          "ticket_ref": "",
+          "instance_count": 1,
+          "team_improvement_added": true
+        },
+        {
+          "id": "mihai_may26_e002",
+          "date": "2026-05-31",
+          "source": "mpr_2026_05",
+          "type": "mpr_bonus",
+          "target": "business",
+          "delta": "+0.25",
+          "note": "Covered dev status presentation for client on May 22nd in place of Răzvan (vacation) and Andrei. Communicated blockers for Gathering Place release.",
+          "ticket_ref": "",
+          "instance_count": 1,
+          "team_improvement_added": false
+        },
+        {
+          "id": "mihai_may26_e003",
+          "date": "2026-05-31",
+          "source": "mpr_2026_05",
+          "type": "mpr_bonus",
+          "target": "team",
+          "delta": "+0.25",
+          "note": "3 IST issues about codebase quality (structure, consistency, quality) → GitHub issues for team → SDL endorsed → will drive next TDCs/PRs.",
+          "ticket_ref": "",
+          "instance_count": 1,
+          "team_improvement_added": true
+        },
+        {
+          "id": "mihai_may26_e004",
+          "date": "2026-05-31",
+          "source": "mpr_2026_05",
+          "type": "skill",
+          "target": "system-mastery",
+          "delta": "+1",
+          "note": "Root cause investigation on cross-DB blocking issue — identified source tables workaround, delegated UpdateBillData fix to .NET team. P3-level debugging.",
+          "ticket_ref": "",
+          "instance_count": 1,
+          "team_improvement_added": false
+        }
+      ],
       "notes": "Principles: Team Sport (2) → Craftsmanship (4) → Leave Cleaner (5). C/S — Boss leans toward C primary (process/precision visible in MPRs). Mage: deep research, mysterious solutions, helps too many. Slow but lossless.",
       "passive_boosts": [
         {
@@ -1197,7 +1356,44 @@
           "note": "2.5 + 0.25(B) + 0.50(P) + 0.00(T). SQL execution plan analysis above C1 bar; offset by recurring pipeline breakage."
         }
       ],
-      "events": [],
+      "events": [
+        {
+          "id": "demi_may26_e001",
+          "date": "2026-05-31",
+          "source": "mpr_2026_05",
+          "type": "mpr_bonus",
+          "target": "business",
+          "delta": "+0.25",
+          "note": "DP-211/222/223 delivered — rollout, status filter + query optimization, whitelist. Assigned tasks, all Done.",
+          "ticket_ref": "DP-222",
+          "instance_count": 3,
+          "team_improvement_added": false
+        },
+        {
+          "id": "demi_may26_e002",
+          "date": "2026-05-31",
+          "source": "mpr_2026_05",
+          "type": "skill",
+          "target": "system-mastery",
+          "delta": "+1",
+          "note": "DP-222 PR #268: SQL Server execution plan analysis (cross-DB JOIN elimination, index hints, 1M→300k rows). C2/C3 territory at C1 level.",
+          "ticket_ref": "DP-222",
+          "instance_count": 1,
+          "team_improvement_added": false
+        },
+        {
+          "id": "demi_may26_e003",
+          "date": "2026-05-31",
+          "source": "mpr_2026_05",
+          "type": "mpr_penalty",
+          "target": "quality-issue",
+          "delta": "-0.25",
+          "note": "Pipeline breakage pattern: DP-223 generated 3 fix PRs, DP-222 generated deployment fix + Mihai had to intervene.",
+          "ticket_ref": "DP-223",
+          "instance_count": 3,
+          "team_improvement_added": false
+        }
+      ],
       "notes": "Principles: Team Sport (2) → Deliver Value (3) → Marathon (10). Friendly, support-oriented, can be sloppy on craftsmanship. S/C with low diligence score = team glue but execution gaps.",
       "passive_boosts": [
         {
@@ -1315,7 +1511,44 @@
           "note": "2.5 + 0.75. Testing docs improvement + AWS serverless toy project + auto-PR-summary Slack channel."
         }
       ],
-      "events": [],
+      "events": [
+        {
+          "id": "andreea_may26_e001",
+          "date": "2026-05-31",
+          "source": "mpr_2026_05",
+          "type": "mpr_bonus",
+          "target": "personal",
+          "delta": "+0.25",
+          "note": "Testing practices improvement: documented test steps + validation with examples. Personal initiative, visible quality uplift.",
+          "ticket_ref": "",
+          "instance_count": 1,
+          "team_improvement_added": false
+        },
+        {
+          "id": "andreea_may26_e002",
+          "date": "2026-05-31",
+          "source": "mpr_2026_05",
+          "type": "skill",
+          "target": "process-automation",
+          "delta": "+1",
+          "note": "Built serverless image gallery app (API GW + Lambda + S3 + DynamoDB + SNS + Amplify + Rekognition) as learning project. Event-driven architecture. Cloud confidence above AB1 bar.",
+          "ticket_ref": "",
+          "instance_count": 1,
+          "team_improvement_added": false
+        },
+        {
+          "id": "andreea_may26_e003",
+          "date": "2026-05-31",
+          "source": "mpr_2026_05",
+          "type": "value_alignment",
+          "target": "learn-fast-teach-faster",
+          "delta": "+5%",
+          "note": "Created private Slack channel auto-posting merged PR summaries to stay current on codebase changes outside immediate work area. Proactive learning initiative.",
+          "ticket_ref": "",
+          "instance_count": 1,
+          "team_improvement_added": false
+        }
+      ],
       "notes": "Principles: Team Sport (2) → Deliver Value (3) → Learn Fast Teach Faster (8). Junior. Introvert with potential waiting to unleash. STRUCTURAL RISK: only Denis (Arc/I match) gives her a boost — needs cultivation.",
       "passive_boosts": [
         {
